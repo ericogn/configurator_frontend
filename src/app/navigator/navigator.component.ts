@@ -64,6 +64,7 @@ export class NavigatorComponent implements OnInit {
     this.sixthpage.init();
     this.seventh.init();
     this.subtotal.init();
+    this.updateProject();
 
     //this.thirdpage.ngOnInit();
     //this.trigger(this.firstpage.page1.tonnage);
