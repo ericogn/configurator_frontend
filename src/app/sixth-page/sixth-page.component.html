@@ -1,0 +1,79 @@
+<body class = "bdy">
+    <div class = "divTitle">
+        <label class = "title">Control</label>
+        <div class="tooltip">
+            <img src = "../../assets/excl.png" class = "imgs">
+            <span class="tooltiptext">
+                <a>Standard Features:
+                    <li>Marvel Premium Full Featured Microprocessor</li>
+                    <li>Duct Mount Return Air Temperature Sensor</li>
+                    <li>Duct Mount Supply Air Temperature Sensor</li>
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class = "content">
+        <div class = "row">
+            <div class = "section1">
+                <div class = "columnlbl">
+                    <label>VAV Application Type</label>
+                    <label>Wall Mount Temperature Sensor</label>
+                    <label>Wall Mount Temperature/Humidity Sensor</label>
+                </div>
+                <div  class = "columnsel">
+                    <select  class = "selects" [(ngModel)]="this.page5.vavapptype">
+                        <option *ngFor = "let l of vavapptype">{{l.name}}</option>
+                    </select>
+                    <select class = "selects" [(ngModel)]="this.page5.walltempsens">
+                        <option *ngFor = "let l of walltempsens">{{l.name}}</option>
+                    </select>
+                    <select class = "selects" [(ngModel)]="this.page5.wallhumidsens">
+                        <option *ngFor = "let l of wallhumidsens">{{l.name}}</option>
+                    </select>
+                </div> 
+            </div>
+            <div class = "section2">
+                <div class = "columnlbl2">
+                    <label>Duct Mount Temperature Sensor</label>
+                    <label>Duct Mount Temperature/Humidity Sensor</label>
+                    <label>BMS Communications</label>
+                </div>
+                <div class = "columnsel">
+                    <select class = "selects" [(ngModel)]="this.page5.ducttempsens">
+                        <option *ngFor = "let l of ducttempsens">{{l.name}}</option>
+                    </select>
+                    <select  class = "selects"  [(ngModel)]="this.page5.ducthumidsens">
+                        <option *ngFor = "let l of ducthumidsens">{{l.name}}</option>
+                    </select>
+                    <select  class = "selects" [(ngModel)]="this.page5.bmscomm">
+                        <option *ngFor = "let l of bmscomm">{{l.name}}</option>
+                    </select>
+                </div> 
+            </div>
+        </div>
+        <div class = "final">
+            <div class = "checks"> 
+                <div  class ="check">
+                    <input type = "checkbox" (change)="changemarvel()" [checked] = this.marvel>
+                    <label class = "nearCheck">Marvel Premium Display - Factory Mounted (Ext or Cabinet)</label> 
+                </div>
+                <div  class ="check">
+                    <input type = "checkbox" (change)="changescr()" [checked] = this.scr>
+                    <label class = "nearCheck">SCR (For use with Microprocessor)</label> 
+                </div>
+            </div>
+            <div class = "checks2"> 
+                <div  class ="check">
+                    <input type = "checkbox" (change)="changesmoke()" [checked] = this.smoke>
+                    <label class = "nearCheck">Smoke Detector</label> 
+                </div>
+                <div  class ="check">
+                    <input type = "checkbox" (change)="changefirestat()" [checked] = this.firestat>
+                    <label class = "nearCheck">Firestat(duct mount)</label> 
+                </div>
+            </div>
+
+        </div> 
+    </div>
+
+</body>

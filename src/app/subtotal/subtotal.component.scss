@@ -1,0 +1,79 @@
+.bdy{
+    background-color: #333;
+    color: #b9b9af;;
+}
+.divTitle{
+    font-size: x-large;
+     text-align: left;
+     margin-left: 3.3%;
+     border-left: 3px solid red;
+     margin-top: 45px;
+     padding-bottom: 10px;
+     padding-top:10px;
+     font-family: "Ruda", sans-serif;
+     color:white
+ }
+ .title{
+     margin-left: 10px;
+ }
+
+ .unitmodel{
+    margin-top:30px;
+    border-bottom: 1px solid gray;
+    color:white;
+    margin-left: 10%;
+    margin-right: 10%;
+ }
+
+ .options{
+    margin-top:30px;
+    border-bottom:1px solid gray;
+    color:white;
+    margin-left: 10%;
+    margin-right: 10%;
+ }
+
+label{
+    font-size: large;
+}
+div{
+    font-size: large;
+}
+
+.option{
+    margin-top: 7px;
+    display: flex;
+    flex-direction: row;
+}
+.alls{
+    margin-left: 15%;
+    margin-top: 20px;
+    width: 60%;
+}
+.prices{
+    margin-top: 20px;
+    margin-left: 0%;
+}
+.prices1{
+    margin-top: 27px;
+    margin-left: 0%;
+}
+.prices2{
+    margin-top: 20px;
+    margin-left: 71%;
+}
+.inv{
+    display: flex;
+    flex-direction: row;
+}
+
+.prc{
+    margin-left: 15%;
+    margin-top: 7px;
+    display: flex;
+    flex-direction: row;
+}
+
+.single{
+    margin-left: 40%;
+}

@@ -1,0 +1,78 @@
+.logo{
+    width:200px;
+    margin-left: -50%;
+}
+
+.title{
+    font-size: larger;    
+}
+.prtitle{
+    font-size: x-large;
+    margin-top: 27px;
+    margin-left: 14%;
+    color:white;
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-left: 25%;
+    margin-top:10px;
+}
+.left{
+    margin-left: 18%;
+}
+.user{
+    color:orange
+}
+.user:hover{
+    text-decoration: underline;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid gray;  
+}
+body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    // background-color: #333;
+    // color: #b9b9af;
+}
+.topbutton{
+    display: flex;
+    flex-direction: row;
+    margin-top: 22px;
+    margin-left: 17%;
+}
+.button1{
+    margin-left: -110%;
+    margin-right: 30%;
+    color:red;
+}
+.button2:hover{
+   text-decoration: underline;
+   color: red;
+}
+
+.button2{
+    margin-right: 20%;
+    color: rgb(184, 121, 40)
+}
+
+
+.button3{
+    margin-left: 3%;
+    color: rgb(184, 121, 40)
+}
+.button3:hover{
+   text-decoration: underline;
+   color: red;
+}
+
+.logoff:hover{
+    text-decoration: underline;
+}
+.prtitle:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

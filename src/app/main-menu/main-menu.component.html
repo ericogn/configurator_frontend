@@ -1,0 +1,135 @@
+<html class = "container">
+    <div class = "container">
+    <app-navbar></app-navbar>
+    <div class = "buttons">
+        <button (click) = "newproj()">New Project</button>
+        <button (click) = "exist()">Manage Existing Projects</button>
+    </div>
+    <div *ngIf = "new" class = "content">
+        <div class = "row">
+            <div class = "column">
+                <label>Project Name</label>
+                <label>Ref / Order No</label>
+                <label>Location / Building</label>
+                <label>Address</label>
+                <label>City</label>
+                <label>Country</label>
+                <label>State/Prov.</label>
+                <label>Zip Code</label>
+                <label>Primary Contact</label>
+                <label>Eng/Architect</label>
+                <label>Owner/Manager</label>
+                <label>Contractor</label>
+            </div>
+           <div class = "column">
+                <input [(ngModel)]="this.details.name">
+                <input [(ngModel)]="this.details.reforderno">
+                <input [(ngModel)]="this.details.address">
+                <input [(ngModel)]="this.details.city">
+                <input [(ngModel)]="this.details.state">
+                <select [(ngModel)] ="this.details.country">
+                    <option *ngFor = "let l of countryes">
+                        {{l}}
+                    </option>
+                </select>
+                <input [(ngModel)]="this.details.primarycontact">
+                <input [(ngModel)]="this.details.engarch">
+                <select [(ngModel)] ="this.details.primarycontact">
+                    <option *ngFor = "let l of contacts">
+                        {{l}}
+                    </option>
+                </select>
+                <select [(ngModel)] ="this.details.engarch">
+                    <option *ngFor = "let l of engs">
+                        {{l}}
+                    </option>
+                </select>
+                <select [(ngModel)] ="this.details.owner">
+                    <option *ngFor = "let l of owner">
+                        {{l}}
+                    </option>
+                </select>
+                <select [(ngModel)] ="this.details.contractor">
+                    <option *ngFor = "let l of contractor">
+                        {{l}}
+                    </option>
+                </select>
+           </div>
+           <div class = "column2">
+                <label class = "subtitle">Status</label>
+                <div class = "row">
+                    <div class = "radios">
+                        <mat-radio-button></mat-radio-button>
+                        <mat-radio-button></mat-radio-button>
+                        <mat-radio-button></mat-radio-button>
+                    </div>
+                    <div class = "column">
+                        <div class = "lbl">General Inquiry</div>
+                        <div class = "lbl">Design</div>
+                        <div class = "lbl">Build Price</div>
+                    </div>
+                    
+                </div>
+
+                <label class = "subtitle">Type</label>
+            <div class = "row">
+                <div class = "radios">
+                    <mat-radio-button></mat-radio-button>
+                    <mat-radio-button></mat-radio-button>
+                    <mat-radio-button></mat-radio-button>
+                </div>
+                <div class = "column">
+                    <div class = "lbl">Retrofit/Replacement</div>
+                    <div class = "lbl">UCA Replacement</div>
+                    <div class = "lbl">New Construction</div>
+                </div>
+                
+            </div>
+
+            <label class = "subtitle">Design</label>
+            <div class = "row">
+                <div class = "radios">
+                    <mat-radio-button></mat-radio-button>
+                    <mat-radio-button></mat-radio-button>
+                    <mat-radio-button></mat-radio-button>
+                </div>
+                <div class = "column">
+                    <div class = "lbl">UCA Basis of Design</div>
+                    <div class = "lbl">UCA Approved Alternate</div>
+                    <div class = "lbl">Other</div>
+                </div>
+            </div>
+            <button (click) = "createNewProject()">Done</button>
+           </div>
+           <div class = "column2">
+            
+           </div>
+        </div>
+    </div>
+    <div *ngIf = "existing" class = "content">
+        Recent Projects:
+        <div class = "scrollable">
+            <div *ngFor ="let l of allProjects" class = "card"  >
+            
+                <div class = "inside" (click)="goToProject(l.id, l.name)">
+                    <div class = "element">
+                       Name: {{l.name}}
+                    </div>
+                    <span></span>
+                    <div class = "element">
+                       Location: {{l.address}}
+                    </div>
+                    <span></span>
+                    <div class = "elementf">
+                       Date: {{l.lastmodified}}
+                    </div>
+                    <span></span>
+                </div>
+                <div class = "delete" (click)="delete(l.details)">
+                    X
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

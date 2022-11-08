@@ -1,0 +1,38 @@
+export interface Page2{
+    scfmret: number;
+    espret:number;
+    eatdbret:number;
+    eatwbret:number;
+    scfmout:number;
+    espout:number;
+    eatdbout:number;
+    eatwbout:number;
+    scfmmix:string;
+    espmix:number;
+    eatdbmix:string;
+    eatwbmix:string;
+    mixedair:number;
+    fluidtype:string;
+    percentglycol:string;
+    gpm:number;
+    eft:number;
+    evapfiltertype:string;
+    heattype:string;
+    reheattype:string;
+    airsideecon:string;
+    electrictemprise:string;
+    chilledwatercoil:number;
+    watersideecon:number;
+    heatnreheat:number;
+    eatf:number;
+    approxlat:number;
+    eft2:number;
+    percentglycol2:string;
+    fluidtype2:string;
+    lftgpm:number;
+    lftgpmvalue:string;
+    eatdb2:number;
+    eatwb2:number;
+    eft3:number;
+    approxbtuh:number;
+}

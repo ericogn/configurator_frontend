@@ -1,0 +1,265 @@
+.divTitle{
+    font-size: x-large;
+     text-align: left;
+     margin-left: 3.3%;
+     border-left: 3px solid red;
+     margin-top: 30px;
+     padding-bottom: 10px;
+     padding-top:10px;
+     font-family: "Ruda", sans-serif;
+     color:white;
+}
+ .title{
+     margin-left: 10px;
+     font-size: x-large;
+ }
+ .bdy{
+     background-color: #333;
+     color: #b9b9af;;
+ }
+ 
+ .imgs{
+    margin-top:-15px;
+    width: 40px;  
+}
+a{
+    text-align: left;
+}
+li{
+    margin-left: 10px;
+}
+ .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 290px;
+    margin-top: -45px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: 30px;
+    top: -5px;
+    left: 105%;
+/* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+}
+.tooltip {
+    position: relative;
+    margin-left: 80%;
+    display: inline-block;
+    width: 20px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.content{
+   margin-left: 10%;
+}
+
+input[type='checkbox']{
+    width: 35px;
+    accent-color: orange !important;
+}
+
+.dropdown{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+
+}
+select{
+    margin-left: 20px;
+}
+.checkboxes{
+    display: flex;
+    flex-direction: row;
+    margin-top:20px
+}
+.check{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+.nearCheck{
+    margin-left: 15px;
+    margin-top:2px
+}
+.check2{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-left: 32px;
+}
+.column2{
+    margin-left: 80px;
+}
+
+label{
+    font-size: large;
+}
+div{
+    font-size: large;
+}
+.qt{
+    margin-left: 20px;
+    width: 50px;
+}
+select{
+    margin-left: 10px;
+    border-radius:10px;
+    height: 25px;
+    margin-top:-2px;
+    padding-left: 5px;
+    padding-bottom: -2px;
+    border:1px solid #ccc;
+    background-color: #878782;
+    color: white;
+    font-size: large;
+}
+
+select:hover{
+    border-radius:10px;
+    background-color: #878782;
+    color: white;
+    border:1.5px solid red;
+    scale: 1.03;
+    transition: all 0.1s ease-in-out;
+}
+
+
+textarea{
+    border:1px solid #ccc;
+    background-color: #878782;
+    color: white;
+    font-size: large;
+    margin-left: 10px;
+    border-radius:10px;
+    margin-top: 10px;
+    width: 80%;
+    height: 80px;
+}
+
+.dropdown1{
+    margin-left: 30px;
+    width: 200px;
+}
+.rowfinal{
+    margin-top:30px;
+    margin-left: 0%;
+}
+.sel{
+    margin-left: 30px;
+    margin-top: -2px;
+}
+.bt{
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-top: 11px;
+    margin-bottom: 20px;
+    font-weight: large;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+.bottom{
+    border-top: 2px solid gray;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 15%;
+    margin-left: 15%;
+    font-size: unset;
+}
+.credits{
+    font-size:unset;
+    margin-top: 0px;
+}
+
+.prevBtn{
+    text-align: left;
+    font-size: large;
+    margin-left: 20px;
+}
+
+.prevBtn:hover{
+    text-align: left;
+    color:red;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.nextBtn{
+    margin-left: 82.5%;
+}
+.nextBtn:hover{
+    color:red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+  visibility: visible;
+    opacity: 1;
+  }
+  
+  
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #333;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: red;
+  }
+  .popup .close:hover {
+    scale: 1.05;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+  
+  @media screen and (max-width: 700px){
+  
+    .popup{
+      width: 70%;
+    }
+  }
+
+
+  input[type='radio']{
+    transform: scale(1.7);
+    accent-color: orange;
+    margin-right: 10px;
+}

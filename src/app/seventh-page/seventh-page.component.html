@@ -1,0 +1,137 @@
+<div class = "bdy">
+    <div class = "miscellanous">
+        <label class = "title1">Miscellanous</label>
+    </div>
+
+    <div class = "divTitle">
+        <!-- <label class = "title">General</label> -->
+        <div class="tooltip2">
+            <img src = "../../assets/excl.png" class = "imgs">
+            <span class="tooltiptext2">
+                <a>Standard Features:
+                    <li>Rescalabale Fittings - Unit</li>
+                    <li>Rescalable Fittings - Hot Gas Bypass</li>
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class = "content">
+        <div  class ="check">
+            <input type = "checkbox" (change)="changeship()" [checked] = true [disabled]="true">        
+            <label class = "nearCheck">Ship Split - Separate Skids (to be assembled in field)</label> 
+        </div>
+        <div  class ="check">
+            <input type = "checkbox" (change)="changecompressor()" [checked] = this.compressor>        
+            <label class = "nearCheck">Compressor Acoustic Cover</label> 
+        </div>
+    </div> 
+
+    <div class = "line">
+        <div [hidden]="true">
+            asd
+        </div>
+    </div>
+
+    <div class = "divTitle">
+        <!-- <label class = "title">Coil</label> -->
+        <div class="tooltip">
+            <img src = "../../assets/excl.png" class = "imgs">
+            <span class="tooltiptext">
+                <a>Standard Features:
+                    <li>Electronic Head Pressure Control Valve 2-Way/350 psig</li>
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class = "content">
+        <div class = "dropdown">
+            <div class = "selector">Protective Coil Coating - Evap:</div>
+            <select class ="dropdown1" [(ngModel)]="this.page6.protectivecoil">
+                <option *ngFor = "let l of protectivecoating">{{l.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class = "line">
+        <div [hidden]="true">
+            asd
+        </div>
+    </div>
+   
+    <div class = "divTitle">
+        <!-- <label class = "title">Cabinet</label> -->
+        <div class="tooltip4">
+            <img src = "../../assets/excl.png" class = "imgs">
+            <span class="tooltiptext4">
+                <a>Standard Features:
+                    <li>No Additional Items</li>
+                </a>
+            </span>
+        </div>
+    </div>
+    
+    <div class = "content">
+        
+        <div class = "row">   
+            <div class = "dropdown">
+                <!-- <img src = "../../assets/excl.png" class = "imgs">
+                <img src = "../../assets/excl.png" class = "imgs"> -->
+            </div>
+            <div class = "dropdown">
+                <div class = "selector">Unit Insulation</div>
+            </div>
+            <div class = "dropdown">
+                <select class ="dropdown1" [(ngModel)]="this.page6.unitinsul">
+                    <option *ngFor = "let l of unitInsul">{{l.name}}</option>
+                </select>
+            </div>
+        </div>        
+    </div>
+    <div class = "line">
+        <div [hidden]="true">
+            asd
+        </div>
+    </div>
+
+    <div class = "divTitle">
+        <label class = "title">Refrigerant: 410A</label>
+        <div class="tooltip3">
+            <img src = "../../assets/excl.png" class = "imgs">
+            <span class="tooltiptext3">
+                <a>Standard Features:
+                    <li>Hot Gas Bypass - for std scroll compressor circuit(s)</li>
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class = "content">
+        
+    </div>
+    <div class = "line">
+        <div [hidden]="true">
+            asd
+        </div>
+    </div>
+    
+   
+    <div class = "divTitle">
+        <!-- <label class = "title">Non Standard</label> -->
+        <div class="tooltip5">
+            <img src = "../../assets/excl.png" class = "imgs">
+            <span class="tooltiptext5">
+                <a>This area is reserved for additional non-standard options (factory supplied)
+                    or customer supplied accessories to complete the unit offering
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class = "column">
+        <div class = "std1">
+            <div class = "nonstd"> </div>
+            <textarea class = "area2" [(ngModel)]="this.page6.nonstandard"></textarea>
+        </div>
+        <div class = "std2">
+            <div class = "netcost">Total NET Cost For Non Standard Components $</div>
+            <input [(ngModel)]="this.page6.totalcost">
+        </div>
+    </div>
+</div>

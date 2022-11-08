@@ -1,0 +1,90 @@
+<body class = "bdy">
+    <div class = "main">
+        <div>
+            <div class = "divTitle">
+                <label class = "title">Electrical</label>
+                <div class="tooltip">
+                    <img src = "../../assets/excl.png" class = "imgs" (click) = "popup=true">
+                    <div class="overlay" *ngIf="popup">
+                        <div class="popup">
+                            <a>Standard Features:
+                                <li>Compressor Short Cycle Timer</li>
+                                <li>Air Flow Proving Switch</li>
+                                <li>Drain Pan Overflow Switch</li>
+                                <li>Dirty Filter Switch - Evaporator</li>
+                                <li>Compressor Short Cycle Timer</li>
+                                <li>Remote On/Off</li>
+                            </a>
+                            <a class="close" (click)="popup = false">&times;</a>
+                            <div class="content">
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class = "content"  *ngIf = "!popup">
+                <div class = "dropdown">
+                    <div class = "selector">Non - Fused Disconnect - Indoor, Evap:</div>
+                    <input type ="radio" class = "sel" (change)="test()" [checked]="bt1" name="nonfused">
+                    <label>None</label>
+                    <input type="radio" class = "sel" (change)="test()" [checked]="bt2" name = "nonfused">
+                    <label>600V, 3PH, 100 Amps</label>
+                </div>
+
+
+                <div class = "checkboxes">
+                    <div class = "column">
+                        <div  class ="check">
+                            <input type = "checkbox" (change)="changephasereversal()" [checked] = this.phsens>        
+                            <label class = "nearCheck">Phase Reversal Sensor (3 ph only)</label> 
+                        </div>
+                        <div  class ="check">
+                            <input type = "checkbox" (change)="changefreezestat()" [checked] = this.freezestat>
+                            <label class = "nearCheck">Freezestat</label> 
+                        </div>
+                        <div  class ="check">
+                            <input type = "checkbox" (change)="changetempavg()" [checked] = this.freezestatavg>
+                            <label class = "nearCheck">Freezestat - Temp Avg Type</label> 
+                        </div>
+                        <div  class ="check">
+                            <input type = "checkbox" (change)="changecondensatepump()" [checked] = this.condensatepump>
+                            <label class = "nearCheck">Condensate Pump</label> 
+                        </div>
+                    </div>
+                    <div class = "column2">
+                        <div  class ="check">
+                            <input type = "checkbox" (change)="changecompressor()" [checked] = this.compressor>
+                            <label class = "nearCheck">Compressor Crankcase Heater</label> 
+                        </div>
+                        <div  class ="check">
+                            <input type = "checkbox" (change)="changeremote()" [checked] = this.remote>
+                            <label class = "nearCheck">Remote Water Pump On/Off Control</label> 
+                        </div>
+                        <div  class ="check">
+                            <input type = "checkbox" (change)="changewaterflow()" [checked] = this.waterflow>
+                            <label class = "nearCheck">Water Flow Proving Switch (Contact Only)</label> 
+                        </div>
+                        <div class = "check2">
+                            <div class = "selector">Dry Contacts Qty.</div>
+                            <select class = "qt" (change)="showtextarea($event)" [value]="this.page4.contactsqty">
+                                <option *ngFor = "let l of quantity">
+                                    {{l.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="this.page4.contactsqty != 0" class = "rowfinal" >
+                    <div class = "drop2">
+                        <div class = "usedfor">Used for:</div>
+                        <textarea [(ngModel)]="this.page4.usedfor"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>

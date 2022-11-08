@@ -1,0 +1,117 @@
+<html class = "container">
+<div class = "container">
+    <div class = "options1">
+        <div class = "title1">
+            Unit Selection
+        </div>
+    </div>
+    <div class = "columns1">
+        <div class = "labels1">
+            <label (click)="ngOnInit()">Quantity:</label>
+            <label>Unit Tag:</label>
+        </div>
+        <div class = "inputs1">
+            <input class = "qty" [(ngModel)]="this.page1.quantity">
+            <input [(ngModel)] = "this.page1.unittag">
+        </div>
+        <div class = "labels2">
+            <div class = "unit">
+                <label>Unit No:</label>
+                <label [hidden]="this.page1.basemodel == 0">VZWL15G4ATAB30-A</label>
+            </div>
+            
+            <label>Package</label>
+        </div>
+    </div>
+    <!-- to modify css classes -->
+    <div class = "imgoptions">
+        <div class="checkimg">
+            <img src="../../assets/exfit.jpg" class ="img1">
+        </div>
+        <div class = "nearpicture">
+            <div  class ="check">
+                <input type = "checkbox" (change)="changebasemodel()" [checked] = this.page1.basemodel>
+                <label class = "nearCheck">VariCool EZ-Fit</label> 
+            </div>
+            <label class = "lblair">Variable Air Volume</label>
+        </div>
+       
+    </div>
+    <br>
+    <!-- *ngIf = "isHidden" -->
+    <div *ngIf = "this.page1.basemodel == 1" class = "incercare">
+        <div class = "line">
+            <div [hidden]="true">
+                asd
+            </div>
+        </div>
+        <div class = "options2">
+            <div class = "flex1">
+                <label>Product type</label>
+                <div class ="group">
+                    <mat-radio-button class = "radiobut" [checked]="true"></mat-radio-button>
+                    <label>Water-Cooled Air Conditioner</label>
+                </div>  
+            </div>
+    
+            <div class = "flex2">
+                <label>Unit Configuration</label>
+                <div class ="group">
+                    <mat-radio-button class = "radiobut" [checked]="true"></mat-radio-button>
+                    <label>Self-Contained / Packaged</label>
+                </div>  
+            </div>
+        </div>
+        <div class = "columns4">
+            <div class = "labels3">
+                <label class = "dist">Tonnage</label>
+                <label class = "dist">Voltage</label>
+                <label class = "dist">Module</label>
+            </div>
+            <div class = "dropdown1">
+                <select class = "tons" [(ngModel)]="this.page1.tonnage" (change) = "modulechange($event)" [value]="this.page1.tonnage">
+                    <option  *ngFor="let l of tonnage" >{{l.name}}</option>
+                </select>
+                <select class = "drops1" [(ngModel)]="this.page1.voltage" [value]="this.page1.voltage">
+                    <option  *ngFor="let l of voltage" >{{l.name}}</option>
+                </select>
+                <select class = "drops1" [(ngModel)]="this.page1.module" [value]="this.page1.module">
+                    <option  *ngFor="let l of module" >{{l.name}}</option>
+                </select>
+            </div>
+            <div class = "labels4">
+                <label class = "dist">Blower Type</label>
+                <label class = "dist">Evap Air Path</label>
+                <label class = "dist">Digital Scroll Comp</label>
+            </div>
+            <div class = "dropdown2">
+                <select class = "drops1" (change) = "blowerchange($event)"[(ngModel)]="this.page1.blowertype" [value]="this.page1.blowertype">
+                    <option  *ngFor="let l of blower" >{{l.name}}</option>
+                </select>
+                <select class = "drops1" (change)="change($event)" [(ngModel)]="this.page1.evapairpath" [value]="this.page1.evapairpath">
+                    <option  *ngFor="let l of evapair" >{{l.name}}</option>
+                </select>
+                <select class = "drops1" [(ngModel)]="this.page1.digitalscrollcomp" [value]="this.page1.digitalscrollcomp">
+                    <option  *ngFor="let l of scroll" >{{l.name}}</option>
+                </select>
+                
+            </div>
+            <div class="tooltip">
+                <img src = "../../assets/excl.png" class = "imgs">
+                <span class="tooltiptext">*Variable Speed Compressor (in limited sizes) are now available for EZ-Fit. Contact factory for details!</span>
+            </div>
+        </div>
+        <!-- <div class = "finalimgs">
+            <div *ngIf = 'pic1' class = "rears">
+                <img src="../../assets/rear1.jpg">
+            </div>
+            <div *ngIf = 'pic2' class = "rears">
+                <img src="../../assets/rear2.jpg">
+            </div>
+            <div *ngIf = 'pic3' class = "rears">
+                <img src="../../assets/rear2.jpg">
+            </div>
+        </div> -->
+    </div>
+</div>
+</html>

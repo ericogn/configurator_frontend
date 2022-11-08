@@ -1,0 +1,383 @@
+
+.divTitle{
+    font-size: x-large;
+     text-align: left;
+     margin-top: 15px;
+     padding-top:10px;
+     font-family: "Ruda", sans-serif;
+     color:white
+}
+ .title{
+     margin-left: 8%;
+     font-size: large;
+ }
+
+ 
+.miscellanous{
+    font-size: x-large;
+     text-align: left;
+     border-left: 3px solid red;
+     margin-left: 3.3%;
+     margin-top: 30px;
+     padding-bottom: 10px;
+     padding-top:10px;
+     font-family: "Ruda", sans-serif;
+     color:white
+}
+ .title1{
+     margin-left: 10px;
+     font-size: x-large;
+ }
+ .bdy{
+    margin-top: 0px;
+    font-size: unset;
+     background-color: #333;
+     color: #b9b9af;;
+ }
+ .bdy2{
+    margin-top: -20%;
+    background-color: #333;
+    color: #b9b9af;;
+}
+ .bottom{
+     border-top: 2px solid gray;
+     display: flex;
+     flex-direction: column;
+     text-align: right;
+     margin-top: 20px;
+     margin-right: 15%;
+     margin-left: 15%;
+     font-size: unset;
+     margin-bottom: 20px;
+ }
+ .imgs{
+    margin-top:-15px;
+    width: 40px;  
+}
+a{
+    text-align: left;
+}
+li{
+    margin-left: 10px;
+}
+label{
+    font-size: large;
+    margin-top: 13px;
+}
+div{
+    font-size: large;
+    margin-top: 13px;
+}
+.line{
+    margin-top:30px;
+    border-top:2px solid gray;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 290px;
+    margin-top: -15px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: 30px;
+    top: -5px;
+    right: 105%;
+/* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+}
+.tooltip {
+    position: relative;
+    float: right;
+    margin-right: 5%;
+    display: inline-block;
+    width: 20px;
+    margin-top:-5px;
+}
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip2 .tooltiptext2 {
+    visibility: hidden;
+    width: 290px;
+    margin-top: -15px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: 30px;
+    top: -5px;
+    right: 105%;
+/* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip2 {
+    position: relative;
+    float: right;
+    margin-right: 5%;
+    display: inline-block;
+    width: 20px;
+    margin-top:-5px;
+}
+.tooltip2:hover .tooltiptext2 {
+    visibility: visible;
+}
+
+.tooltip3 .tooltiptext3 {
+    visibility: hidden;
+    width: 290px;
+    margin-top: -15px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: 30px;
+    top: -5px;
+    right: 105%;
+/* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip3 {
+    position: relative;
+    float: right;
+    margin-right: 5%;
+    display: inline-block;
+    width: 20px;
+    margin-top:-5px;
+}
+.tooltip3:hover .tooltiptext3 {
+    visibility: visible;
+}
+input[type='checkbox']{
+    accent-color: orange !important;
+    width: 35px;
+}
+.tooltip4 .tooltiptext4 {
+    visibility: hidden;
+    width: 290px;
+    margin-top: -15px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: 30px;
+    top: -5px;
+    right: 105%;
+/* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip4 {
+    position: relative;
+    float: right;
+    margin-right: 5%;
+    display: inline-block;
+    width: 20px;
+    margin-top:-5px;
+}
+.tooltip4:hover .tooltiptext4 {
+    visibility: visible;
+}
+
+.tooltip5 .tooltiptext5 {
+    visibility: hidden;
+    width: 290px;
+    margin-top: -15px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: 30px;
+    top: -5px;
+    right: 105%;
+/* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip5 {
+    position: relative;
+    float: right;
+    margin-right: 5%;
+    display: inline-block;
+    width: 20px;
+    margin-top:-5px;
+}
+.tooltip5:hover .tooltiptext5 {
+    visibility: visible;
+}
+
+.content{
+    margin-left: 10%;
+}
+
+.dropdown{
+    display: flex;
+    flex-direction: row;
+}
+
+select{
+    margin-left: 10px;
+    border-radius:10px;
+    height: 25px;
+    margin-top:10px;
+    margin-left: 30px;
+    padding-left: 5px;
+    padding-bottom: -2px;
+    border:1px solid #ccc;
+    background-color: #878782;
+    color: white;
+    font-size: large;
+    width: 200px;
+}
+
+select:hover{
+    border-radius:10px;
+    background-color: #878782;
+    color: white;
+    border:1.5px solid red;
+    scale: 1.03;
+    transition: all 0.1s ease-in-out;
+}
+
+.ckbx{
+    width: 25px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.final{
+    margin-left: 22.8%;
+}
+
+textarea{
+    border:1px solid #ccc;
+    background-color: #878782;
+    color: white;
+    font-size: large;
+    margin-left: 20px;
+    border-radius:10px;
+    width: 80%;
+    height: 80px;
+}
+
+
+input{
+    margin-left: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #878782;
+    border:2px solid #878782;
+    color:#fff;
+    height: 18px;
+}
+input:hover{
+    margin-bottom: 15px;
+    border-color: red;
+    outline: none;
+    background-color: #878782;
+    color:#fff;
+    border-radius: 10px;
+}
+input:active{
+    //margin-bottom: 15px;
+    border-color: red;
+    outline: none;
+    background-color: #878782;
+    color:#fff;
+    border-radius: 10px;
+}
+input:focus{
+
+    border-color: red;
+    outline: none;
+    background-color: #878782;
+    color:#fff
+}
+
+.bt{
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-top: 11px;
+    margin-bottom: 20px;
+    font-weight: large;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+.credits{
+    margin-top: 0px;
+    font-size: unset;
+}
+
+.prevBtn{
+    text-align: left;
+    font-size: large;
+    margin-left: 20px;
+}
+
+.prevBtn:hover{
+    text-align: left;
+    color:red;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.nextBtn{
+    margin-left: 82.5%;
+}
+.nextBtn:hover{
+    color:red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.area2{
+    margin-top: 30px;
+}
+
+// .std1{
+//     margin-left: 10%;
+// }
+// .std2{
+//     margin-left:6%
+// }
+.netcost{
+    margin-bottom: 30px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.area2{
+    margin-top: 30px;
+}
+
+.std1{
+    margin-top: 0px;
+    margin-left: 10%;
+}
+.std2{
+    margin-top: 20px;
+    margin-left:14%
+}
+.netcost{
+    margin-bottom: 20px;
+}

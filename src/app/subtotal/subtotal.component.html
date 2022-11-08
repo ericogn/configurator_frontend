@@ -1,0 +1,361 @@
+<body class = "bdy">
+    <div class = "divTitle">
+        <label class = "title">Subtotal</label>
+    </div>
+    <div class = "unitmodel" (click)="test()">
+        Unit model:
+    </div>
+    <div class = "inv">
+        <div class = alls>
+            <div class = "option">
+                <label>Unit: </label>
+                <label>VZWL15G4ATAB30-A</label>
+            </div>
+            <div class = "option">
+                <label>Voltage: </label>
+                <label>{{this.service.project.p1.voltage}}</label>
+            </div>
+            <div class = "option">
+                <label>Quantity: </label>
+                <label>{{this.service.project.p1.quantity}}</label>
+            </div>
+            <div class = "option">
+                <label>Unit Tag: </label>
+                <label>{{this.service.project.p1.unittag}}</label>
+            </div>
+            <div class = "option">
+                <label>Tonnage: </label>
+                <label>{{this.service.project.p1.tonnage}}</label>
+            </div>
+            
+        </div>
+        <div class = "prices1">
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.unitprice}}</label> 
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.voltageprice}}</label> 
+            </div>
+        </div>
+
+    </div>
+    
+    <div class = "options">
+        Options:
+    </div>
+    <div class = "inv">
+        <div class = alls>
+            <div class = "option">
+                <label>Module: </label>
+                <label>{{this.service.project.p1.module}}</label>
+            </div>
+            <div class = "option">
+                <label>Blower Type: </label>
+                <label>{{this.service.project.p1.blowertype}}</label>
+            </div>
+            <div class = "option">
+                <label>Evap Air Path: </label>
+                <label>{{this.service.project.p1.evapairpath}}</label>
+            </div>
+            <div class = "option">
+                <label>Digital Scroll Comp: </label>
+                <label>{{this.service.project.p1.digitalscrollcomp}}</label>
+            </div>
+            <!-- <div class = "option">
+                <label>Fluid Type: </label>
+                <label>{{this.service.project.p2.fluidtype}}</label>
+            </div> -->
+            <div class = "option">
+                <label>Evap Filter type: </label>
+                <label>{{this.service.project.p2.evapfiltertype}}</label>
+            </div>
+            <div class = "option">
+                <label>Heat Type: </label>
+                <label>{{this.service.project.p2.heattype}}</label>
+            </div>
+            <div class = "option">
+                <label>Air Side Economizer: </label>
+                <label>{{this.service.project.p2.airsideecon}}</label>
+            </div>
+            <div class = "option">
+                <label>Chilled Water Coil: </label>
+                <label>{{this.service.project.p2.chilledwatercoil}}</label>
+            </div>
+            <div class = "option">
+                <label>Water Side Economizer: </label>
+                <label>{{this.service.project.p2.watersideecon}}</label>
+            </div>
+            <!-- <div class = "option">
+                <label>Air Side Economizer: </label>
+                <label>{{this.service.project.p2.airsideecon}}</label>
+            </div> -->
+            <div class = "option">
+                <label>Heat And Reheat: </label>
+                <label>{{this.service.project.p2.heatnreheat}}</label>
+            </div>
+            <div class = "option">
+                <label>Fluid Type: </label>
+                <label>{{this.service.project.p2.fluidtype2}}</label>
+            </div>
+            <div class = "option">
+                <label>Non - Fused Disconnect: </label>
+                <label>{{this.nonfplaceholder}}</label>
+            </div>
+            <div class = "option">
+                <label>Phase Reversal Sensor (3ph only): </label>
+                <label>{{this.service.project.p4.phasereversalsens}}</label>
+            </div>
+            <div class = "option">
+                <label>Freezestat: </label>
+                <label>{{this.service.project.p4.freezestat}}</label>
+            </div>
+            <div class = "option">
+                <label>Freezestat - Temp Avg: </label>
+                <label>{{this.service.project.p4.tempavg}}</label>
+            </div>
+            <div class = "option">
+                <label>Condensate Pump: </label>
+                <label>{{this.service.project.p4.condesnatepump}}</label>
+            </div>
+            <div class = "option">
+                <label>Compressor Crankcase Heater: </label>
+                <label>{{this.service.project.p4.compressorheater}}</label>
+            </div>
+            <div class = "option">
+                <label>Remote Water Pump Control: </label>
+                <label>{{this.service.project.p4.remotewaterpump}}</label>
+            </div>
+            <div class = "option">
+                <label>Water Flow Proving Switch: </label>
+                <label>{{this.service.project.p4.waterflowswitch}}</label>
+            </div>
+            <div class = "option">
+                <label>Dry Contacts(qty): </label>
+                <label>{{this.service.project.p4.contactsqty}}</label>
+            </div>
+            <div class = "option">
+                <label>VAV App Type: </label>
+                <label>{{this.service.project.p5.vavapptype}}</label>
+            </div>
+            <div class = "option">
+                <label>Wall Mount Temp Sensor: </label>
+                <label>{{this.service.project.p5.walltempsens}}</label>
+            </div>
+            <div class = "option">
+                <label>Wall Mount Temp/Humid Sensor: </label>
+                <label>{{this.service.project.p5.wallhumidsens}}</label>
+            </div>
+            <div class = "option">
+                <label>Duct Mount Temp Sensor: </label>
+                <label>{{this.service.project.p5.ducttempsens}}</label>
+            </div>
+            <div class = "option">
+                <label>Duct Mount Temp/Humid Sensor: </label>
+                <label>{{this.service.project.p5.ducthumidsens}}</label>
+            </div>
+            <div class = "option">
+                <label>BMS Communications: </label>
+                <label>{{this.service.project.p5.bmscomm}}</label>
+            </div>
+            <div class = "option">
+                <label>Marvel Premium Display: </label>
+                <label>{{this.service.project.p5.marveldisplay}}</label>
+            </div>
+            <div class = "option">
+                <label>SCR: </label>
+                <label>{{this.service.project.p5.scr}}</label>
+            </div>
+            <div class = "option">
+                <label>Smoke Detector: </label>
+                <label>{{this.service.project.p5.smokedetector}}</label>
+            </div>
+            <div class = "option">
+                <label>Firestat: </label>
+                <label>{{this.service.project.p5.firestat}}</label>
+            </div>
+            <div class = "option">
+                <label>Ship Split: </label>
+                <label>{{this.service.project.p6.shipsplit}}</label>
+            </div>
+            <div class = "option">
+                <label>Compressor Acoustic Cover: </label>
+                <label>{{this.service.project.p6.compressoracoustic}}</label>
+            </div>
+            <div class = "option">
+                <label>Protective Coil: </label>
+                <label>{{this.service.project.p6.protectivecoil}}</label>
+            </div>
+            <div class = "option">
+                <label>Unit Insulation: </label>
+                <label>{{this.service.project.p6.unitinsul}}</label>
+            </div>
+            <div class = "option">
+                <label>Total Cost For Non Standard Features: </label>
+                <label>{{this.service.project.p6.totalcost}}</label>
+            </div>
+        </div>
+
+        <div class = "prices">
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.moduleprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.blowerprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.evapprice}}</label>
+            </div>
+            <div class = "prc" >
+                <label>$</label>
+                <label>{{this.digitalprice}}</label>
+            </div>
+            <!-- <div class = "prc" >
+                <label>10</label>
+                <label>$</label>
+            </div> -->
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.evapfilterprice}}</label>  
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.heattypeprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.airsideprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.chilledwaterprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.watereconprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.heatnreheatprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>0</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.nonfusedprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.phasereversalprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.freezestatprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.freezestattempprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.condensateprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.compressorprice}}</label>
+            </div>
+            <!-- <div class = "prc">
+                <label>$</label>
+                <label>10</label>
+            </div> -->
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.remotewaterpumpprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.waterswitchprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.contactsprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.vavprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.walltempprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.wallhumidprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.ducttempprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.ducthumidprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.bmsprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.marvelprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.scrprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.smokeprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.firestatprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.shipsplitprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.compressoracousticprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.protectiveprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.unitinsulprice}}</label>
+            </div>
+            <div class = "prc">
+                <label>$</label>
+                <label>{{this.nonstandardprice}}</label>
+            </div>
+        </div>
+    </div>
+
+    <div class = "unitmodel" (click)="test()">
+        Total:
+    </div>
+    <div class = "prices2">
+        <div class = "prc" >
+            <label>$</label>
+            <label>{{this.totalsum}}</label> 
+        </div>
+    </div>
+</body>

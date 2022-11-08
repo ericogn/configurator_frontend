@@ -1,0 +1,295 @@
+.container{
+    background-color: #333;
+    color: #b9b9af;;
+}
+::ng-deep .mat-checkbox .mat-checkbox-background {
+    color: red;
+    background-color: #b9b9af;
+} 
+::ng-deep .mat-step-header .mat-step-icon-selected {
+    background-color: red; 
+ }
+.progressBar{
+    background-color: #333;
+    margin-left: 15%; 
+}
+
+.options1{ 
+    margin-top:30px;
+    margin-left: 3.3%;;
+}
+
+.unit{
+    display: flex;
+    flex-direction: row;
+}
+.title1{
+    font-size: x-large;
+    text-align: left;
+    border-left: 3px solid red;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top:10px;
+    font-family: "Ruda", sans-serif;
+    color:white
+}
+label{
+    margin-bottom: 20px;
+    font-size: large;
+}
+
+input{
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #878782;
+    border:2px solid #878782;
+    color:#fff;
+    height: 18px;
+}
+input:hover{
+    margin-bottom: 15px;
+    border-color: red;
+    outline: none;
+    background-color: #878782;
+    color:#fff;
+    border-radius: 10px;
+}
+input:active{
+    //margin-bottom: 15px;
+    border-color: red;
+    outline: none;
+    background-color: #878782;
+    color:#fff;
+    border-radius: 10px;
+}
+input:focus{
+
+    border-color: red;
+    outline: none;
+    background-color: #878782;
+    color:#fff
+}
+
+input[type='checkbox']{
+    accent-color: orange !important;
+    width: 35px;
+    border-radius: 100%;
+}
+select{
+    margin-bottom: 18px;
+    border-radius:10px;
+    height: 20px;
+    border:1.5px solid rgb(148, 126, 126);
+    height: 25px;
+    padding-left: 5px;
+    padding-top: -1px;
+    background-color: #878782;
+    color: white;
+    margin-top:2px;
+    font-size: large;
+}
+select:hover{
+    margin-bottom: 20px;
+    height: 25px;
+    border-radius:10px;
+    border:1.5px solid red;
+    scale: 1.03;
+    transition: all 0.1s ease-in-out;
+    background-color: #878782;
+    color:white
+}
+.columns1{
+    display: flex;
+    flex-direction: row;
+}
+.labels1{
+    margin-left: 10%;
+    margin-top: 25px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.inputs1{
+    margin-left: 3%;
+    margin-top: 25px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.labels2{
+    margin-left: 15%;
+    margin-top: 25px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.qty{
+    width: 45%;
+}
+.imgoptions{
+    margin-left: 6.6%;
+    display: flex;
+    flex-direction: row;
+}
+.nearpicture{
+    margin-left: -2%;
+    margin-top: 6%;
+    width: 100%;
+}
+.lblair{
+    width: 500px;
+    margin-left: 16%;
+    padding-left: 33px;
+    color:#878782;
+}
+.check{
+    margin-left: 15%;
+}
+.line{
+    margin-top:0px;
+    border-top:2px solid gray;
+}
+.img1{
+    margin-top: 20px;
+    margin-left: 26.5%;
+    width: 130px;
+}
+.options2{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.flex1{
+    margin-left: 10%;
+    margin-bottom:20px;
+    display: flex;
+    flex-direction: column;
+}
+.flex2{
+    margin-left: 12%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.group{
+    margin-top: -10px;
+}
+
+.columns4{
+    
+    display: flex;
+    flex-direction: row;
+}
+.labels3{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-top:-5px;
+}
+.dist{
+    margin-top: 6.5px;
+}
+.labels4{
+    display: flex;
+    flex-direction: column;
+    margin-left: 11%;
+    margin-top:-5px;
+}
+.drops1{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    width: 200px;
+    text-align: left;
+}
+.tons{
+   margin-left: 10%; 
+   text-align: left;
+   padding-bottom: 2px;
+}
+.imgs{
+    margin-left:15px;
+    margin-top:-6px;
+    width: 33px;  
+}
+.rears{
+    text-align: center;
+}
+
+/// tooltip
+.tooltip {
+    position: relative;
+    margin-left: 30px;
+    margin-top:90px;
+    display: inline-block;
+    width: 20px;
+}
+
+
+
+.ckbx{
+    width: 25px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+
+
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    margin-top: -25px;
+    margin-left: 30px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    top: -5px;
+    right: 105%;
+
+/* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.bottom{
+    border-top: 2px solid gray;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+
+.buttons{
+    margin-left: 15%;
+    margin-right: 16%;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+
+.nextBtn:hover{
+    color:red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.credits{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size:unset;
+}

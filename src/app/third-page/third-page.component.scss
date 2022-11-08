@@ -1,0 +1,125 @@
+.divTitle{
+    font-size: x-large;
+    text-align: left;
+    border-left: 3px solid red;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    padding-top:10px;
+    margin-left: 3.3%;
+    font-family: "Ruda", sans-serif;
+    color:white
+}
+.title{
+    margin-left: 10px;
+    font-size: x-large;
+}
+.bdy{
+    background-color: #333;
+    color: #b9b9af;;
+}
+.bottom{
+    border-top: 2px solid gray;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+.content{
+    margin-top: 15px;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+}
+.bt{
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-top: 11px;
+    margin-bottom: 20px;
+    font-weight: large;
+    display: flex;
+    flex-direction: row;
+}
+input[type='radio']{
+    transform: scale(1.7);
+    accent-color: orange;
+    margin-right: 10px;
+}
+.credits{
+    margin-top: 0px;
+    font-size:unset;
+}
+
+.prevBtn{
+    text-align: left;
+    font-size: large;
+    margin-left: 20px;
+}
+
+.prevBtn:hover{
+    text-align: left;
+    color:red;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.nextBtn{
+    margin-left: 82.5%;
+}
+.nextBtn:hover{
+    color:red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.labels{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.labels2{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+label{
+    margin-top: 15px;
+    font-size: large;
+}
+
+.vls{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 11%;
+}
+
+.vls2{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 11%;
+    color:orange;
+}
+
+.imgs{
+    width: 33px;
+
+}
+.values1{
+    margin-left: 10%;
+    width: 100%;
+}
+.values2{
+    margin-left: 10%;
+}
+.values3{
+    margin-left:10%
+}
+.middle{
+    color:orange;
+}

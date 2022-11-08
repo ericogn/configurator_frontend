@@ -1,0 +1,270 @@
+<!-- De inlocuit cu navbar component-->
+
+<div class = "content">
+    <div class = "maintitles">
+        <label class = "maintitlevap">Evaporator</label>
+    </div>
+    <div class = "tops">
+        <div class = firsthalf>
+            <div class = "topslabel">
+                Return Air
+            </div>
+            <div class = "topslabel1">
+                Outside Air
+            </div>
+        </div>
+        
+        <input type = "checkbox" (change)="changemixedair()" [checked] = this.mixedair>        
+        <div class = "topslabel2">
+            Mixed Air
+        </div>
+    </div>
+    
+    <div class = "columns">
+        
+        <div class = "lbls">
+            <label (click)="test()">SCFM</label>
+            <label>ESP "Water</label>
+            <label>EAT DB 	°F</label>
+            <label>EAT WB 	°F</label>
+        </div>
+        <div class = "inputs1">
+            <input type = "number" [(ngModel)]="this.page2.scfmret"  (blur)="calculatemix()">
+            <input type = "number" [(ngModel)]="this.page2.espret"   (blur)="espvalidator()">
+            <input type = "number" [(ngModel)]="this.page2.eatdbret" (blur)="calculatedb()" >
+            <input type = "number" [(ngModel)]="this.page2.eatwbret" (blur)="calculatewb()" >
+        </div>
+        <div class = "inputs2">
+            <div>
+                <input [disabled]="!this.mixedair" (blur)="calculatemix()" [(ngModel)]="this.page2.scfmout" >
+            </div>
+            <div>
+                <input class = "invisible">
+            </div>
+            <div>
+                <input [disabled]="!this.mixedair" [(ngModel)]="this.page2.eatdbout" (blur)="calculatedb()">
+            </div>
+            <div>
+                <input [disabled]="!this.mixedair" [(ngModel)]="this.page2.eatwbout" (blur)="calculatewb()" >
+            </div>
+        </div>
+        <div class = "inputs3"> 
+            <div>
+                <input [disabled]="true" [(ngModel)]="this.page2.scfmmix">
+            </div>
+            <div>
+                <input class = "invisible">
+            </div>
+            <div>
+                <input [disabled]="true" [(ngModel)]='this.page2.eatdbmix' [value] = "this.page2.eatdbmix" >
+            </div>
+            <div>
+                <input [disabled]="true" [(ngModel)]="this.page2.eatwbmix" [value] = "this.page2.eatwbmix" >
+            </div>
+        </div>
+        
+    </div>
+    <br>
+    <div class = "line">
+        <div [hidden]="true">
+            asd
+        </div>
+    </div>
+    <div class = "opts2">
+        <div class = "titles">
+            <label class = "titlevap">Water Cooled Condenser</label>
+        </div>
+        <div class = "columns2">
+            <div class = "cols1">
+                <label class = "l">
+                    Fluid type
+                </label>
+                <label class = "l">
+                    GPM
+                </label>
+            </div>
+            <div calss = "cols">
+                <div>
+                    <select class = "pad" (change)="fluidChange($event)" [(ngModel)]="this.page2.fluidtype" [value]="this.page2.fluidtype">
+                        <option *ngFor = "let l of fluidType">
+                            {{l.name}}
+                        </option>
+                    </select>
+                </div>
+                <input class ="inp" [(ngModel)]="this.page2.gpm" (blur)="validategpm()">
+            </div>
+            <div class = "cols2">
+                <label class = "l">
+                    Percent Glycol
+                </label>
+                <label class = "l">
+                    EFT     °F
+                </label>
+            </div>
+            <div calss = "cols">
+                <div>
+                    <select [disabled]="glycol"  [(ngModel)]="this.page2.percentglycol" [value]="this.page2.percentglycol">
+                        <option *ngFor = "let l of percentGlycol">
+                            {{l.name}}
+                        </option>
+                    </select>
+                </div>
+                <input class ="inp" [(ngModel)]="this.page2.eft" (blur)="validateeft()">
+            </div>
+        </div>
+    </div>
+    
+    <div class = "line">
+        <div [hidden]="true">
+            asd
+        </div>
+    </div>
+    <div class = "titles">
+        <label class = "titlevap">Options Affecting Performance</label>
+        <label  class = "heat">* Electric Heat Temp Rise = {{this.heat}}</label>
+    </div>
+    <!-- *ngIf = "calculateHeat()" -->
+    <div class = "columns3">
+        <div class = "labels2">
+            <label class = "l">Evap Filter Type</label>
+            <label class = "l">Heat Type</label>
+            <label class = "l">Reheat Type</label>
+            <label class = "l">Air Side Economizer</label>
+        </div>
+        <div class = "inputs4">
+            <div>
+                <select class = "inp2" [value]="this.page2.evapfiltertype" (change)="changeevapfiltertype($event)">
+                    <option *ngFor = "let l of evapFilterType">
+                        {{l.name}}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <select class = "inp2" [value]="this.page2.heattype" (change)="changeheattype($event)">
+                    <option *ngFor = "let l of heatType">
+                        {{l.name}}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <select class = "inp2" (change) = "displayCheck($event)" [value]="this.page2.reheattype">
+                    <option *ngFor = "let l of reheatType">
+                        {{l.name}}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <select class = "inp2" [value]="this.page2.airsideecon" (change) = "changeairsideecon($event)">
+                    <option *ngFor = "let l of sideEconomizer">
+                        {{l.name}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class = "columns4">
+            <div class = "npts">
+                <div  class = "c">
+                    <input type = "checkbox" (change)="changewatercoil()" [checked] = this.chilledwatercoil>        
+                </div>
+                <div class ="bottomlbl">Chilled Water Coil</div>
+            </div>
+            <div class = "npts">
+                <div class = "c">
+                    <input type = "checkbox" (change)="changewaterside()" [checked] = this.waterEconomizer>
+                </div>
+                <div class ="bottomlbl">Water Side Economizer (Free Cooling Coil)</div>       
+            </div>
+            <div *ngIf="this.page2.watersideecon == 1"  class = "npts">
+                <div  class = "c">
+                    <input type = "checkbox" (change)="changeheatnreheat()" [checked] = this.heatnreheat>
+                </div>
+                <div class ="bottomlbl">Use for Heat and Reheat</div>       
+            </div>
+        </div>
+    </div>
+    <br>
+    
+    <!-- -->
+    <div *ngIf="this.page2.reheattype =='Hot Water Coil'">
+        <div class = "line">
+            <div [hidden]="true">
+                asd
+            </div>
+        </div>
+        <div class = "titles">
+            <label class="titlevap">Hot Water Coil Design</label>
+        </div>
+        <br>
+        <div class = "combo">
+            <div class = "colll">
+                <label class = "s">EAT 	°F</label>
+                <label class = "s">Approx. LAT 	°F</label>
+                <Label class = "s">EFT 	°F </Label>
+                
+            </div>
+            <div  class = "colll">
+                <input class = "i" [(ngModel)]="this.page2.eatf" (blur)="validateeatf()">
+                <input class = "i" [(ngModel)]="this.page2.approxlat">
+                <input class = "i" [(ngModel)]="this.page2.eft2" (blur)="validateeft2()">
+                
+            </div>
+            <div  class = "colll">
+                <label class = "s">Percent Glycol</label>
+                <!--  -->
+                <label class = "s">Fluid Type</label>
+                <div class = "radios">
+                    <input type="radio" class = "rd" name = "lftgpm" [checked] = "lftbtn" (change)="radios()">
+                    <label class="ll">LFT°F</label>
+                    <input type="radio" class = "rd" name = "lftgpm" [checked] = "gpmbtn" (change)="radios()">
+                    <label class="ll">GPM</label>
+                </div>
+            </div>
+            <div  class = "colll">
+                <select class = "last" [(ngModel)]="this.page2.percentglycol2" >
+                    <option *ngFor = "let l of percentGlycol">{{l.name}}</option>
+                </select>
+                <!--  -->
+                <select class = "last" [(ngModel)]="this.page2.fluidtype2" >
+                    <option *ngFor = "let l of fluidType">{{l.name}}</option>
+                </select>
+                
+                <input class = "i" [(ngModel)]="this.page2.eft">
+            </div>
+        </div>
+            
+    </div>
+    <!--  -->
+    <!-- *ngIf="!lastCheck" -->
+    <!-- to be changed-->
+    <div *ngIf="this.page2.watersideecon == 1">
+        <div class = "line">
+            <div [hidden]="true">
+                asd
+            </div>
+        </div>
+        <div class = "titles">
+            <label class="titlevap">Water Side Economizer Design</label>
+        </div>
+        <br>
+
+        <div class = "combo">
+            <div class = "colll">
+                <label class = "s2">EAT DB 	°F</label>
+                <label class = "s2">EAT WB 	°F</label>
+            </div>
+            <div class = "colll">
+                <input class = "i" [(ngModel)]="this.page2.eatdb2" (blur)="validateeatdb2()">
+                <input class = "i" [(ngModel)]="this.page2.eatwb2" (blur)="validateeatwb2()">
+            </div>
+            <div class = "colll">
+                <label class = "s3">EFT 	°F</label>
+                <label class = "s3">Approx Capacity Btuh</label>
+            </div>
+            <div class = "colll">
+                <input class = "i" [(ngModel)]="this.page2.eft3" (blur)="validateeft3()">
+                <input class = "i" [(ngModel)]="this.page2.approxbtuh">
+            </div>
+        </div>
+    </div>
+</div>

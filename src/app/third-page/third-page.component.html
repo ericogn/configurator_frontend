@@ -1,0 +1,322 @@
+<body class = "bdy">
+    <div class = container>
+        <div class = "divTitle">
+            <label class = "title">Unit Performance Calculations</label>
+        </div>
+        <br>
+        <div class = "content">
+        <div class = "labels">
+            <img src = "../../assets/excl.png" class = "imgs">
+                <label>Nominal Tons</label>
+                <label>Total Cooling (Btuh)</label>
+                <label>Sensible Cooling (Btuh)</label>
+                <label>LAT DB (°F)</label>
+                <label>LAT WB (°F)</label>
+                <label>Evap Fan RPM</label>
+                <label>Evap Motor KW</label>
+                <label>Minimum VAV CFM Allowed</label>
+        </div>
+        
+        <div class = labels>
+            <div class = "values1" *ngIf ="this.page1.tonnage != '15'">
+                <input type = 'radio' class = "radiobut" name = 'option' (change)="radioprev()">
+                <label (click)="test()">Alternate A</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '20'">
+                <label>{{this.unitA15.tons}}</label>
+                <label>{{this.unitA15.totalcooling}}</label>
+                <label>{{this.unitA15.sensiblecooling}}</label>
+                <label>{{this.unitA15.latdb}}</label>
+                <label>{{this.unitA15.latwb}}</label>
+                <label>{{this.unitA15.evapfan}}</label>
+                <label>{{this.unitA15.evapmotor}}</label>
+                <label>{{this.unitA15.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '25'">
+                <label>{{this.unitA20.tons}}</label>
+                <label>{{this.unitA20.totalcooling}}</label>
+                <label>{{this.unitA20.sensiblecooling}}</label>
+                <label>{{this.unitA20.latdb}}</label>
+                <label>{{this.unitA20.latwb}}</label>
+                <label>{{this.unitA20.evapfan}}</label>
+                <label>{{this.unitA20.evapmotor}}</label>
+                <label>{{this.unitA20.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '30'">
+                <label>{{this.unitA25.tons}}</label>
+                <label>{{this.unitA25.totalcooling}}</label>
+                <label>{{this.unitA25.sensiblecooling}}</label>
+                <label>{{this.unitA25.latdb}}</label>
+                <label>{{this.unitA25.latwb}}</label>
+                <label>{{this.unitA25.evapfan}}</label>
+                <label>{{this.unitA25.evapmotor}}</label>
+                <label>{{this.unitA25.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '40'">
+                <label>{{this.unitA30.tons}}</label>
+                <label>{{this.unitA30.totalcooling}}</label>
+                <label>{{this.unitA30.sensiblecooling}}</label>
+                <label>{{this.unitA30.latdb}}</label>
+                <label>{{this.unitA30.latwb}}</label>
+                <label>{{this.unitA30.evapfan}}</label>
+                <label>{{this.unitA30.evapmotor}}</label>
+                <label>{{this.unitA30.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '50'">
+                <label>{{this.unitA40.tons}}</label>
+                <label>{{this.unitA40.totalcooling}}</label>
+                <label>{{this.unitA40.sensiblecooling}}</label>
+                <label>{{this.unitA40.latdb}}</label>
+                <label>{{this.unitA40.latwb}}</label>
+                <label>{{this.unitA40.evapfan}}</label>
+                <label>{{this.unitA40.evapmotor}}</label>
+                <label>{{this.unitA40.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '60'">
+                <label>{{this.unitA50.tons}}</label>
+                <label>{{this.unitA50.totalcooling}}</label>
+                <label>{{this.unitA50.sensiblecooling}}</label>
+                <label>{{this.unitA50.latdb}}</label>
+                <label>{{this.unitA50.latwb}}</label>
+                <label>{{this.unitA50.evapfan}}</label>
+                <label>{{this.unitA50.evapmotor}}</label>
+                <label>{{this.unitA50.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '70'">
+                <label>{{this.unitA60.tons}}</label>
+                <label>{{this.unitA60.totalcooling}}</label>
+                <label>{{this.unitA60.sensiblecooling}}</label>
+                <label>{{this.unitA60.latdb}}</label>
+                <label>{{this.unitA60.latwb}}</label>
+                <label>{{this.unitA60.evapfan}}</label>
+                <label>{{this.unitA60.evapmotor}}</label>
+                <label>{{this.unitA60.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '80'">
+                <label>{{this.unitA70.tons}}</label>
+                <label>{{this.unitA70.totalcooling}}</label>
+                <label>{{this.unitA70.sensiblecooling}}</label>
+                <label>{{this.unitA70.latdb}}</label>
+                <label>{{this.unitA70.latwb}}</label>
+                <label>{{this.unitA70.evapfan}}</label>
+                <label>{{this.unitA70.evapmotor}}</label>
+                <label>{{this.unitA70.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '90'">
+                <label>{{this.unitA80.tons}}</label>
+                <label>{{this.unitA80.totalcooling}}</label>
+                <label>{{this.unitA80.sensiblecooling}}</label>
+                <label>{{this.unitA80.latdb}}</label>
+                <label>{{this.unitA80.latwb}}</label>
+                <label>{{this.unitA80.evapfan}}</label>
+                <label>{{this.unitA80.evapmotor}}</label>
+                <label>{{this.unitA80.mincfm}}</label>
+            </div> 
+        </div>
+        <div class = labels2>
+            <div class = "values1">
+                <input type = 'radio' class = "radiobut" [checked]=true name = 'option' (change)="radiocurr()">
+                <label>Unit Code</label>
+            </div>
+            <div class = vls2 *ngIf ="this.page1.tonnage == '15'">
+                <label>{{this.unitA15.tons}}</label>
+                <label>{{this.unitA15.totalcooling}}</label>
+                <label>{{this.unitA15.sensiblecooling}}</label>
+                <label>{{this.unitA15.latdb}}</label>
+                <label>{{this.unitA15.latwb}}</label>
+                <label>{{this.unitA15.evapfan}}</label>
+                <label>{{this.unitA15.evapmotor}}</label>
+                <label>{{this.unitA15.mincfm}}</label>
+            </div>
+            <div class = vls2 *ngIf ="this.page1.tonnage == '20'">
+                <label>{{this.unitA20.tons}}</label>
+                <label>{{this.unitA20.totalcooling}}</label>
+                <label>{{this.unitA20.sensiblecooling}}</label>
+                <label>{{this.unitA20.latdb}}</label>
+                <label>{{this.unitA20.latwb}}</label>
+                <label>{{this.unitA20.evapfan}}</label>
+                <label>{{this.unitA20.evapmotor}}</label>
+                <label>{{this.unitA20.mincfm}}</label>
+            </div>
+            <div class = vls2 *ngIf ="this.page1.tonnage == '25'">
+                <label>{{this.unitA25.tons}}</label>
+                <label>{{this.unitA25.totalcooling}}</label>
+                <label>{{this.unitA25.sensiblecooling}}</label>
+                <label>{{this.unitA25.latdb}}</label>
+                <label>{{this.unitA25.latwb}}</label>
+                <label>{{this.unitA25.evapfan}}</label>
+                <label>{{this.unitA25.evapmotor}}</label>
+                <label>{{this.unitA25.mincfm}}</label>
+            </div>
+            <div class = vls2 *ngIf ="this.page1.tonnage == '30'">
+                <label>{{this.unitA30.tons}}</label>
+                <label>{{this.unitA30.totalcooling}}</label>
+                <label>{{this.unitA30.sensiblecooling}}</label>
+                <label>{{this.unitA30.latdb}}</label>
+                <label>{{this.unitA30.latwb}}</label>
+                <label>{{this.unitA30.evapfan}}</label>
+                <label>{{this.unitA30.evapmotor}}</label>
+                <label>{{this.unitA30.mincfm}}</label>
+            </div>
+            <div class = vls2 *ngIf ="this.page1.tonnage == '40'">
+                <label>{{this.unitA40.tons}}</label>
+                <label>{{this.unitA40.totalcooling}}</label>
+                <label>{{this.unitA40.sensiblecooling}}</label>
+                <label>{{this.unitA40.latdb}}</label>
+                <label>{{this.unitA40.latwb}}</label>
+                <label>{{this.unitA40.evapfan}}</label>
+                <label>{{this.unitA40.evapmotor}}</label>
+                <label>{{this.unitA40.mincfm}}</label>
+            </div>
+            <div class = vls2 *ngIf ="this.page1.tonnage == '50'">
+                <label>{{this.unitA50.tons}}</label>
+                <label>{{this.unitA50.totalcooling}}</label>
+                <label>{{this.unitA50.sensiblecooling}}</label>
+                <label>{{this.unitA50.latdb}}</label>
+                <label>{{this.unitA50.latwb}}</label>
+                <label>{{this.unitA50.evapfan}}</label>
+                <label>{{this.unitA50.evapmotor}}</label>
+                <label>{{this.unitA50.mincfm}}</label>
+            </div>
+            <div class = vls2 *ngIf ="this.page1.tonnage == '60'">
+                <label>{{this.unitA60.tons}}</label>
+                <label>{{this.unitA60.totalcooling}}</label>
+                <label>{{this.unitA60.sensiblecooling}}</label>
+                <label>{{this.unitA60.latdb}}</label>
+                <label>{{this.unitA60.latwb}}</label>
+                <label>{{this.unitA60.evapfan}}</label>
+                <label>{{this.unitA60.evapmotor}}</label>
+                <label>{{this.unitA60.mincfm}}</label>
+            </div>
+            <div class = vls2 *ngIf ="this.page1.tonnage == '70'">
+                <label>{{this.unitA70.tons}}</label>
+                <label>{{this.unitA70.totalcooling}}</label>
+                <label>{{this.unitA70.sensiblecooling}}</label>
+                <label>{{this.unitA70.latdb}}</label>
+                <label>{{this.unitA70.latwb}}</label>
+                <label>{{this.unitA70.evapfan}}</label>
+                <label>{{this.unitA70.evapmotor}}</label>
+                <label>{{this.unitA70.mincfm}}</label>
+            </div>
+            <div class = vls2 *ngIf ="this.page1.tonnage == '80'">
+                <label>{{this.unitA80.tons}}</label>
+                <label>{{this.unitA80.totalcooling}}</label>
+                <label>{{this.unitA80.sensiblecooling}}</label>
+                <label>{{this.unitA80.latdb}}</label>
+                <label>{{this.unitA80.latwb}}</label>
+                <label>{{this.unitA80.evapfan}}</label>
+                <label>{{this.unitA80.evapmotor}}</label>
+                <label>{{this.unitA80.mincfm}}</label>
+            </div> 
+            <div class = vls2 *ngIf ="this.page1.tonnage == '90'">
+                <label>{{this.unitA90.tons}}</label>
+                <label>{{this.unitA90.totalcooling}}</label>
+                <label>{{this.unitA90.sensiblecooling}}</label>
+                <label>{{this.unitA90.latdb}}</label>
+                <label>{{this.unitA90.latwb}}</label>
+                <label>{{this.unitA90.evapfan}}</label>
+                <label>{{this.unitA90.evapmotor}}</label>
+                <label>{{this.unitA90.mincfm}}</label>
+            </div>
+        </div>
+        <div class = labels2>
+            <div class = "values1" *ngIf = "this.page1.tonnage != '90'">
+                <input type = 'radio' class = "radiobut" name = 'option' (change)="radionext()">
+                <label>Alternate B</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '15'">
+                <label>{{this.unitA20.tons}}</label>
+                <label>{{this.unitA20.totalcooling}}</label>
+                <label>{{this.unitA20.sensiblecooling}}</label>
+                <label>{{this.unitA20.latdb}}</label>
+                <label>{{this.unitA20.latwb}}</label>
+                <label>{{this.unitA20.evapfan}}</label>
+                <label>{{this.unitA20.evapmotor}}</label>
+                <label>{{this.unitA20.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '20'">
+                <label>{{this.unitA25.tons}}</label>
+                <label>{{this.unitA25.totalcooling}}</label>
+                <label>{{this.unitA25.sensiblecooling}}</label>
+                <label>{{this.unitA25.latdb}}</label>
+                <label>{{this.unitA25.latwb}}</label>
+                <label>{{this.unitA25.evapfan}}</label>
+                <label>{{this.unitA25.evapmotor}}</label>
+                <label>{{this.unitA25.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '25'">
+                <label>{{this.unitA30.tons}}</label>
+                <label>{{this.unitA30.totalcooling}}</label>
+                <label>{{this.unitA30.sensiblecooling}}</label>
+                <label>{{this.unitA30.latdb}}</label>
+                <label>{{this.unitA30.latwb}}</label>
+                <label>{{this.unitA30.evapfan}}</label>
+                <label>{{this.unitA30.evapmotor}}</label>
+                <label>{{this.unitA30.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '30'">
+                <label>{{this.unitA40.tons}}</label>
+                <label>{{this.unitA40.totalcooling}}</label>
+                <label>{{this.unitA40.sensiblecooling}}</label>
+                <label>{{this.unitA40.latdb}}</label>
+                <label>{{this.unitA40.latwb}}</label>
+                <label>{{this.unitA40.evapfan}}</label>
+                <label>{{this.unitA40.evapmotor}}</label>
+                <label>{{this.unitA40.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '40'">
+                <label>{{this.unitA50.tons}}</label>
+                <label>{{this.unitA50.totalcooling}}</label>
+                <label>{{this.unitA50.sensiblecooling}}</label>
+                <label>{{this.unitA50.latdb}}</label>
+                <label>{{this.unitA50.latwb}}</label>
+                <label>{{this.unitA50.evapfan}}</label>
+                <label>{{this.unitA50.evapmotor}}</label>
+                <label>{{this.unitA50.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '50'">
+                <label>{{this.unitA60.tons}}</label>
+                <label>{{this.unitA60.totalcooling}}</label>
+                <label>{{this.unitA60.sensiblecooling}}</label>
+                <label>{{this.unitA60.latdb}}</label>
+                <label>{{this.unitA60.latwb}}</label>
+                <label>{{this.unitA60.evapfan}}</label>
+                <label>{{this.unitA60.evapmotor}}</label>
+                <label>{{this.unitA60.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '60'">
+                <label>{{this.unitA70.tons}}</label>
+                <label>{{this.unitA70.totalcooling}}</label>
+                <label>{{this.unitA70.sensiblecooling}}</label>
+                <label>{{this.unitA70.latdb}}</label>
+                <label>{{this.unitA70.latwb}}</label>
+                <label>{{this.unitA70.evapfan}}</label>
+                <label>{{this.unitA70.evapmotor}}</label>
+                <label>{{this.unitA70.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '70'">
+                <label>{{this.unitA80.tons}}</label>
+                <label>{{this.unitA80.totalcooling}}</label>
+                <label>{{this.unitA80.sensiblecooling}}</label>
+                <label>{{this.unitA80.latdb}}</label>
+                <label>{{this.unitA80.latwb}}</label>
+                <label>{{this.unitA80.evapfan}}</label>
+                <label>{{this.unitA80.evapmotor}}</label>
+                <label>{{this.unitA80.mincfm}}</label>
+            </div>
+            <div class = vls *ngIf ="this.page1.tonnage == '80'">
+                <label>{{this.unitA90.tons}}</label>
+                <label>{{this.unitA90.totalcooling}}</label>
+                <label>{{this.unitA90.sensiblecooling}}</label>
+                <label>{{this.unitA90.latdb}}</label>
+                <label>{{this.unitA90.latwb}}</label>
+                <label>{{this.unitA90.evapfan}}</label>
+                <label>{{this.unitA90.evapmotor}}</label>
+                <label>{{this.unitA90.mincfm}}</label>
+            </div> 
+        </div>
+    </div>       
+    </div>
+</body>
+
+

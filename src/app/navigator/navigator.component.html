@@ -1,0 +1,97 @@
+<body class = "bdy">
+    <div class = "bdy">
+    <app-navbar></app-navbar>
+    <mat-stepper class = "stepper" (selectionChange)="update()">
+        <mat-step class = "step">
+            <ng-template matStepLabel>General</ng-template>
+            <app-first-page class = "page"></app-first-page>
+            <div class = "bt">
+                <button class = "prevBtn" > <<< Back</button>
+                <button mat-button matStepperNext class = "nextBtn" (click)="savePage1()" > Next >>></button>       
+            </div>
+            <div class = "bottom">
+                <label class = "credits">© HVAC Engineering INC.</label>
+                <label class = "credits">Developed by Me</label>
+            </div>
+        </mat-step>
+        <mat-step class = "step">
+            <ng-template matStepLabel>Unit</ng-template>
+            <app-third-page class = "page"></app-third-page>
+            <div class = "bt">
+                <button mat-button matStepperPrevious class = "prevBtn" (click)="savePage3()"> <<< Back</button>
+                <button mat-button matStepperNext class = "nextBtn" (click)="savePage3()"> Next >>></button>    
+            </div>
+            
+            <div class = "bottom">
+                <label class = "credits">© HVAC Engineering INC.</label>
+                <label class = "credits">Developed by Me</label>
+            </div>
+        </mat-step>
+        <mat-step class = "step"> 
+            <ng-template matStepLabel>Performance</ng-template>
+            <app-second-page class = "page"></app-second-page>
+            <div class = "bt">
+                <button mat-button matStepperPrevious class = "prevBtn" (click)="savePage2()" > <<< Back</button>
+                <button mat-button matStepperNext class = "nextBtn" (click)="savePage2()" > Next >>></button>       
+            </div>
+            
+            <div class = "bottom">
+                <label class = "credits">© HVAC Engineering INC.</label>
+                <label class = "credits">Developed by Me</label>
+            </div>
+        </mat-step>
+        <mat-step class = "step">
+            <ng-template matStepLabel>Electrical</ng-template>
+            <app-fourth-page class = "page"></app-fourth-page>
+            <div class = "bt">
+                <button mat-button matStepperPrevious class = "prevBtn" (click)="savePage4()" > <<< Back</button>
+                <button mat-button matStepperNext class = "nextBtn" (click)="savePage4()" > Next >>></button>      
+            </div>
+            
+            <div class = "bottom">
+                <label class = "credits">© HVAC Engineering INC.</label>
+                <label class = "credits">Developed by Me</label>
+            </div>
+        </mat-step>
+        <mat-step class = "step">
+            <ng-template matStepLabel>Control</ng-template>
+            <app-sixth-page class = "page"></app-sixth-page>
+            <div class = "bt">
+                <button mat-button matStepperPrevious class = "prevBtn" (click)="savePage5()" > <<< Back</button>
+                <button mat-button matStepperNext class = "nextBtn" (click)="savePage5()" > Next >>></button> 
+            </div>
+            
+            <div class = "bottom">
+                <label class = "credits">© HVAC Engineering INC.</label>
+                <label class = "credits">Developed by Me</label>
+            </div>
+        </mat-step>
+        <mat-step class = "step">
+            <ng-template matStepLabel>Miscellanous</ng-template>
+            <app-seventh-page class = "page"></app-seventh-page>
+            <div class = "bt">
+                <button mat-button matStepperPrevious class = "prevBtn" (click)="savePage6()" > <<< Back</button>
+                <button mat-button matStepperNext class = "nextBtn" (click)="savePage6()" > Next >>></button>  
+            </div>
+            
+            <div class = "bottom">
+                <label class = "credits">© HVAC Engineering INC.</label>
+                <label class = "credits">Developed by Me</label>
+            </div>
+        </mat-step>
+        <mat-step class = "step">
+            <ng-template matStepLabel>Subtotal</ng-template>
+            <app-subtotal class = "page"></app-subtotal>
+            <div class = "bt">
+                <button mat-button matStepperPrevious class = "prevBtn"  > <<< Back</button>
+                <button mat-button class = "nextBtn" (click)="invoice()" > Download PDF</button>      
+            </div>
+            
+            <div class = "bottom">
+                <label class = "credits">© HVAC Engineering INC.</label>
+                <label class = "credits">Developed by Me</label>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>
+</body>
