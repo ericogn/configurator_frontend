@@ -195,6 +195,9 @@ export class ThirdPageComponent implements OnInit {
    // console.log(this.firstpage.page1.tonnage);
    //console.log('working');
   }
+  savepage3(){
+    
+  }
   test(){
     
   }

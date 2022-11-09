@@ -124,6 +124,9 @@ export class SixthPageComponent implements OnInit {
     this.router.navigateByUrl('seventhpage');
   }
 
+  savepage6(){
+    this.service.project.p5 = this.page5;
+  }
   updatePage6(){
     this.postService.updatePage5(this.page5,this.service.id).subscribe(data => this.page5 = data);
     // this.ngOnInit();

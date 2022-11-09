@@ -13,38 +13,6 @@ import { ReheatType } from '../models/reheattype.model';
 import { GetFunctionsService } from '../services/getfunctions.service';
 import { PostFunctionService } from '../services/postfunctions.service';
 
-
-// const roundTo = function(num: number, places: number) {
-//   const factor = 10 ** places;
-//   return Math.round(num * factor) / factor;
-// };
-
-
-
-// @Pipe({name : 'decimal'})
-// export class Transform implements PipeTransform{
-//   constructor(private decimalPipe :DecimalPipe){}
-//   transform(value: any, locale?:string) {
-//     this.decimalPipe.transform(value,1,locale)
-//     // throw new Error('Method not implemented.');
-//   }
-// }
-// @Pipe({
-//   name: 'numberfr'
-// })
-// export class FrenchDecimalPipe implements PipeTransform {
-
-//   transform(val: number): string {
-//     // Format the output to display any way you want here.
-//     // For instance:
-//     if (val !== undefined && val !== null) {
-//       return val.toLocaleString(/*arguments you need*/);
-//     } else {
-//       return '';
-//     }
-//   }
-// }
-
 @Component({
   selector: 'app-second-page',
   templateUrl: './second-page.component.html',
@@ -325,11 +293,14 @@ export class SecondPageComponent implements OnInit{
   }
 
   updatePage2(){
+    this.savepage2();
     this.postservice.updatePage2(this.page2,this.service.id).subscribe(data => this.page2 = data);
     // this.ngOnInit();
     console.log(this.page2.heattype);
   }
-
+  savepage2(){
+    this.service.project.p2 = this.page2;
+  }
   eatdb(){
     if(this.page2.eatdbret < this.page2.eatwbret){
       this.page2.eatdbret = 0;

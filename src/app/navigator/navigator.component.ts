@@ -110,14 +110,26 @@ export class NavigatorComponent implements OnInit {
   }
 
   updateProject(){
-    //this.service.project.p1 = this.firstpage.page1;
-    this.service.project.p2 = this.secondpage.page2;
-    this.service.project.p4 = this.fourthpage.page4;
-    this.service.project.p5 = this.sixthpage.page5;
-    this.service.project.p6 = this.seventh.page6;
+    this.firstpage.savepage1();
+    this.secondpage.savepage2();
+    this.thirdpage.savepage3();
+    this.fourthpage.savepage4();
+    this.sixthpage.savepage6();
+    this.seventh.savepage7();
+    // this.service.project.p1 = this.firstpage.page1;
+    // this.service.project.p2 = this.secondpage.page2;
+    // this.service.project.p4 = this.fourthpage.page4;
+    // this.service.project.p5 = this.sixthpage.page5;
+    // this.service.project.p6 = this.seventh.page6;
   }
 
   invoice(){
+    this.firstpage.updatePage1();
+    this.secondpage.updatePage2();
+    this.thirdpage.updatePage3();
+    this.fourthpage.updatePage4();
+    this.sixthpage.updatePage6();
+    this.seventh.updatePage7();
     window.open(`http://configurator/editPdf/pdf.php?details=${this.service.id}`);
   }
 }

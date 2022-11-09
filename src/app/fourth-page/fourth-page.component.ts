@@ -118,10 +118,13 @@ export class FourthPageComponent implements OnInit {
   }
 
   updatePage4(){
+    this.savepage4();
     this.postservice.updatePage4(this.page4,this.service.id).subscribe(dt => this.page4 = dt);
     // this.ngOnInit();
   }
-
+  savepage4(){
+    this.service.project.p4 = this.page4;
+  }
   fct(){
     // this.postservice.updatePage4(this.page4, this.service.id).subscribe(dt => this.page4 = dt);
     // this.ngOnInit();

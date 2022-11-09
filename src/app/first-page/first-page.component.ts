@@ -221,8 +221,11 @@ export class FirstPageComponent implements OnInit {
     console.log(this.page1);  
     console.log('test');
   }
-
+  savepage1(){
+    this.service.project.p1 = this.page1;
+  }
   updatePage1(){
+    this.savepage1();
     this.postservice.updatePage1(this.page1,this.service.id).subscribe(data => this.page1 = data);
     // this.ngOnInit();
   }

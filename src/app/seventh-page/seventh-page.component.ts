@@ -46,6 +46,10 @@ export class SeventhPageComponent implements OnInit {
       this.ship = true;
     }else this.ship = false;
   }
+
+  savepage7(){
+    this.service.project.p6 = this.page6;
+  }
   updatePage7(){
     this.postService.updatePage6(this.page6, this.service.id).subscribe(dt=> this.page6 = dt);
     // this.ngOnInit();
