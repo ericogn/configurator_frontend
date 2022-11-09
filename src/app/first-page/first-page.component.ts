@@ -20,7 +20,7 @@ import { ThirdPageComponent } from '../third-page/third-page.component';
 
 export class FirstPageComponent implements OnInit {
 
-  constructor(private router:Router, private service:GetFunctionsService, private postservice:PostFunctionService) { }
+  constructor(private router:Router, public service:GetFunctionsService, private postservice:PostFunctionService) { }
   ngOnInit(): void {
     this.service.getVoltage().subscribe(data => this.voltage = data);
     this.service.getTonnage().subscribe(data => this.tonnage = data);
@@ -30,6 +30,7 @@ export class FirstPageComponent implements OnInit {
     this.service.getDigitalScrollComp().subscribe(data => this.scroll = data);
 
     this.service.getPage1(this.service.id).subscribe(data => this.page1 = data);
+    this.service.getPage1(this.service.id).subscribe(data => this.service.project.p1 = data);
     this.initializemodule();
     this.init();
 
@@ -217,9 +218,7 @@ export class FirstPageComponent implements OnInit {
   }
 
   test(){
-    console.log(this.page1);
-    this.updatePage1();
-    
+    console.log(this.page1);  
     console.log('test');
   }
 

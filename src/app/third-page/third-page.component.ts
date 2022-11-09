@@ -185,126 +185,15 @@ export class ThirdPageComponent implements OnInit {
   }
 
   updatePage3(){
-    switch (this.page1.tonnage) 
-    {
-      case '15' :
-        if(this.prev == true){
-          this.page1.tonnage = '15';
-         // this.firstpage.page1.tonnage = '15';
-        }
-        if(this.next == true){
-          this.page1.tonnage = '20';
-         // this.firstpage.page1.tonnage = '20';
-        }
-      break;
-      case '20' :
-        if(this.prev == true){
-          this.page1.tonnage = '15';
-          this.service.project.p1.tonnage = '15';
-          console.log(this.page1.tonnage);
-         // this.firstpage.page1.tonnage = '15';
-        }
-        if(this.next == true){
-          this.page1.tonnage = '25';
-          this.service.project.p1.tonnage = '25';
-          console.log(this.page1.tonnage);
-         // this.firstpage.page1.tonnage = '25';
-        }
-      break;
-      case '25' :
-        if(this.prev == true){
-          this.page1.tonnage = '20';
-         // this.firstpage.page1.tonnage = '20';
-        }
-        if(this.next == true){
-          this.page1.tonnage = '30';
-        //  this.firstpage.page1.tonnage = '30';
-        }
-      break;
-      case '30' :
-        if(this.prev == true){
-          this.page1.tonnage = '25';
-         // this.firstpage.page1.tonnage = '25';
-        }
-        if(this.next == true){
-          this.page1.tonnage = '40';
-         // this.firstpage.page1.tonnage = '40';
-        }
-      break;
-      case '40' :
-        if(this.prev == true){
-          this.page1.tonnage = '30';
-         // this.firstpage.page1.tonnage = '30';
-        }
-        if(this.next == true){
-          this.page1.tonnage = '50';
-        //  this.firstpage.page1.tonnage = '50';
-        }
-      break;
-      case '50' :
-        if(this.prev == true){
-          this.page1.tonnage = '40';
-         // this.firstpage.page1.tonnage = '40';
-        }
-        if(this.next == true){
-          this.page1.tonnage = '60';
-         // this.firstpage.page1.tonnage = '60';
-        }
-      break;
-      case '60' :
-        if(this.prev == true){
-          this.page1.tonnage = '50';
-         // this.firstpage.page1.tonnage = '50';
-        }
-        if(this.next == true){
-          this.page1.tonnage = '70';
-         // this.firstpage.page1.tonnage = '70';
-        }
-      break;
-      case '70' :
-        if(this.prev == true){
-          this.page1.tonnage = '60';
-         // this.firstpage.page1.tonnage = '60';
-        }
-        if(this.next == true){
-          this.page1.tonnage = '80';
-          //this.firstpage.page1.tonnage = '80';
-        }
-      break;
-      case '80' :
-        if(this.prev == true){
-          this.page1.tonnage = '70';
-          //this.firstpage.page1.tonnage = '70';
-        }
-        if(this.next == true){
-          this.page1.tonnage = '90';
-          //this.firstpage.page1.tonnage = '90';
-        }
-      break;
-      case '90' :
-        if(this.prev == true){
-          this.page1.tonnage = '80';
-         // this.firstpage.page1.tonnage = '80';
-        }
-        if(this.next == true){
-          this.page1.tonnage = '90';
-          //this.firstpage.page1.tonnage = '90';
-        }
-      break;
-      default:
-        console.log(this.page1.tonnage);
-        break;
-    }
-
-    this.postservice.updatePage1(this.page1,this.service.id).subscribe(dt=>this.page1 = dt);
+     this.postservice.updatePage1(this.service.project.p1,this.service.id).subscribe(dt=>this.service.project.p1 = dt);
     //this.postservice.updatePage1(this.firstpage.page1,this.service.id).subscribe(dt=>this.firstpage.page1 = dt);
     //console.log(this.page1);
-    this.service.project.p1 = this.page1;
+    //this.service.project.p1 = this.page1;
     
     // console.log(this.service.project.p1);
     // console.log(this.next);
    // console.log(this.firstpage.page1.tonnage);
-   console.log('working');
+   //console.log('working');
   }
   test(){
     
@@ -315,21 +204,99 @@ export class ThirdPageComponent implements OnInit {
   next:boolean = false;
 
   radioprev(){
-   this.prev = true;
-   this.curr = false;
-   this.next = false;
-   console.log('prev');
+    if(this.service.project.p1.tonnage == '15'){
+      this.service.project.p1.tonnage = '15';
+    }else
+    if(this.service.project.p1.tonnage == '20'){
+      this.service.project.p1.tonnage = '15';
+    }else
+    if(this.service.project.p1.tonnage == '25'){
+      this.service.project.p1.tonnage = '20';
+    }else
+    if(this.service.project.p1.tonnage == '30'){
+      this.service.project.p1.tonnage = '25';
+    }else
+    if(this.service.project.p1.tonnage == '40'){
+      this.service.project.p1.tonnage = '30';
+    }else
+    if(this.service.project.p1.tonnage == '50'){
+      this.service.project.p1.tonnage = '40';
+    }else
+    if(this.service.project.p1.tonnage == '60'){
+      this.service.project.p1.tonnage = '50';
+    }else
+    if(this.service.project.p1.tonnage == '70'){
+      this.service.project.p1.tonnage = '60';
+    }else
+    if(this.service.project.p1.tonnage == '80'){
+      this.service.project.p1.tonnage = '70';
+    }else
+    if(this.service.project.p1.tonnage == '90'){
+      this.service.project.p1.tonnage = '80';
+    }  
   }
   radiocurr(){
-    this.prev = false;
-    this.curr = true;
-    this.next = false;
-    console.log('curr');
+    if(this.service.project.p1.tonnage == '15'){
+      this.service.project.p1.tonnage = '15';
+    }else
+    if(this.service.project.p1.tonnage == '20'){
+      this.service.project.p1.tonnage = '20';
+    }else
+    if(this.service.project.p1.tonnage == '25'){
+      this.service.project.p1.tonnage = '25';
+    }else
+    if(this.service.project.p1.tonnage == '30'){
+      this.service.project.p1.tonnage = '30';
+    }else
+    if(this.service.project.p1.tonnage == '40'){
+      this.service.project.p1.tonnage = '40';
+    }else
+    if(this.service.project.p1.tonnage == '50'){
+      this.service.project.p1.tonnage = '50';
+    }else
+    if(this.service.project.p1.tonnage == '60'){
+      this.service.project.p1.tonnage = '60';
+    }else
+    if(this.service.project.p1.tonnage == '70'){
+      this.service.project.p1.tonnage = '70';
+    }else
+    if(this.service.project.p1.tonnage == '80'){
+      this.service.project.p1.tonnage = '80';
+    }else
+    if(this.service.project.p1.tonnage == '90'){
+      this.service.project.p1.tonnage = '90';
+    } 
   }
   radionext(){
-    this.prev = false;
-    this.curr = false;
-    this.next = true;
-    console.log('next');
+    if(this.service.project.p1.tonnage == '15'){
+      this.service.project.p1.tonnage = '20';
+    }else
+    if(this.service.project.p1.tonnage == '20'){
+      this.service.project.p1.tonnage = '25';
+    }else
+    if(this.service.project.p1.tonnage == '25'){
+      this.service.project.p1.tonnage = '30';
+    }else
+    if(this.service.project.p1.tonnage == '30'){
+      this.service.project.p1.tonnage = '40';
+    }else
+    if(this.service.project.p1.tonnage == '40'){
+      this.service.project.p1.tonnage = '50';
+    }else
+    if(this.service.project.p1.tonnage == '50'){
+      this.service.project.p1.tonnage = '60';
+    }else
+    if(this.service.project.p1.tonnage == '60'){
+      this.service.project.p1.tonnage = '70';
+    }else
+    if(this.service.project.p1.tonnage == '70'){
+      this.service.project.p1.tonnage = '80';
+    }else
+    if(this.service.project.p1.tonnage == '80'){
+      this.service.project.p1.tonnage = '90';
+    }else
+    if(this.service.project.p1.tonnage == '90'){
+      this.service.project.p1.tonnage = '90';
+    } 
   }
 }

@@ -25,6 +25,7 @@ import { NavigatorComponent } from './navigator/navigator.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { registerLocaleData } from '@angular/common';
+import { GetFunctionsService } from './services/getfunctions.service';
 
 
 @NgModule({
@@ -58,8 +59,9 @@ import { registerLocaleData } from '@angular/common';
     HttpClientModule,
     //CurrencyMaskModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [GetFunctionsService],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
 

@@ -7,7 +7,7 @@
     </div>
     <div class = "columns1">
         <div class = "labels1">
-            <label (click)="ngOnInit()">Quantity:</label>
+            <label (click)="test()">Quantity:</label>
             <label>Unit Tag:</label>
         </div>
         <div class = "inputs1">
@@ -69,10 +69,10 @@
                 <label class = "dist">Module</label>
             </div>
             <div class = "dropdown1">
-                <select class = "tons" [(ngModel)]="this.page1.tonnage" (change) = "modulechange($event)" [value]="this.page1.tonnage">
+                <select class = "tons" [(ngModel)]="this.service.project.p1.tonnage" (change) = "modulechange($event)">
                     <option  *ngFor="let l of tonnage" >{{l.name}}</option>
                 </select>
-                <select class = "drops1" [(ngModel)]="this.page1.voltage" [value]="this.page1.voltage">
+                <select class = "drops1" [(ngModel)]="this.service.project.p1.voltage">
                     <option  *ngFor="let l of voltage" >{{l.name}}</option>
                 </select>
                 <select class = "drops1" [(ngModel)]="this.page1.module" [value]="this.page1.module">
