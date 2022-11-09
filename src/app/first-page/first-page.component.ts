@@ -39,7 +39,6 @@ export class FirstPageComponent implements OnInit {
     if(this.page1.basemodel == 1){
       this.basemodel = true;
     }else (this.basemodel = false);
-    this.unitcode(this.page1.tonnage);
   }
   m1:Module[]=[
     {
@@ -120,62 +119,7 @@ export class FirstPageComponent implements OnInit {
     mincfm:'',
   }
 
-  public unitcode(tonnage:string){
-    switch(tonnage){
-      case '15':{
-        this.service.getPage3(15).subscribe(data => this.unitA = data);
-        this.service.getPage3(20).subscribe(data => this.unitB = data);
-        break;
-      }
-      case '20':{
-        this.service.getPage3(15).subscribe(data => this.unitA = data);
-        this.service.getPage3(25).subscribe(data => this.unitB = data);
-        break
-      }
-      case '25':{
-        this.service.getPage3(20).subscribe(data => this.unitA = data);
-        this.service.getPage3(30).subscribe(data => this.unitB = data);
-        break
-      }
-      case '30':{
-        this.service.getPage3(25).subscribe(data => this.unitA = data);
-        this.service.getPage3(40).subscribe(data => this.unitB = data);
-        break
-      }
-      case '40':{
-        this.service.getPage3(30).subscribe(data => this.unitA = data);
-        this.service.getPage3(50).subscribe(data => this.unitB = data);
-        break
-      }
-      case '50':{
-        this.service.getPage3(40).subscribe(data => this.unitA = data);
-        this.service.getPage3(60).subscribe(data => this.unitB = data);
-        break
-      }
-      case '60':{
-        this.service.getPage3(50).subscribe(data => this.unitA = data);
-        this.service.getPage3(70).subscribe(data => this.unitB = data);
-        break
-      }
-      case '70':{
-        this.service.getPage3(60).subscribe(data => this.unitA = data);
-        this.service.getPage3(80).subscribe(data => this.unitB = data);
-        break
-      }
-      case '80':{
-        this.service.getPage3(70).subscribe(data => this.unitA = data);
-        this.service.getPage3(90).subscribe(data => this.unitB = data);
-        break
-      }
-      case '90':{
-        this.service.getPage3(80).subscribe(data => this.unitA = data);
-        this.service.getPage3(90).subscribe(data => this.unitB = data);
-        break
-      }
-    }
 
-    console.log(this.unitA);
-  } 
   changebasemodel(){
     if(this.page1.basemodel == 1){
       this.page1.basemodel = 0;
@@ -211,7 +155,6 @@ export class FirstPageComponent implements OnInit {
         this.module = this.m2;
       }
     }
-    this.unitcode((event.target as HTMLSelectElement).value);
     //this.thirdpage.init();
 
     console.log('service');

@@ -110,7 +110,7 @@ export class NavigatorComponent implements OnInit {
   }
 
   updateProject(){
-    this.service.project.p1 = this.firstpage.page1;
+    //this.service.project.p1 = this.firstpage.page1;
     this.service.project.p2 = this.secondpage.page2;
     this.service.project.p4 = this.fourthpage.page4;
     this.service.project.p5 = this.sixthpage.page5;

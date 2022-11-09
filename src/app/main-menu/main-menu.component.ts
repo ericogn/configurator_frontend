@@ -53,12 +53,12 @@ export class MainMenuComponent implements OnInit {
   // start(){
   //   this.router.navigateByUrl('navigator');
   // }
-  @ViewChild(FirstPageComponent) firstpage:FirstPageComponent = new FirstPageComponent(this.router, this.service, this.postService);
-  @ViewChild(SecondPageComponent) secondpage:SecondPageComponent = new SecondPageComponent(this.router, this.service, this.postService);
-  @ViewChild(ThirdPageComponent) thirdpage:ThirdPageComponent = new ThirdPageComponent(this.router, this.service, this.postService);
-  @ViewChild(FourthPageComponent) fourthpage:FourthPageComponent = new FourthPageComponent(this.router, this.service, this.postService);
-  @ViewChild(FifthPageComponent) fifthpage:FifthPageComponent = new FifthPageComponent(this.router, this.service, this.postService);
-  @ViewChild(SixthPageComponent) sixthpage:SixthPageComponent = new SixthPageComponent(this.router, this.service, this.postService);
+  // @ViewChild(FirstPageComponent) firstpage:FirstPageComponent = new FirstPageComponent(this.router, this.service, this.postService);
+  // @ViewChild(SecondPageComponent) secondpage:SecondPageComponent = new SecondPageComponent(this.router, this.service, this.postService);
+  // @ViewChild(ThirdPageComponent) thirdpage:ThirdPageComponent = new ThirdPageComponent(this.router, this.service, this.postService);
+  // @ViewChild(FourthPageComponent) fourthpage:FourthPageComponent = new FourthPageComponent(this.router, this.service, this.postService);
+  // @ViewChild(FifthPageComponent) fifthpage:FifthPageComponent = new FifthPageComponent(this.router, this.service, this.postService);
+  // @ViewChild(SixthPageComponent) sixthpage:SixthPageComponent = new SixthPageComponent(this.router, this.service, this.postService);
 
   details:Details={
     name: '',
@@ -113,6 +113,11 @@ export class MainMenuComponent implements OnInit {
     goToProject(id:number, title:string){
       this.service.id=id;
       this.service.title = title;
+      this.service.getPage1(this.service.id).subscribe(data => this.service.project.p1 = data);
+      this.service.getPage2(this.service.id).subscribe(data => this.service.project.p2 = data);
+      this.service.getPage4(this.service.id).subscribe(data => this.service.project.p4 = data);
+      this.service.getPage5(this.service.id).subscribe(data => this.service.project.p5 = data);
+      this.service.getPage6(this.service.id).subscribe(data => this.service.project.p6 = data);
       this.router.navigateByUrl('navigator');
     }
 }

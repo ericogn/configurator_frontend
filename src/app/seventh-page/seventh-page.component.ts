@@ -28,7 +28,6 @@ export class SeventhPageComponent implements OnInit {
     this.service.getUnitInsulation().subscribe(data => this.unitInsul = data);
     this.service.getProtectiveCoilCoating().subscribe(data => this.protectivecoating = data);
     this.service.getPage6(this.service.id).subscribe(data => this.page6 = data);
-
   }
   unitInsul:UnitInsulation[]=[ ]
   protectivecoating:ProtectiveCoilCoating[]=[]
