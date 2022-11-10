@@ -33,10 +33,11 @@ export class ThirdPageComponent implements OnInit {
   }
   init(){
     //this.service.getPage1(this.service.id).subscribe(dt=> this.page1 = dt);
-    this.prev = false;
-    this.curr = true;
-    this.next = false;
-    console.log('3init');
+    // this.prev = false;
+    // this.curr = true;
+    // this.next = false;
+    // console.log('3init');
+    
   }
   page1:Page1={
     quantity:0,
@@ -188,7 +189,6 @@ export class ThirdPageComponent implements OnInit {
 
   updatePage3(){
      this.postservice.updatePage1(this.service.project.p1,this.service.id).subscribe(dt=>this.service.project.p1 = dt);
-     this.page1 = this.service.project.p1;
     //this.postservice.updatePage1(this.firstpage.page1,this.service.id).subscribe(dt=>this.firstpage.page1 = dt);
     //console.log(this.page1);
     //this.service.project.p1 = this.page1;
