@@ -85,13 +85,13 @@
                 <label class = "dist">Digital Scroll Comp</label>
             </div>
             <div class = "dropdown2">
-                <select class = "drops1" (change) = "blowerchange($event)"[(ngModel)]="this.page1.blowertype" [value]="this.page1.blowertype">
+                <select class = "drops2" (change) = "blowerchange($event)"[(ngModel)]="this.page1.blowertype" [value]="this.page1.blowertype">
                     <option  *ngFor="let l of blower" >{{l.name}}</option>
                 </select>
-                <select class = "drops1" (change)="change($event)" [(ngModel)]="this.page1.evapairpath" [value]="this.page1.evapairpath">
+                <select class = "drops2" (change)="change($event)" [(ngModel)]="this.page1.evapairpath" [value]="this.page1.evapairpath">
                     <option  *ngFor="let l of evapair" >{{l.name}}</option>
                 </select>
-                <select class = "drops1" [(ngModel)]="this.page1.digitalscrollcomp" [value]="this.page1.digitalscrollcomp">
+                <select class = "drops2" [(ngModel)]="this.page1.digitalscrollcomp" [value]="this.page1.digitalscrollcomp">
                     <option  *ngFor="let l of scroll" >{{l.name}}</option>
                 </select>
                 

@@ -7,7 +7,7 @@
             <app-first-page class = "page"></app-first-page>
             <div class = "bt">
                 <button class = "prevBtn" > <<< Back</button>
-                <button mat-button matStepperNext class = "nextBtn" (click)="savePage1()" > Next >>></button>       
+                <button *ngIf="firstpage.checkForFill()" mat-button matStepperNext class = "nextBtn" (click)="savePage1()" > Next >>></button>       
             </div>
             <div class = "bottom">
                 <label class = "credits">© HVAC Engineering INC.</label>

@@ -12,6 +12,7 @@ import { PostFunctionService } from '../services/postfunctions.service';
 import { MainMenuComponent } from '../main-menu/main-menu.component';
 import { Page3 } from '../models/page3.model';
 import { ThirdPageComponent } from '../third-page/third-page.component';
+import { SecondPageComponent } from '../second-page/second-page.component';
 @Component({
   selector: 'app-first-page',
   templateUrl: './first-page.component.html',
@@ -224,8 +225,13 @@ export class FirstPageComponent implements OnInit {
   savepage1(){
     this.service.project.p1 = this.page1;
   }
+  checkForFill(){
+    if(this.service.project.p1.tonnage == 'Please Select' || this.page1.tonnage == 'Please Select'){
+      return false;
+    }
+    return true;
+  }
   updatePage1(){
-    this.savepage1();
     this.postservice.updatePage1(this.page1,this.service.id).subscribe(data => this.page1 = data);
     // this.ngOnInit();
   }

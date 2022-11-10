@@ -4,6 +4,7 @@ import { ANALYZE_FOR_ENTRY_COMPONENTS, Component, Directive, ElementRef, HostLis
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AirSideEconomizer } from '../models/airsideeconomizer.model';
+import { Autoloader } from '../models/autoloader.model';
 import { EvapFilterType } from '../models/evapfiltertype.model';
 import { FluidType } from '../models/fluidtype.model';
 import { HeatType } from '../models/heattype.model';
@@ -32,6 +33,7 @@ export class SecondPageComponent implements OnInit{
   disableinput:boolean=true;
   
   ngOnInit(): void {
+    this.service.getAutoloader().subscribe(data=>this.service.autoloaders = data);
     this.service.getFluidType().subscribe(data => this.fluidType = data);
     this.service.getPercentGlycol().subscribe(data => this.percentGlycol = data);
     this.service.getEvapFilterType().subscribe(data => this.evapFilterType = data);
@@ -40,7 +42,7 @@ export class SecondPageComponent implements OnInit{
     this.service.getAirSideEcon().subscribe(data => this.sideEconomizer = data);
     this.service.getPage2(this.service.id).subscribe(data => this.page2 = data);   
   }
-
+  autoloader:Autoloader[]=[];
     init(){
       if(this.page2.mixedair == 1){
         this.mixedair = true;
@@ -149,7 +151,69 @@ export class SecondPageComponent implements OnInit{
       eft3:0,
       approxbtuh:0
     }
+
+    // loader:Autoloader = {
+    //   scfmret:0,
+    //   scfmout:0,
+    //   esp:0,
+    //   eatdb1ret:0,
+    //   eatdb1mix:0,
+    //   eatwb1ret:0,
+    //   eatwb1mix:0,
+    //   gpm1:0,
+    //   eft1:0,
+    //   evapfiltertype:'None',
+    //   heattype:'No Heat',
+    //   reheattype:'No Reheat',
+    //   airsideecon:'None',
+    //   eatf:0,
+    //   approxlat:0,
+    //   eft2:0,
+    //   lftgpm:0,
+    //   eatdb2:0,
+    //   eatwb2:0,
+    //   eft3:0,
+    //   approxbtuh:0,
+    //   tonnage:'',
+    //   voltage:''
+    // }
   
+  autoload(){
+    // this.service.autoloaders.forEach(element => {
+    //   if(element.tonnage == this.service.project.p1.tonnage && element.voltage == this.service.project.p1.voltage){
+    //     this.service.loader = element;
+    //     console.log(element);
+    //   }
+    // });
+    for(let i=0;i<this.service.autoloaders.length;i++){
+      if(this.service.autoloaders[i].tonnage == this.service.project.p1.tonnage && this.service.autoloaders[i].voltage == this.service.project.p1.voltage){
+        this.service.loader = this.service.autoloaders[i];
+        console.log(this.service.loader)
+      }
+    }
+
+    this.page2.scfmret = this.service.loader.scfmret;
+    this.page2.scfmout = this.service.loader.scfmout;
+    this.page2.espret = this.service.loader.esp;
+    this.page2.eatdbret = this.service.loader.eatdb1ret;
+    this.page2.eatdbmix = this.service.loader.eatdb1mix.toString();
+    this.page2.eatwbret = this.service.loader.eatwb1ret;
+    this.page2.eatwbmix = this.service.loader.eatwb1mix.toString();
+    this.page2.gpm = this.service.loader.gpm1;
+    this.page2.eft = this.service.loader.eft1;
+    this.page2.evapfiltertype = this.service.loader.evapfiltertype;
+    this.page2.heattype = this.service.loader.heattype;
+    this.page2.reheattype = this.service.loader.reheattype;
+    this.page2.airsideecon = this.service.loader.airsideecon;
+    this.page2.eatf = this.service.loader.eatf;
+    this.page2.approxlat = this.service.loader.approxlat;
+    this.page2.eft2 = this.service.loader.eft2;
+    this.page2.lftgpmvalue = this.service.loader.lftgpm.toString();
+    this.page2.eatdb2 = this.service.loader.eatdb2;
+    this.page2.eatwb2 = this.service.loader.eatwb2;
+    this.page2.approxbtuh = this.service.loader.approxbtuh;
+  }
+
   fluidChange(event:Event){
     for(let i = 0;i<this.fluidType.length; i++){
       if ((event.target as HTMLSelectElement).value == this.fluidType[i].name.toString()){
@@ -435,8 +499,7 @@ export class SecondPageComponent implements OnInit{
 
 
   test(){
-    console.log(this.page2);
-    this.ngOnInit();
+    console.log(this.service.loader);
   }
 
   radios(){

@@ -31,6 +31,7 @@ import { ProjectWithDetails } from "../models/totalproject.model";
 import { Page3 } from "../models/page3.model";
 import { Subtotal } from "../models/subtotal.model";
 import { Prices } from "../models/prices.model";
+import { Autoloader } from "../models/autoloader.model";
 
 
 @Injectable({
@@ -137,6 +138,33 @@ export class GetFunctionsService{
         p5:this.page5,
         p6:this.page6
     }
+
+    public autoloaders: Autoloader[]=[];
+      public loader:Autoloader = {
+      scfmret:0,
+      scfmout:0,
+      esp:0,
+      eatdb1ret:0,
+      eatdb1mix:0,
+      eatwb1ret:0,
+      eatwb1mix:0,
+      gpm1:0,
+      eft1:0,
+      evapfiltertype:'None',
+      heattype:'No heat',
+      reheattype:'No reheat',
+      airsideecon:'None',
+      eatf:0,
+      approxlat:0,
+      eft2:0,
+      lftgpm:0,
+      eatdb2:0,
+      eatwb2:0,
+      eft3:0,
+      approxbtuh:0,
+      tonnage:'',
+      voltage:''
+    }
     getAirSideEcon(){
         return this.http.get<AirSideEconomizer[]>(`${this.baseUrl}airsideecon/read.php`);
     }  
@@ -238,5 +266,9 @@ export class GetFunctionsService{
     getprices(){
         return this.http.get<Prices>(`${this.baseUrl}/prices/getprices.php`);
         
+    }
+
+    getAutoloader(){
+        return this.http.get<Autoloader[]>(`${this.baseUrl}autoloader/getAllLines.php`);
     }
 }

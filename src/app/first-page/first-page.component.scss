@@ -206,6 +206,13 @@ select:hover{
     width: 200px;
     text-align: left;
 }
+.drops2{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    width: 95%;
+    text-align: left;
+}
 .tons{
    margin-left: 10%; 
    text-align: left;
@@ -292,4 +299,7 @@ select:hover{
     margin-bottom: 0px;
     margin-top: 0px;
     font-size:unset;
+}
+@media only screen and (max-width:700px){
+    
 }
