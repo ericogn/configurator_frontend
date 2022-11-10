@@ -18,7 +18,7 @@ export class ThirdPageComponent implements OnInit {
   @ViewChild(FirstPageComponent) firstpage:FirstPageComponent = new FirstPageComponent(this.router, this.service, this.postservice);
   constructor(private router:Router, public service:GetFunctionsService, private postservice:PostFunctionService) { }
   ngOnInit(): void { 
-   this.service.getPage1(this.service.id).subscribe(dt=> this.page1 = dt);
+   //this.service.getPage1(this.service.id).subscribe(dt=> this.page1 = dt);
    this.service.getpage3(15).subscribe(dt=>this.unitA15 = dt);
    this.service.getpage3(20).subscribe(dt=>this.unitA20 = dt);
    this.service.getpage3(25).subscribe(dt=>this.unitA25 = dt);
@@ -37,7 +37,7 @@ export class ThirdPageComponent implements OnInit {
     // this.curr = true;
     // this.next = false;
     // console.log('3init');
-    
+    this.service.getPage1(this.service.id).subscribe(dt=> this.page1 = dt);
   }
   page1:Page1={
     quantity:0,
