@@ -11,10 +11,9 @@
                 <label>Project Name</label>
                 <label>Ref / Order No</label>
                 <label>Location / Building</label>
-                <label>Address</label>
-                <label>City</label>
                 <label>Country</label>
                 <label>State/Prov.</label>
+                <label>City</label>
                 <label>Zip Code</label>
                 <label>Primary Contact</label>
                 <label>Eng/Architect</label>
@@ -25,15 +24,18 @@
                 <input [(ngModel)]="this.details.name">
                 <input [(ngModel)]="this.details.reforderno">
                 <input [(ngModel)]="this.details.address">
-                <input [(ngModel)]="this.details.city">
-                <input [(ngModel)]="this.details.state">
-                <select [(ngModel)] ="this.details.country">
+                <select [(ngModel)] ="this.details.country" (change)="changecountry()">
                     <option *ngFor = "let l of countryes">
                         {{l}}
                     </option>
                 </select>
-                <input [(ngModel)]="this.details.primarycontact">
-                <input [(ngModel)]="this.details.engarch">
+                <select [(ngModel)]="this.details.state" style="width: 200px;">
+                    <option *ngFor = "let l of states">
+                        {{l}}
+                    </option>
+                </select>
+                <input [(ngModel)]="this.details.city">
+                <input [(ngModel)]="this.details.zip">
                 <select [(ngModel)] ="this.details.primarycontact">
                     <option *ngFor = "let l of contacts">
                         {{l}}

@@ -96,11 +96,125 @@ export class MainMenuComponent implements OnInit {
       "Owner 3"
     ]
     contractor:string[]=[
-
+      "Contractor 1",
+      "Contractor 2",
+      "Contractor 3"
     ]
+    canadaStates:string[]=[
+      "Alberta",
+      "British Columbia",
+      "Manitoba",
+      "New Brunswick",
+      "Newfoundland and Labrador",
+      "Northwest Territories",
+      "Nova Scotia",
+      "Nunavut",
+      "Ontario",
+      "Prince Edward Island",
+      "Quebec",
+      "Saskatchewan",
+      "Yukon",
+    ]
+     americaStates:string[] = [
+      "AK - Alaska", 
+      "AL - Alabama", 
+      "AR - Arkansas", 
+      "AS - American Samoa", 
+      "AZ - Arizona", 
+      "CA - California", 
+      "CO - Colorado", 
+      "CT - Connecticut", 
+      "DC - District of Columbia", 
+      "DE - Delaware", 
+      "FL - Florida", 
+      "GA - Georgia", 
+      "GU - Guam", 
+      "HI - Hawaii", 
+      "IA - Iowa", 
+      "ID - Idaho", 
+      "IL - Illinois", 
+      "IN - Indiana", 
+      "KS - Kansas", 
+      "KY - Kentucky", 
+      "LA - Louisiana", 
+      "MA - Massachusetts", 
+      "MD - Maryland", 
+      "ME - Maine", 
+      "MI - Michigan", 
+      "MN - Minnesota", 
+      "MO - Missouri", 
+      "MS - Mississippi", 
+      "MT - Montana", 
+      "NC - North Carolina", 
+      "ND - North Dakota", 
+      "NE - Nebraska", 
+      "NH - New Hampshire", 
+      "NJ - New Jersey", 
+      "NM - New Mexico", 
+      "NV - Nevada", 
+      "NY - New York", 
+      "OH - Ohio", 
+      "OK - Oklahoma", 
+      "OR - Oregon", 
+      "PA - Pennsylvania", 
+      "PR - Puerto Rico", 
+      "RI - Rhode Island", 
+      "SC - South Carolina", 
+      "SD - South Dakota", 
+      "TN - Tennessee", 
+      "TX - Texas", 
+      "UT - Utah", 
+      "VA - Virginia", 
+      "VI - Virgin Islands", 
+      "VT - Vermont", 
+      "WA - Washington", 
+      "WI - Wisconsin", 
+      "WV - West Virginia", 
+      "WY - Wyoming"
+    ]
+    changecountry(){
+      if(this.details.country == 'USA'){
+        this.states = this.americaStates;
+      }else{
+        this.states = this.canadaStates;
+      }
+    }
+    states:string[]=[];
+    /*
+    name: '',
+    reforderno:'',
+    address:'',
+    city:'',
+    country:'',
+    state:'',
+    zip:'',
+    primarycontact:'',
+    engarch:'',
+    owner:'',
+    contractor:'',
+    status:'',
+    type:'',
+    design:''
+    */
     createNewProject(){
-      this.postService.createNewProject(this.details).subscribe(data => this.details = data);
-      window.location.reload();
+      if(this.details.name == '' ||
+        this.details.reforderno == '' ||
+        this.details.address == '' ||
+        this.details.city == '' ||
+        this.details.country == '' ||
+        this.details.state == '' ||
+        this.details.zip == '' ||
+        this.details.primarycontact == '' ||
+        this.details.engarch == '' ||
+        this.details.owner == '' ||
+        this.details.contractor == ''
+        ){
+          alert('You must fill each field')
+        }
+        else{
+          this.postService.createNewProject(this.details).subscribe(data => this.details = data);
+          window.location.reload();
+        }
     }
 
     delete(id:number){
