@@ -19,7 +19,7 @@
         
         <div class = labels>
             <div class = "values1" *ngIf ="this.page1.tonnage != '15'">
-                <input type = 'radio' class = "radiobut" name = 'option' (change)="radioprev()">
+                <input type = 'radio' class = "radiobut" name = 'option' [checked]="this.prev" (change)="radioprev()">
                 <label (click)="test()">Alternate A</label>
             </div>
             <div class = vls *ngIf ="this.page1.tonnage == '20'">
@@ -115,7 +115,7 @@
         </div>
         <div class = labels2>
             <div class = "values1">
-                <input type = 'radio' class = "radiobut" [checked]=true name = 'option' (change)="radiocurr()">
+                <input type = 'radio' class = "radiobut" [checked]="this.curr" name = 'option' (change)="radiocurr()">
                 <label>Unit Code</label>
             </div>
             <div class = vls2 *ngIf ="this.page1.tonnage == '15'">
@@ -221,7 +221,7 @@
         </div>
         <div class = labels2>
             <div class = "values1" *ngIf = "this.page1.tonnage != '90'">
-                <input type = 'radio' class = "radiobut" name = 'option' (change)="radionext()">
+                <input type = 'radio' class = "radiobut" name = 'option' (change)="radionext()" [checked]="this.next">
                 <label>Alternate B</label>
             </div>
             <div class = vls *ngIf ="this.page1.tonnage == '15'">

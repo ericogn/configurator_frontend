@@ -87,6 +87,7 @@ export class NavigatorComponent implements OnInit {
     this.thirdpage.updatePage3();
     this.secondpage.init();
     this.firstpage.init();
+    this.thirdpage.init();
   }
   savePage4(){
     this.fourthpage.updatePage4();
@@ -110,6 +111,7 @@ export class NavigatorComponent implements OnInit {
   }
 
   updateProject(){
+    this.thirdpage.init();
     this.firstpage.savepage1();
     this.secondpage.savepage2();
     this.thirdpage.savepage3();

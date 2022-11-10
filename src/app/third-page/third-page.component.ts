@@ -29,12 +29,14 @@ export class ThirdPageComponent implements OnInit {
    this.service.getpage3(70).subscribe(dt=>this.unitA70 = dt);
    this.service.getpage3(80).subscribe(dt=>this.unitA80 = dt);
    this.service.getpage3(90).subscribe(dt=>this.unitA90 = dt);
+   this.init();
   }
   init(){
-    this.service.getPage1(this.service.id).subscribe(dt=> this.page1 = dt);
+    //this.service.getPage1(this.service.id).subscribe(dt=> this.page1 = dt);
     this.prev = false;
     this.curr = true;
     this.next = false;
+    console.log('3init');
   }
   page1:Page1={
     quantity:0,
@@ -186,6 +188,7 @@ export class ThirdPageComponent implements OnInit {
 
   updatePage3(){
      this.postservice.updatePage1(this.service.project.p1,this.service.id).subscribe(dt=>this.service.project.p1 = dt);
+     this.page1 = this.service.project.p1;
     //this.postservice.updatePage1(this.firstpage.page1,this.service.id).subscribe(dt=>this.firstpage.page1 = dt);
     //console.log(this.page1);
     //this.service.project.p1 = this.page1;
@@ -237,6 +240,10 @@ export class ThirdPageComponent implements OnInit {
     if(this.service.project.p1.tonnage == '90'){
       this.service.project.p1.tonnage = '80';
     }  
+    console.log(this.service.project.p1.tonnage);
+    this.prev = true;
+    this.curr = false;
+    this.next = false;
   }
   radiocurr(){
     if(this.service.project.p1.tonnage == '15'){
@@ -269,6 +276,10 @@ export class ThirdPageComponent implements OnInit {
     if(this.service.project.p1.tonnage == '90'){
       this.service.project.p1.tonnage = '90';
     } 
+    console.log(this.service.project.p1.tonnage);
+    this.prev = false;
+    this.curr = true;
+    this.next = false;
   }
   radionext(){
     if(this.service.project.p1.tonnage == '15'){
@@ -301,5 +312,9 @@ export class ThirdPageComponent implements OnInit {
     if(this.service.project.p1.tonnage == '90'){
       this.service.project.p1.tonnage = '90';
     } 
+    console.log(this.service.project.p1.tonnage);
+    this.prev = false;
+    this.curr = false;
+    this.next = true;
   }
 }
