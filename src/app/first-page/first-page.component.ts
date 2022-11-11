@@ -32,7 +32,7 @@ export class FirstPageComponent implements OnInit {
 
     this.service.getPage1(this.service.id).subscribe(data => this.page1 = data);
     this.service.getPage1(this.service.id).subscribe(data => this.service.project.p1 = data);
-    this.initializemodule();
+    //this.initializemodule();
     this.init();
 
     console.log('page1');
@@ -41,6 +41,10 @@ export class FirstPageComponent implements OnInit {
     if(this.page1.basemodel == 1){
       this.basemodel = true;
     }else (this.basemodel = false);
+    //this.initializemodule();
+  }
+  moduleSave(event:Event){
+    this.page1.module = (event.target as HTMLSelectElement).value;
   }
   m1:Module[]=[
     {
@@ -144,6 +148,8 @@ export class FirstPageComponent implements OnInit {
 
   modulechange(event:Event){
     this.page1.tonnage = (event.target as HTMLSelectElement).value;
+    this.service.project.p1. tonnage = (event.target as HTMLSelectElement).value;
+    //this.initializemodule();
     for(let i = 0;i<this.tonnage.length; i++){
       if ((event.target as HTMLSelectElement).value == '15' ||
       (event.target as HTMLSelectElement).value == '20' ||
@@ -161,13 +167,14 @@ export class FirstPageComponent implements OnInit {
 
     console.log('service');
     this.postservice.updatePage1(this.page1, this.service.id).subscribe(data => this.page1 = data);
+    this.postservice.updatePage1(this.service.project.p1, this.service.id).subscribe(data => this.service.project.p1 = data);
     //this.service.getPage1(this.service.id).subscribe(data=>this.page1= data);
     //this.updatePage1();
   }
   
   
   initializemodule(){
-    if(this.page1.tonnage == '15' || this.page1.tonnage == '20' || this.page1.tonnage == '25' || this.page1.tonnage == '30' || this.page1.tonnage == 'Please Select'){
+    if(this.service.project.p1.tonnage == '15' || this.service.project.p1.tonnage == '20' || this.service.project.p1.tonnage == '25' || this.service.project.p1.tonnage == '30' || this.service.project.p1.tonnage == 'Please Select'){
       this.module = this.m1;
     }
     else this.module = this.m2; 
@@ -219,8 +226,8 @@ export class FirstPageComponent implements OnInit {
   }
 
   test(){
-    console.log(this.page1);  
-    console.log('test');
+    console.log(this.page1.module);
+    console.log(this.module);
   }
   savepage1(){
     this.service.project.p1 = this.page1;
@@ -232,7 +239,13 @@ export class FirstPageComponent implements OnInit {
     return true;
   }
   updatePage1(){
-    this.postservice.updatePage1(this.page1,this.service.id).subscribe(data => this.page1 = data);
+    if(this.page1.quantity == 0){
+      this.page1.quantity = 1;
+      this.service.project.p1.quantity = 1;
+      alert('Quantity must be at least one');
+    }
+    //this.postservice.updatePage1(this.page1,this.service.id).subscribe(data => this.page1 = data);
+    //this.postservice.updatePage1(this.service.project.p1,this.service.id).subscribe(data => this.service.project.p1 = data);
     // this.ngOnInit();
   }
 }

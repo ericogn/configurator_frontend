@@ -69,13 +69,13 @@
                 <label class = "dist">Module</label>
             </div>
             <div class = "dropdown1">
-                <select class = "tons" [(ngModel)]="this.service.project.p1.tonnage" (change) = "modulechange($event)">
+                <select class = "tons" [ngModel]="this.service.project.p1.tonnage" (change) = "modulechange($event)" [value]="this.page1.tonnage">
                     <option  *ngFor="let l of tonnage" >{{l.name}}</option>
                 </select>
                 <select class = "drops1" [(ngModel)]="this.service.project.p1.voltage">
                     <option  *ngFor="let l of voltage" >{{l.name}}</option>
                 </select>
-                <select class = "drops1" [(ngModel)]="this.page1.module" [value]="this.page1.module">
+                <select class = "drops1" (change)="moduleSave($event)" [value]="this.page1.module">
                     <option  *ngFor="let l of module" >{{l.name}}</option>
                 </select>
             </div>

@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Injectable, Output } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { AirSideEconomizer } from "../models/airsideeconomizer.model";
 import { BlowerType } from "../models/blowertype.model";
@@ -32,6 +32,7 @@ import { Page3 } from "../models/page3.model";
 import { Subtotal } from "../models/subtotal.model";
 import { Prices } from "../models/prices.model";
 import { Autoloader } from "../models/autoloader.model";
+import { outputAst } from "@angular/compiler";
 
 
 @Injectable({
@@ -131,7 +132,7 @@ export class GetFunctionsService{
 
     public id:number=0;
     public title: string ='';
-    public project:Subtotal={
+    @Output() public project:Subtotal={
         p1:this.page1,
         p2:this.page2,
         p4:this.page4,

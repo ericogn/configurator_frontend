@@ -188,8 +188,12 @@ export class ThirdPageComponent implements OnInit {
   }
 
   updatePage3(){
+    console.log(this.service.project.p1);
      this.postservice.updatePage1(this.service.project.p1,this.service.id).subscribe(dt=>this.service.project.p1 = dt);
-    //this.postservice.updatePage1(this.firstpage.page1,this.service.id).subscribe(dt=>this.firstpage.page1 = dt);
+     this.prev = false;
+     this.curr = true;
+     this.next = false;
+     //this.postservice.updatePage1(this.firstpage.page1,this.service.id).subscribe(dt=>this.firstpage.page1 = dt);
     //console.log(this.page1);
     //this.service.project.p1 = this.page1;
     
@@ -199,7 +203,7 @@ export class ThirdPageComponent implements OnInit {
    //console.log('working');
   }
   savepage3(){
-    
+
   }
   test(){
     
@@ -241,9 +245,11 @@ export class ThirdPageComponent implements OnInit {
       this.service.project.p1.tonnage = '80';
     }  
     console.log(this.service.project.p1.tonnage);
+    this.postservice.updatePage1(this.service.project.p1,this.service.id).subscribe(dt=>this.service.project.p1 = dt);
     this.prev = true;
     this.curr = false;
     this.next = false;
+    
   }
   radiocurr(){
     if(this.page1.tonnage == '15'){
@@ -277,6 +283,7 @@ export class ThirdPageComponent implements OnInit {
       this.service.project.p1.tonnage = '90';
     } 
     console.log(this.service.project.p1.tonnage);
+    this.postservice.updatePage1(this.service.project.p1,this.service.id).subscribe(dt=>this.service.project.p1 = dt);
     this.prev = false;
     this.curr = true;
     this.next = false;
@@ -313,6 +320,7 @@ export class ThirdPageComponent implements OnInit {
       this.service.project.p1.tonnage = '90';
     } 
     console.log(this.service.project.p1.tonnage);
+    this.postservice.updatePage1(this.service.project.p1,this.service.id).subscribe(dt=>this.service.project.p1 = dt);
     this.prev = false;
     this.curr = false;
     this.next = true;
