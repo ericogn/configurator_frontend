@@ -37,7 +37,7 @@ export class PostFunctionService{
         return this.http.post<Page6>(`${this.baseUrl}page6/updatepage6.php?details=${id}`,page6,this.httpOptions);
     }
     createNewProject(details:Details){
-        return this.http.post<Details>(`${this.baseUrl}details/createnewproject.php`,details,this.httpOptions);
+        return this.http.post<number>(`${this.baseUrl}details/createnewproject.php`,details,this.httpOptions);
     }
 
     deletebyid(id:number){

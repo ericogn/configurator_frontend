@@ -196,9 +196,11 @@ export class SecondPageComponent implements OnInit{
     this.page2.scfmout = this.service.loader.scfmout;
     this.page2.espret = this.service.loader.esp;
     this.page2.eatdbret = this.service.loader.eatdb1ret;
-    this.page2.eatdbmix = this.service.loader.eatdb1mix.toString();
+    this.page2.eatdbout = this.service.loader.eatdb1out;
     this.page2.eatwbret = this.service.loader.eatwb1ret;
-    this.page2.eatwbmix = this.service.loader.eatwb1mix.toString();
+    this.page2.eatwbout = this.service.loader.eatwb1out;
+    this.page2.fluidtype = this.service.loader.fluid1;
+    this.page2.percentglycol = this.service.loader.percent1;
     this.page2.gpm = this.service.loader.gpm1;
     this.page2.eft = this.service.loader.eft1;
     this.page2.evapfiltertype = this.service.loader.evapfiltertype;
@@ -208,6 +210,8 @@ export class SecondPageComponent implements OnInit{
     this.page2.eatf = this.service.loader.eatf;
     this.page2.approxlat = this.service.loader.approxlat;
     this.page2.eft2 = this.service.loader.eft2;
+    this.page2.fluidtype2 = this.service.loader.fluid2;
+    this.page2.percentglycol2 = this.service.loader.percent2;
     this.page2.lftgpmvalue = this.service.loader.lftgpm.toString();
     this.page2.eatdb2 = this.service.loader.eatdb2;
     this.page2.eatwb2 = this.service.loader.eatwb2;
@@ -258,7 +262,10 @@ export class SecondPageComponent implements OnInit{
   calculatemix(){
     if(this.page2.mixedair == 1){
       this.page2.scfmmix = (parseFloat(this.page2.scfmret.toString()) + parseFloat(this.page2.scfmout.toString())).toFixed(0);
-    }
+      this.calculatedb();
+      this.calculatewb();
+  }
+    
   }
   calculatedb(){
     if((this.page2.eatdbret < 70 || this.page2.eatdbret > 86)||(this.page2.eatdbout < 70 || this.page2.eatdbout >86)){
@@ -391,10 +398,16 @@ export class SecondPageComponent implements OnInit{
       this.page2.scfmmix = '0';
       this.page2.eatdbmix = '0';
       this.page2.eatwbmix = '0';
+      this.page2.scfmout = 0;
+      this.page2.eatdbout = 0;
+      this.page2.eatwbout = 0;
     }
     else if (this.page2.mixedair == 0){
       this.page2.mixedair = 1;
       this.mixedair = true;
+      
+      this.page2.eatdbout = 76;
+      this.page2.eatwbout = 76;
       this.calculatemix();
       this.calculatedb();
       this.calculatewb();

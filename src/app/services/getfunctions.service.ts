@@ -33,6 +33,9 @@ import { Subtotal } from "../models/subtotal.model";
 import { Prices } from "../models/prices.model";
 import { Autoloader } from "../models/autoloader.model";
 import { outputAst } from "@angular/compiler";
+import { People } from "../models/people.model";
+import { Details } from "../models/details.model";
+import { catchError, Observable, of } from "rxjs";
 
 
 @Injectable({
@@ -146,9 +149,11 @@ export class GetFunctionsService{
       scfmout:0,
       esp:0,
       eatdb1ret:0,
-      eatdb1mix:0,
+      eatdb1out:0,
       eatwb1ret:0,
-      eatwb1mix:0,
+      eatwb1out:0,
+      fluid1:'Water',
+      percent1:'10%',
       gpm1:0,
       eft1:0,
       evapfiltertype:'None',
@@ -158,6 +163,8 @@ export class GetFunctionsService{
       eatf:0,
       approxlat:0,
       eft2:0,
+      fluid2:'Water',
+      percent2:'10%',
       lftgpm:0,
       eatdb2:0,
       eatwb2:0,
@@ -266,10 +273,21 @@ export class GetFunctionsService{
 
     getprices(){
         return this.http.get<Prices>(`${this.baseUrl}/prices/getprices.php`);
-        
     }
 
     getAutoloader(){
         return this.http.get<Autoloader[]>(`${this.baseUrl}autoloader/getAllLines.php`);
+    }
+    getContacts(){
+        return this.http.get<People[]>(`${this.baseUrl}details/getcontacts.php`);
+    }
+    getContractors(){
+        return this.http.get<People[]>(`${this.baseUrl}details/getcontractors.php`);
+    }
+    getEngineers(){
+        return this.http.get<People[]>(`${this.baseUrl}details/getengineers.php`);
+    }
+    getOwners(){
+        return this.http.get<People[]>(`${this.baseUrl}details/getowners.php`);
     }
 }

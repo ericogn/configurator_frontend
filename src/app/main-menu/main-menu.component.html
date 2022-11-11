@@ -29,7 +29,7 @@
                         {{l}}
                     </option>
                 </select>
-                <select [(ngModel)]="this.details.state" style="width: 200px;">
+                <select [(ngModel)]="this.details.state" style="max-width: 227px;">
                     <option *ngFor = "let l of states">
                         {{l}}
                     </option>
@@ -38,22 +38,22 @@
                 <input [(ngModel)]="this.details.zip">
                 <select [(ngModel)] ="this.details.primarycontact">
                     <option *ngFor = "let l of contacts">
-                        {{l}}
+                        {{l.name}}
                     </option>
                 </select>
                 <select [(ngModel)] ="this.details.engarch">
                     <option *ngFor = "let l of engs">
-                        {{l}}
+                        {{l.name}}
                     </option>
                 </select>
                 <select [(ngModel)] ="this.details.owner">
                     <option *ngFor = "let l of owner">
-                        {{l}}
+                        {{l.name}}
                     </option>
                 </select>
                 <select [(ngModel)] ="this.details.contractor">
                     <option *ngFor = "let l of contractor">
-                        {{l}}
+                        {{l.name}}
                     </option>
                 </select>
            </div>

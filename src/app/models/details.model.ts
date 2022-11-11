@@ -1,5 +1,6 @@
 export interface Details{
     name: string;
+    email:string;
     reforderno:string;
     address:string;
     city:string;

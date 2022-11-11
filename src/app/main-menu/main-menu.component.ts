@@ -5,6 +5,7 @@ import { FifthPageComponent } from '../fifth-page/fifth-page.component';
 import { FirstPageComponent } from '../first-page/first-page.component';
 import { FourthPageComponent } from '../fourth-page/fourth-page.component';
 import { Details } from '../models/details.model';
+import { People } from '../models/people.model';
 import { ProjectWithDetails } from '../models/totalproject.model';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { SecondPageComponent } from '../second-page/second-page.component';
@@ -13,6 +14,7 @@ import { PostFunctionService } from '../services/postfunctions.service';
 import { SixthPageComponent } from '../sixth-page/sixth-page.component';
 import { ThirdPageComponent } from '../third-page/third-page.component';
 import { Universal } from '../universal';
+import { from, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-main-menu',
@@ -23,6 +25,10 @@ export class MainMenuComponent implements OnInit {
 
   constructor(private router: Router, private service: GetFunctionsService, private postService:PostFunctionService) { }
   ngOnInit(): void {
+    this.getContacts();
+    this.getContractors();
+    this.getEngineers();
+    this.getOwners();
     this.getAllProjects();
   }
   public new:boolean = false;
@@ -62,6 +68,7 @@ export class MainMenuComponent implements OnInit {
 
   details:Details={
     name: '',
+    email:'admin@admin.com',
     reforderno:'',
     address:'',
     city:'',
@@ -80,26 +87,23 @@ export class MainMenuComponent implements OnInit {
       "USA",
       "Canada"
     ]
-    contacts: string[]=[
-      "Contact 1",
-      "Contact 2",
-      "Contact 3"
-    ]
-    engs:string[]=[
-      "Arch 1",
-      "Arch 2",
-      "Arch 3"
-    ]
-    owner:string[]=[
-      "Owner 1",
-      "Owner 2",
-      "Owner 3"
-    ]
-    contractor:string[]=[
-      "Contractor 1",
-      "Contractor 2",
-      "Contractor 3"
-    ]
+    contacts: People[]=[]
+    engs:People[]=[]
+    owner:People[]=[]
+    contractor:People[]=[]
+
+    getContacts(){
+      this.service.getContacts().subscribe(data => this.contacts = data);
+    }
+    getContractors(){
+      this.service.getContractors().subscribe(data => this.contractor = data);
+    }
+    getEngineers(){
+      this.service.getEngineers().subscribe(data => this.engs = data);
+    }
+    getOwners(){
+      this.service.getOwners().subscribe(data => this.owner = data);
+    }
     canadaStates:string[]=[
       "Alberta",
       "British Columbia",
@@ -211,11 +215,12 @@ export class MainMenuComponent implements OnInit {
         ){
           alert('You must fill each field')
         }
-        else{
-          this.postService.createNewProject(this.details).subscribe(data => this.details = data);
-          window.location.reload();
+        
+        else{         
+          this.postService.createNewProject(this.details).subscribe(data=>this.service.id = data);
         }
     }
+   
 
     delete(id:number){
       if(confirm('Are you sure you want to delete this project? This action cannot be undone')){
