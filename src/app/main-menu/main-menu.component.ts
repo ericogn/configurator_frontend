@@ -217,7 +217,11 @@ export class MainMenuComponent implements OnInit {
         }
         
         else{         
-          this.postService.createNewProject(this.details).subscribe(data=>this.service.id = data);
+          // this.postService.createNewProject(this.details).subscribe(data => {
+          //   this.service.id = data;
+          //   this.goToProject(this.service.id,this.service.title) 
+          // });
+          this.postService.createNewProject(this.details).subscribe(data => this.service.id = data);
         }
     }
    

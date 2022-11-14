@@ -1,6 +1,6 @@
 <body class = "bdy">
     <div class = "divTitle">
-        <label class = "title">Control</label>
+        <label class = "title" (click)="test()">Control</label>
         <div class="tooltip">
             <img src = "../../assets/excl.png" class = "imgs">
             <span class="tooltiptext">
@@ -21,7 +21,8 @@
                     <label>Wall Mount Temperature/Humidity Sensor</label>
                 </div>
                 <div  class = "columnsel">
-                    <select  class = "selects" [(ngModel)]="this.page5.vavapptype">
+                    <select [(ngModel)]="this.page5.vavapptype" [value]="this.page5.vavapptype">
+                        <option value="none" selected disabled hidden>Select</option>
                         <option *ngFor = "let l of vavapptype">{{l.name}}</option>
                     </select>
                     <select class = "selects" [(ngModel)]="this.page5.walltempsens">
@@ -45,7 +46,7 @@
                     <select  class = "selects"  [(ngModel)]="this.page5.ducthumidsens">
                         <option *ngFor = "let l of ducthumidsens">{{l.name}}</option>
                     </select>
-                    <select  class = "selects" [(ngModel)]="this.page5.bmscomm">
+                    <select [(ngModel)]="this.page5.bmscomm">
                         <option *ngFor = "let l of bmscomm">{{l.name}}</option>
                     </select>
                 </div> 

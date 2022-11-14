@@ -8,18 +8,22 @@
 }
 .prtitle{
     font-size: x-large;
-    margin-top: 27px;
-    margin-left: 14%;
+    width: 30%;
     color:white;
+    padding-top: 30px;
+    padding-left: 10%;
+    text-align: center;
 }
 .right{
+    width: 30%;
     display: flex;
     flex-direction: column;
-    text-align: right;
+    
     margin-left: 25%;
     margin-top:10px;
 }
 .left{
+    width: 30%;
     margin-left: 18%;
 }
 .user{

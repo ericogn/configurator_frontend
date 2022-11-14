@@ -132,6 +132,10 @@ export class SixthPageComponent implements OnInit {
     // this.ngOnInit();
   }
 
+  test(){
+    console.log(this.page5.bmscomm);
+    console.log(this.page5.vavapptype); 
+  }
 
 
 }

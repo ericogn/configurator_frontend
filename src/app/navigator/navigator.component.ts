@@ -136,4 +136,8 @@ export class NavigatorComponent implements OnInit {
     this.seventh.updatePage7();
     window.open(`http://configurator/editPdf/pdf.php?details=${this.service.id}`);
   }
+
+  gotosite(){
+    window.open(`https://hvaceng.ca/`);
+  }
 }

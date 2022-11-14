@@ -61,9 +61,9 @@
                 <label class = "subtitle">Status</label>
                 <div class = "row">
                     <div class = "radios">
-                        <mat-radio-button></mat-radio-button>
-                        <mat-radio-button></mat-radio-button>
-                        <mat-radio-button></mat-radio-button>
+                       <input type = "radio" name = status [checked] =  true>
+                       <input type = "radio" name = status>
+                       <input type = "radio" name = status>
                     </div>
                     <div class = "column">
                         <div class = "lbl">General Inquiry</div>
@@ -76,14 +76,14 @@
                 <label class = "subtitle">Type</label>
             <div class = "row">
                 <div class = "radios">
-                    <mat-radio-button></mat-radio-button>
-                    <mat-radio-button></mat-radio-button>
-                    <mat-radio-button></mat-radio-button>
+                    <input type = "radio" name = type [checked]="true">
+                    <input type = "radio" name = type>
+                    <input type = "radio" name = type >
                 </div>
                 <div class = "column">
+                    <div class = "lbl">New Construction</div>
                     <div class = "lbl">Retrofit/Replacement</div>
                     <div class = "lbl">UCA Replacement</div>
-                    <div class = "lbl">New Construction</div>
                 </div>
                 
             </div>
@@ -91,9 +91,9 @@
             <label class = "subtitle">Design</label>
             <div class = "row">
                 <div class = "radios">
-                    <mat-radio-button></mat-radio-button>
-                    <mat-radio-button></mat-radio-button>
-                    <mat-radio-button></mat-radio-button>
+                    <input type = "radio" name = design [checked]="true">
+                    <input type = "radio" name = design>
+                    <input type = "radio" name = design>
                 </div>
                 <div class = "column">
                     <div class = "lbl">UCA Basis of Design</div>

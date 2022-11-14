@@ -166,8 +166,8 @@ export class FirstPageComponent implements OnInit {
     //this.thirdpage.init();
 
     console.log('service');
-    this.postservice.updatePage1(this.page1, this.service.id).subscribe(data => this.page1 = data);
-    this.postservice.updatePage1(this.service.project.p1, this.service.id).subscribe(data => this.service.project.p1 = data);
+    // this.postservice.updatePage1(this.page1, this.service.id).subscribe(data => this.page1 = data);
+    // this.postservice.updatePage1(this.service.project.p1, this.service.id).subscribe(data => this.service.project.p1 = data);
     //this.service.getPage1(this.service.id).subscribe(data=>this.page1= data);
     //this.updatePage1();
   }
@@ -244,6 +244,8 @@ export class FirstPageComponent implements OnInit {
       this.service.project.p1.quantity = 1;
       alert('Quantity must be at least one');
     }
+    this.postservice.updatePage1(this.page1, this.service.id).subscribe(data => this.page1 = data);
+    this.postservice.updatePage1(this.service.project.p1, this.service.id).subscribe(data => this.service.project.p1 = data);
     //this.postservice.updatePage1(this.page1,this.service.id).subscribe(data => this.page1 = data);
     //this.postservice.updatePage1(this.service.project.p1,this.service.id).subscribe(data => this.service.project.p1 = data);
     // this.ngOnInit();
