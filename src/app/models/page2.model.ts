@@ -30,7 +30,7 @@ export interface Page2{
     percentglycol2:string;
     fluidtype2:string;
     lftgpm:number;
-    lftgpmvalue:string;
+    lftgpmvalue:number;
     eatdb2:number;
     eatwb2:number;
     eft3:number;

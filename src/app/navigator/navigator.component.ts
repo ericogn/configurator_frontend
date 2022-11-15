@@ -66,6 +66,7 @@ export class NavigatorComponent implements OnInit {
     this.seventh.init();
     this.subtotal.init();
     this.updateProject();
+    this.secondpage.autolimit();
 
     //this.thirdpage.ngOnInit();
     //this.trigger(this.firstpage.page1.tonnage);
@@ -78,6 +79,7 @@ export class NavigatorComponent implements OnInit {
     this.secondpage.init();
     this.thirdpage.init();
     this.secondpage.autoload();
+    this.secondpage.autolimit();
     //this.trigger(this.firstpage.page1.tonnage);
   }
   savePage2(){
@@ -91,6 +93,7 @@ export class NavigatorComponent implements OnInit {
     this.firstpage.init();
     this.thirdpage.init();
     this.secondpage.autoload();
+    this.secondpage.autolimit();
   }
   savePage4(){
     this.fourthpage.updatePage4();

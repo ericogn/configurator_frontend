@@ -36,6 +36,7 @@ import { outputAst } from "@angular/compiler";
 import { People } from "../models/people.model";
 import { Details } from "../models/details.model";
 import { catchError, Observable, of } from "rxjs";
+import { Limitations } from "../models/limitations.model";
 
 
 @Injectable({
@@ -93,7 +94,7 @@ export class GetFunctionsService{
         percentglycol2:'',
         fluidtype2:'',
         lftgpm:0,
-        lftgpmvalue:'',
+        lftgpmvalue:0,
         eatdb2:0,
         eatwb2:0,
         eft3:0,
@@ -173,6 +174,47 @@ export class GetFunctionsService{
       tonnage:'',
       voltage:''
     }
+
+    public limiations:Limitations[]=[];
+    public boundary:Limitations={
+        tonnage:'',
+        voltage:'',
+        scfmretmin :0,
+        scfmretmax :0,
+        scfmoutmin :0,
+        scfmoutmax :0,
+        espmin :0,
+        espmax :0,
+        eatdb1retmin :0,
+        eatdb1retmax :0,
+        eatdb1outmin :0,
+        eatdb1outmax :0,
+        eatwb1retmin :0,
+        eatwb1retmax :0,
+        eatwb1outmin :0,
+        eatwb1outmax :0,
+        gpmmin :0,
+        gpmmax :0,
+        eft1min :0,
+        eft1max	:0,
+        eatfmin	:0,
+        eatfmax	:0,
+        approxlatmin :0,
+        approxlatmax :0,
+        eft2min	:0,
+        eft2max	:0,
+        lftgpmmin :0,
+        lftgpmmax :0,
+        eatdb2min :0,
+        eatdb2max :0,	
+        eatwb2min :0,
+        eatwb2max :0,
+        eft3min	:0,
+        eft3max	:0,
+        btuhmin	:0,
+        btuhmax :0
+    }
+
     getAirSideEcon(){
         return this.http.get<AirSideEconomizer[]>(`${this.baseUrl}airsideecon/read.php`);
     }  
@@ -289,5 +331,9 @@ export class GetFunctionsService{
     }
     getOwners(){
         return this.http.get<People[]>(`${this.baseUrl}details/getowners.php`);
+    }
+
+    getLimitations(){
+        return this.http.get<Limitations[]>(`${this.baseUrl}limitations/getlines.php`);
     }
 }

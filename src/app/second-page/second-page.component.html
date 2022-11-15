@@ -29,23 +29,23 @@
             <label>EAT WB 	°F</label>
         </div>
         <div class = "inputs1">
-            <input type = "number" [(ngModel)]="this.page2.scfmret"  (blur)="calculatemix()">
+            <input type = "number" [(ngModel)]="this.page2.scfmret"  (blur)="calculatemixret()">
             <input type = "number" [(ngModel)]="this.page2.espret"   (blur)="espvalidator()">
-            <input type = "number" [(ngModel)]="this.page2.eatdbret" (blur)="calculatedb()" >
-            <input type = "number" [(ngModel)]="this.page2.eatwbret" (blur)="calculatewb()" >
+            <input type = "number" [(ngModel)]="this.page2.eatdbret" (blur)="blurdbret()" >
+            <input type = "number" [(ngModel)]="this.page2.eatwbret" (blur)="blurwbret()" >
         </div>
         <div class = "inputs2">
             <div>
-                <input [disabled]="!this.mixedair" (blur)="calculatemix()" [(ngModel)]="this.page2.scfmout" >
+                <input [disabled]="!this.mixedair" (blur)="calculatemixout()" [(ngModel)]="this.page2.scfmout" >
             </div>
             <div>
                 <input class = "invisible">
             </div>
             <div>
-                <input [disabled]="!this.mixedair" [(ngModel)]="this.page2.eatdbout" (blur)="calculatedb()">
+                <input [disabled]="!this.mixedair" [(ngModel)]="this.page2.eatdbout" (blur)="blurdbout()">
             </div>
             <div>
-                <input [disabled]="!this.mixedair" [(ngModel)]="this.page2.eatwbout" (blur)="calculatewb()" >
+                <input [disabled]="!this.mixedair" [(ngModel)]="this.page2.eatwbout" (blur)="blurwbout()" >
             </div>
         </div>
         <div class = "inputs3"> 
@@ -205,7 +205,7 @@
             </div>
             <div  class = "colll">
                 <input class = "i" [(ngModel)]="this.page2.eatf" (blur)="validateeatf()">
-                <input class = "i" [(ngModel)]="this.page2.approxlat">
+                <input class = "i" [(ngModel)]="this.page2.approxlat" (blur)="validateaproxlat()">
                 <input class = "i" [(ngModel)]="this.page2.eft2" (blur)="validateeft2()">
                 
             </div>
@@ -229,7 +229,7 @@
                     <option *ngFor = "let l of fluidType">{{l.name}}</option>
                 </select>
                 
-                <input class = "i" [(ngModel)]="this.page2.eft">
+                <input class = "i" [(ngModel)]="this.page2.lftgpmvalue" (blur)="validategpmvalue()">
             </div>
         </div>
             
@@ -263,7 +263,7 @@
             </div>
             <div class = "colll">
                 <input class = "i" [(ngModel)]="this.page2.eft3" (blur)="validateeft3()">
-                <input class = "i" [(ngModel)]="this.page2.approxbtuh">
+                <input class = "i" [(ngModel)]="this.page2.approxbtuh" (blur)="validateaproxbtuh()">
             </div>
         </div>
     </div>
