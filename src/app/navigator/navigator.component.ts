@@ -75,10 +75,16 @@ export class NavigatorComponent implements OnInit {
   
 
   savePage1(){
+    console.log('navigator');
+      console.log(this.firstpage.tonnageGetter());
+    if(this.firstpage.tonnageGetter()==true || this.firstpage.voltageGetter()==true){
+      this.secondpage.autoload();
+      console.log('navigator');
+      console.log(this.firstpage.tonnageGetter());
+    }
     this.firstpage.updatePage1();
     this.secondpage.init();
     this.thirdpage.init();
-    this.secondpage.autoload();
     this.secondpage.autolimit();
     //this.trigger(this.firstpage.page1.tonnage);
   }
@@ -92,8 +98,13 @@ export class NavigatorComponent implements OnInit {
     this.secondpage.init();
     this.firstpage.init();
     this.thirdpage.init();
-    this.secondpage.autoload();
     this.secondpage.autolimit();
+    console.log('navigator');
+    console.log(this.firstpage.tonnageGetter());
+    if(this.firstpage.tonnageGetter()==true || this.firstpage.voltageGetter()==true){
+      this.secondpage.autoload();
+    }
+    
   }
   savePage4(){
     this.fourthpage.updatePage4();
@@ -131,7 +142,7 @@ export class NavigatorComponent implements OnInit {
   }
 
   invoice(){
-    this.firstpage.updatePage1();
+    this.firstpage.justSave();
     this.secondpage.updatePage2();
     this.thirdpage.updatePage3();
     this.fourthpage.updatePage4();

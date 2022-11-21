@@ -90,6 +90,10 @@ export class SecondPageComponent implements OnInit {
       this.glycol = false;
     } else this.glycol = true;
 
+    if (this.page2.fluidtype2 != 'Water') {
+      this.glycol2 = false;
+    } else this.glycol2 = true;
+
     this.heat = this.page2.electrictemprise;
   }
 
@@ -100,6 +104,7 @@ export class SecondPageComponent implements OnInit {
   reheatType: ReheatType[] = [];
   sideEconomizer: AirSideEconomizer[] = [];
   glycol: boolean = true;
+  glycol2:boolean = true;
   lastCheck: boolean = true;
   inputvalue: boolean = true;
 
@@ -186,7 +191,7 @@ export class SecondPageComponent implements OnInit {
     }
   }
 
-  autoload() {
+  public autoload() {
     // this.service.autoloaders.forEach(element => {
     //   if(element.tonnage == this.service.project.p1.tonnage && element.voltage == this.service.project.p1.voltage){
     //     this.service.loader = element;
@@ -224,6 +229,8 @@ export class SecondPageComponent implements OnInit {
     this.page2.eatdb2 = this.service.loader.eatdb2;
     this.page2.eatwb2 = this.service.loader.eatwb2;
     this.page2.approxbtuh = this.service.loader.approxbtuh;
+    this.page2.mixedair = 0;
+
   }
 
   fluidChange(event: Event) {
@@ -235,6 +242,20 @@ export class SecondPageComponent implements OnInit {
         }
         else {
           this.glycol = false;
+        }
+      }
+    }
+  }
+
+  fluidChange2(event: Event) {
+    for (let i = 0; i < this.fluidType.length; i++) {
+      if ((event.target as HTMLSelectElement).value == this.fluidType[i].name.toString()) {
+        if (i == 0) {
+          console.log(i)
+          this.glycol2 = true;
+        }
+        else {
+          this.glycol2 = false;
         }
       }
     }
@@ -269,13 +290,14 @@ export class SecondPageComponent implements OnInit {
 
   calculatemixret() {
     if (this.page2.mixedair == 1) {
-      if (this.page2.scfmret < this.service.boundary.scfmretmin || this.page2.scfmret > this.service.boundary.scfmretmax) {
+      if (parseFloat(this.page2.scfmret.toString()) > parseFloat(this.service.boundary.scfmretmax.toString()) || parseFloat(this.page2.scfmret.toString()) < parseFloat(this.service.boundary.scfmretmin.toString())) {
         alert(`SCFM Return air must be between ${this.service.boundary.scfmretmin} and ${this.service.boundary.scfmretmax}`);
         this.page2.scfmret = this.service.loader.scfmret;
       } else {
         this.page2.scfmmix = (parseFloat(this.page2.scfmret.toString()) + parseFloat(this.page2.scfmout.toString())).toFixed(0);
         //this.calculatedb();
         //this.calculatewb();
+        this.recalcHeat();
         this.blurdbret();
         this.blurwbret();
       }
@@ -284,15 +306,22 @@ export class SecondPageComponent implements OnInit {
 
   calculatemixout() {
     if (this.page2.mixedair == 1) {
-      if (this.page2.scfmout < this.service.boundary.scfmoutmin || this.page2.scfmout > this.service.boundary.scfmoutmax) {
+      if (parseFloat(this.page2.scfmout.toString()) > parseFloat(this.service.boundary.scfmoutmax.toString()) || parseFloat(this.page2.scfmout.toString()) < parseFloat(this.service.boundary.scfmoutmin.toString())) {
         alert(`SCFM Outside air must be between ${this.service.boundary.scfmoutmin} and ${this.service.boundary.scfmoutmax}`);
         this.page2.scfmout = this.service.loader.scfmout;
       } else {
         this.page2.scfmmix = (parseFloat(this.page2.scfmret.toString()) + parseFloat(this.page2.scfmout.toString())).toFixed(0);
         //this.calculatedb();
         //this.calculatewb();
-        this.blurdbret();
-        this.blurwbret();
+        if((!this.eatdbret())){
+          
+        }
+        else{
+          if (this.page2.mixedair == 1) {   
+            this.calculatedb();
+            this.calculatewb();
+          }
+        }
       }
     }
   }
@@ -303,7 +332,7 @@ export class SecondPageComponent implements OnInit {
 
   blurdbret() {
     if (this.eatdbret()) {
-      if (this.page2.eatdbret < this.service.boundary.eatdb1retmin || this.page2.eatdbret > this.service.boundary.eatdb1retmax) {
+      if (parseFloat(this.page2.eatdbret.toString()) > parseFloat(this.service.boundary.eatdb1retmax.toString()) || parseFloat(this.page2.eatdbret.toString()) < parseFloat(this.service.boundary.eatdb1retmin.toString())) {
         alert(`EAT DB Return air must be between ${this.service.boundary.eatdb1retmin} and ${this.service.boundary.eatdb1retmax}`);
         this.page2.eatdbret = this.service.loader.eatdb1ret;
       } else {
@@ -330,7 +359,7 @@ export class SecondPageComponent implements OnInit {
 
   blurdbout() {
     if (this.eatdbout()) {
-      if (this.page2.eatdbout < this.service.boundary.eatdb1outmin || this.page2.eatdbout > this.service.boundary.eatdb1outmax) {
+      if (parseFloat(this.page2.eatdbout.toString()) > parseFloat(this.service.boundary.eatdb1outmax.toString()) || parseFloat(this.page2.eatdbout.toString()) < parseFloat(this.service.boundary.eatdb1outmin.toString())) {
         alert(`EAT DB Outside air must be between ${this.service.boundary.eatdb1outmin} and ${this.service.boundary.eatdb1outmax}`);
         this.page2.eatdbout = this.service.loader.eatdb1out;
       } else {
@@ -346,7 +375,7 @@ export class SecondPageComponent implements OnInit {
   }
   blurwbret() {
     if (this.eatwbret()) {
-      if (this.page2.eatwbret < this.service.boundary.eatwb1retmin || this.page2.eatwbret > this.service.boundary.eatwb1retmax) {
+      if (parseFloat(this.page2.eatwbret.toString()) > parseFloat(this.service.boundary.eatwb1retmax.toString()) || parseFloat(this.page2.eatwbret.toString()) < parseFloat(this.service.boundary.eatwb1retmin.toString())) {
         alert(`EAT WB Return air must be between ${this.service.boundary.eatwb1retmin} and ${this.service.boundary.eatwb1retmax}`);
         this.page2.eatwbret = this.service.loader.eatwb1ret;
       } else {
@@ -372,7 +401,7 @@ export class SecondPageComponent implements OnInit {
 
   blurwbout() {
     if (this.eatwbout()) {
-      if (this.page2.eatwbout < this.service.boundary.eatwb1outmin || this.page2.eatwbout > this.service.boundary.eatwb1outmax) {
+      if (parseFloat(this.page2.eatwbout.toString()) > parseFloat(this.service.boundary.eatwb1outmax.toString()) || parseFloat(this.page2.eatwbout.toString()) < parseFloat(this.service.boundary.eatwb1outmin.toString())) {
         alert(`EAT WB Outside air must be between ${this.service.boundary.eatwb1outmin} and ${this.service.boundary.eatwb1outmax}`);
         this.page2.eatwbout = this.service.loader.eatwb1out;
       } else {
@@ -444,6 +473,50 @@ export class SecondPageComponent implements OnInit {
     }
   }
 
+  recalcHeat() {
+    switch (this.page2.heattype) {
+      case 'None':
+        this.heat = '';
+        this.page2.electrictemprise = '0';
+        break;
+      case '15 kW 2-Stage':
+        this.heat = ((15 * 3412.14) / (1.08 * parseFloat(this.page2.scfmret.toString()))).toFixed(1);
+        this.page2.electrictemprise = this.heat;
+        break;
+      case '20 kW 2-Stage':
+        this.heat = ((20 * 3412.14) / (1.08 * parseFloat(this.page2.scfmret.toString()))).toFixed(1);
+        this.page2.electrictemprise = this.heat;
+        break;
+      case '25 kW 2-Stage':
+        this.heat = ((25 * 3412.14) / (1.08 * parseFloat(this.page2.scfmret.toString()))).toFixed(1);
+        this.page2.electrictemprise = this.heat;
+        break;
+      case '30 kW 2-Stage':
+        this.heat = ((30 * 3412.14) / (1.08 * parseFloat(this.page2.scfmret.toString()))).toFixed(1);
+        this.page2.electrictemprise = this.heat;
+        break;
+      case '40 kW 2-Stage':
+        this.heat = ((40 * 3412.14) / (1.08 * parseFloat(this.page2.scfmret.toString()))).toFixed(1);
+        this.page2.electrictemprise = this.heat;
+        break;
+      case '45 kW 2-Stage':
+        this.heat = ((45 * 3412.14) / (1.08 * parseFloat(this.page2.scfmret.toString()))).toFixed(1);
+        this.page2.electrictemprise = this.heat;
+        break;
+      case '50 kW 2-Stage':
+        this.heat = ((50 * 3412.14) / (1.08 * parseFloat(this.page2.scfmret.toString()))).toFixed(1);
+        this.page2.electrictemprise = this.heat;
+        break;
+      case '60 kW 2-Stage':
+        this.heat = ((60 * 3412.14) / (1.08 * parseFloat(this.page2.scfmret.toString()))).toFixed(1);
+        this.page2.electrictemprise = this.heat;
+        break;
+      default:
+        this.heat = '0';
+        this.page2.electrictemprise = '0';
+    }
+  }
+
   changeevapfiltertype(event: Event) {
     this.page2.evapfiltertype = (event.target as HTMLSelectElement).value;
   }
@@ -467,7 +540,7 @@ export class SecondPageComponent implements OnInit {
   }
   eatdbret(): boolean {
     //erase that = before update
-    if (this.page2.eatdbret <= this.page2.eatwbret) {
+    if (parseFloat(this.page2.eatdbret.toString()) <= parseFloat(this.page2.eatwbret.toString())) {
       this.page2.eatdbret = this.service.loader.eatdb1ret;
       alert('Wet Bulb must be less than Dry Bulb');
       return false;
@@ -476,8 +549,8 @@ export class SecondPageComponent implements OnInit {
   }
 
   eatdbout(): boolean {
-    //erase that = before update
-    if (this.page2.eatdbout <= this.page2.eatwbout) {
+    //erase  = before update
+    if (parseFloat(this.page2.eatdbout.toString()) <= parseFloat(this.page2.eatwbout.toString())) {
       this.page2.eatdbout = this.service.loader.eatdb1out;
       alert('Wet Bulb must be less than Dry Bulb');
       return false;
@@ -488,7 +561,7 @@ export class SecondPageComponent implements OnInit {
 
   eatwbret(): boolean {
     //erase that = before update
-    if (this.page2.eatdbret <= this.page2.eatwbret) {
+    if (parseFloat(this.page2.eatdbret.toString()) <= parseFloat(this.page2.eatwbret.toString())) {
       this.page2.eatwbret = this.service.loader.eatwb1ret;
       alert('Wet Bulb must be less than Dry Bulb');
       return false;
@@ -498,19 +571,12 @@ export class SecondPageComponent implements OnInit {
 
   eatwbout(): boolean {
     //erase that = before update
-    if (this.page2.eatdbout <= this.page2.eatwbout) {
+    if (parseFloat(this.page2.eatdbout.toString()) <= parseFloat(this.page2.eatwbout.toString())) {
       this.page2.eatwbout = this.service.loader.eatwb1out;
       alert('Wet Bulb must be less than Dry Bulb');
       return false;
     }
     return true;
-  }
-
-  numberWithCommas(x: number) {
-    var parts = x.toString().split(".");
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    console.log("log");
-    return parts.join(".");
   }
   changemixedair() {
     if (this.page2.mixedair == 1) {
@@ -526,7 +592,9 @@ export class SecondPageComponent implements OnInit {
     else if (this.page2.mixedair == 0) {
       this.page2.mixedair = 1;
       this.mixedair = true;
-
+      this.page2.scfmout = this.service.loader.scfmout;
+      this.page2.eatdbout = this.service.loader.eatdb1out;
+      this.page2.eatwbout = this.service.loader.eatwb1out;
       this.page2.eatdbout = this.service.loader.eatdb1out;
       this.page2.eatwbout = this.service.loader.eatwb1out;
       this.calculatemixret();
@@ -535,43 +603,49 @@ export class SecondPageComponent implements OnInit {
     }
   }
   validategpm() {
-    if (this.page2.gpm < this.service.boundary.gpmmin || this.page2.gpm > this.service.boundary.gpmmax) {
+    if (parseFloat(this.page2.gpm.toString()) < parseFloat(this.service.boundary.gpmmin.toString()) ) {
       alert(`GPM must be between ${this.service.boundary.gpmmin} and ${this.service.boundary.gpmmax}`);
       this.page2.gpm = this.service.loader.gpm1;
     }
+
+    if (parseFloat(this.page2.gpm.toString()) > parseFloat(this.service.boundary.gpmmax.toString()) ) {
+      alert(`GPM must be between ${this.service.boundary.gpmmin} and ${this.service.boundary.gpmmax}`);
+      this.page2.gpm = this.service.loader.gpm1;
+    }
+    
   }
   validateeft() {
-    if (this.page2.eft < this.service.boundary.eft1min || this.page2.eft > this.service.boundary.eft1max) {
+    if (parseFloat(this.page2.eft.toString()) > parseFloat(this.service.boundary.eft1max.toString()) || parseFloat(this.page2.eft.toString()) < parseFloat(this.service.boundary.eft1min.toString())) {
       alert(`EFT must be between ${this.service.boundary.eft1min} and ${this.service.boundary.eft1max}`)
       this.page2.eft = this.service.loader.eft1;
     }
   }
   validateeatf() {
-    if (this.page2.eatf < this.service.boundary.eatfmin || this.page2.eatf > this.service.boundary.eatfmax) {
+    if (parseFloat(this.page2.eatf.toString()) > parseFloat(this.service.boundary.eatfmax.toString()) || parseFloat(this.page2.eatf.toString()) < parseFloat(this.service.boundary.eatfmin.toString())) {
       alert(`EAT must be between ${this.service.boundary.eatfmin} and ${this.service.boundary.eatfmax}`);
       this.page2.eatf = this.service.loader.eatf;
     }
   }
   validateaproxlat(){
-    if (this.page2.approxlat < this.service.boundary.approxlatmin || this.page2.approxlat > this.service.boundary.approxlatmax) {
+    if (parseFloat(this.page2.approxlat.toString()) > parseFloat(this.service.boundary.approxlatmax.toString()) || parseFloat(this.page2.approxlat.toString()) < parseFloat(this.service.boundary.approxlatmin.toString())) {
       alert(`Approx LAT must be between ${this.service.boundary.approxlatmin} and ${this.service.boundary.approxlatmax}`);
       this.page2.approxlat = this.service.loader.approxlat;
     }
   }
   validateeft2() {
-    if (this.page2.eft2 < this.service.boundary.eft2min || this.page2.eft2 > this.service.boundary.eft2max) {
+    if (parseFloat(this.page2.eft2.toString()) > parseFloat(this.service.boundary.eft2max.toString()) || parseFloat(this.page2.eft2.toString()) < parseFloat(this.service.boundary.eft2min.toString())) {
       alert(`EFT must be between ${this.service.boundary.eft2min} and ${this.service.boundary.eft2max}`);
       this.page2.eft2 = this.service.loader.eft2;
     }
   }
   validateeft3() {
-    if (this.page2.eft3 < this.service.boundary.eft3min || this.page2.eft3 > this.service.boundary.eft3max) {
+    if (parseFloat(this.page2.eft3.toString()) > parseFloat(this.service.boundary.eft3max.toString()) || parseFloat(this.page2.eft3.toString()) < parseFloat(this.service.boundary.eft3min.toString())) {
       alert(`EFT must be between ${this.service.boundary.eft3min} and ${this.service.boundary.eft3max}`);
       this.page2.eft3 = this.service.loader.eft3;
     }
   }
   validateeatdb2() {
-    if (this.page2.eatdb2 < this.service.boundary.eatdb2min || this.page2.eatdb2 > this.service.boundary.eatdb2max) {
+    if (parseFloat(this.page2.eatdb2.toString()) > parseFloat(this.service.boundary.eatdb2max.toString()) || parseFloat(this.page2.eatdb2.toString()) < parseFloat(this.service.boundary.eatdb2min.toString())) {
       alert(`EAT DB must be between ${this.service.boundary.eatdb2min} and ${this.service.boundary.eatdb2max}`);
       this.page2.eatdb2 = this.service.loader.eatdb2;
     } else {
@@ -583,7 +657,7 @@ export class SecondPageComponent implements OnInit {
     }
   }
   validateeatwb2() {
-    if (this.page2.eatwb2 < this.service.boundary.eatwb2min || this.page2.eatwb2 > this.service.boundary.eatwb2max) {
+    if (parseFloat(this.page2.eatwb2.toString()) > parseFloat(this.service.boundary.eatwb2max.toString()) || parseFloat(this.page2.eatwb2.toString()) < parseFloat(this.service.boundary.eatwb2min.toString())) {
       alert(`EAT WB must be between ${this.service.boundary.eatwb2min} and ${this.service.boundary.eatwb2max}`);
       this.page2.eatwb2 = this.service.loader.eatwb2;
     }
@@ -596,20 +670,20 @@ export class SecondPageComponent implements OnInit {
     }
   }
   espvalidator() {
-    if (this.page2.espret > this.service.boundary.espmax || this.page2.espret < this.service.boundary.espmin) {
+    if (parseFloat(this.page2.espret.toString()) > parseFloat(this.service.boundary.espmax.toString()) || parseFloat(this.page2.espret.toString()) < parseFloat(this.service.boundary.espmin.toString())) {
       alert(`ESP Must be Between ${this.service.boundary.espmin} and ${this.service.boundary.espmax}`);
       this.page2.espret = this.service.loader.esp;
     }
   }
 
   validateaproxbtuh(){
-    if (this.page2.approxbtuh > this.service.boundary.btuhmax || this.page2.approxbtuh < this.service.boundary.btuhmin) {
+    if (parseFloat(this.page2.approxbtuh.toString()) > parseFloat(this.service.boundary.btuhmax.toString()) || parseFloat(this.page2.approxbtuh.toString()) < parseFloat(this.service.boundary.btuhmin.toString())) {
       alert(`Approx Capacity Btuh Must be Between ${this.service.boundary.btuhmin} and ${this.service.boundary.btuhmax}`);
       this.page2.approxbtuh = this.service.loader.approxbtuh;
     }
   }
   validategpmvalue(){
-    if (this.page2.lftgpmvalue > this.service.boundary.lftgpmmax || this.page2.lftgpmvalue < this.service.boundary.lftgpmmin) {
+    if (parseFloat(this.page2.lftgpmvalue.toString()) > parseFloat(this.service.boundary.lftgpmmax.toString()) || parseFloat(this.page2.lftgpmvalue.toString()) < parseFloat(this.service.boundary.lftgpmmin.toString())) {
       alert(`Value Must be Between ${this.service.boundary.lftgpmmin} and ${this.service.boundary.lftgpmmax}`);
       this.page2.lftgpmvalue = this.service.loader.lftgpm;
     }

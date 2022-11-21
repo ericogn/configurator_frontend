@@ -20,8 +20,10 @@ import { SecondPageComponent } from '../second-page/second-page.component';
 })
 
 export class FirstPageComponent implements OnInit {
-
+  
   constructor(private router:Router, public service:GetFunctionsService, private postservice:PostFunctionService) { }
+
+  @ViewChild(SecondPageComponent) secondpage:SecondPageComponent = new SecondPageComponent(this.router, this.service, this.postservice);
   ngOnInit(): void {
     this.service.getVoltage().subscribe(data => this.voltage = data);
     this.service.getTonnage().subscribe(data => this.tonnage = data);
@@ -34,7 +36,6 @@ export class FirstPageComponent implements OnInit {
     this.service.getPage1(this.service.id).subscribe(data => this.service.project.p1 = data);
     //this.initializemodule();
     this.init();
-
     console.log('page1');
   }
   init(){
@@ -45,7 +46,9 @@ export class FirstPageComponent implements OnInit {
   }
   moduleSave(event:Event){
     this.page1.module = (event.target as HTMLSelectElement).value;
+    this.justSave();
   }
+
   m1:Module[]=[
     {
       name:"Please Select",
@@ -83,14 +86,14 @@ export class FirstPageComponent implements OnInit {
   page1:Page1={
     quantity:0,
     unittag:'',
-    basemodel:0,
+    basemodel:1,
     producttype:'',
-    tonnage:'',
-    voltage:'',
-    module:'',
-    blowertype:'',
-    evapairpath:'',
-    digitalscrollcomp:''
+    tonnage:'Please Select',
+    voltage:'208/230V-3P-60',
+    module:'Please Select',
+    blowertype:'DPD Direct Drive Parallel',
+    evapairpath:'Rear Return / Front Supply',
+    digitalscrollcomp:'None'
   };
   public visible1:boolean=false;
   
@@ -145,6 +148,13 @@ export class FirstPageComponent implements OnInit {
     }else this.basemodel = false;
     //this.service.getPage1(this.service.id).subscribe(data => this.page1 = data);
   }
+  tonnageChange:boolean= false;
+
+  tonnageGetter():boolean{
+    if(this.tonnageChange == true){
+      return true;
+    }else return false;
+  }
 
   modulechange(event:Event){
     this.page1.tonnage = (event.target as HTMLSelectElement).value;
@@ -166,8 +176,9 @@ export class FirstPageComponent implements OnInit {
     //this.thirdpage.init();
 
     console.log('service');
-    // this.postservice.updatePage1(this.page1, this.service.id).subscribe(data => this.page1 = data);
-    // this.postservice.updatePage1(this.service.project.p1, this.service.id).subscribe(data => this.service.project.p1 = data);
+    this.tonnageChange = true;
+    this.postservice.updatePage1(this.page1, this.service.id).subscribe(data => this.page1 = data);
+    this.postservice.updatePage1(this.service.project.p1, this.service.id).subscribe(data => this.service.project.p1 = data);
     //this.service.getPage1(this.service.id).subscribe(data=>this.page1= data);
     //this.updatePage1();
   }
@@ -191,38 +202,37 @@ export class FirstPageComponent implements OnInit {
         }
       }
     }
+
+    this.postservice.updatePage1(this.page1, this.service.id).subscribe(data => this.page1 = data);
+    this.postservice.updatePage1(this.service.project.p1, this.service.id).subscribe(data => this.service.project.p1 = data);
   }  
 
-  change(event:Event){
-    for(let i = 0;i<this.evapair.length; i++){
-      if ((event.target as HTMLSelectElement).value == this.evapair[i].name.toString()){
-       if(i==0){
-        this.pic1=false;
-        this.pic2=false;
-        this.pic3=false;
-       }
-       else if (i==1){
-        this.pic1=true;
-        this.pic2=false;
-        this.pic3=false;
-       }
-       else if (i==2){
-        this.pic1=false;
-        this.pic2=true;
-        this.pic3=false;
-       }
-       else if(i==3){
-        this.pic1=false;
-        this.pic2=false;
-        this.pic3=true;
-       }
-      }
-    }
+  change(){
+    this.postservice.updatePage1(this.page1, this.service.id).subscribe(data => this.page1 = data);
+    this.postservice.updatePage1(this.service.project.p1, this.service.id).subscribe(data => this.service.project.p1 = data);
   }
 
 
   nextpage(){
     this.router.navigateByUrl('secondpage');
+  }
+  voltageChanged:boolean = false;
+  voltageSave(){
+    this.justSave();
+    this.voltageChanged = true;
+  }
+
+
+  voltageGetter():boolean{
+    if (this.voltageChanged == true){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  justSave(){
+    this.postservice.updatePage1(this.page1, this.service.id).subscribe(data => this.page1 = data);
+    this.postservice.updatePage1(this.service.project.p1, this.service.id).subscribe(data => this.service.project.p1 = data);
   }
 
   test(){
@@ -244,8 +254,8 @@ export class FirstPageComponent implements OnInit {
       this.service.project.p1.quantity = 1;
       alert('Quantity must be at least one');
     }
-    this.postservice.updatePage1(this.page1, this.service.id).subscribe(data => this.page1 = data);
-    this.postservice.updatePage1(this.service.project.p1, this.service.id).subscribe(data => this.service.project.p1 = data);
+    //this.postservice.updatePage1(this.page1, this.service.id).subscribe(data => this.page1 = data);
+    //this.postservice.updatePage1(this.service.project.p1, this.service.id).subscribe(data => this.service.project.p1 = data);
     //this.postservice.updatePage1(this.page1,this.service.id).subscribe(data => this.page1 = data);
     //this.postservice.updatePage1(this.service.project.p1,this.service.id).subscribe(data => this.service.project.p1 = data);
     // this.ngOnInit();

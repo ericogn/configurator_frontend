@@ -72,7 +72,7 @@
                 <select class = "tons" [ngModel]="this.service.project.p1.tonnage" (change) = "modulechange($event)" [value]="this.page1.tonnage">
                     <option  *ngFor="let l of tonnage" >{{l.name}}</option>
                 </select>
-                <select class = "drops1" [(ngModel)]="this.service.project.p1.voltage">
+                <select class = "drops1" [(ngModel)]="this.service.project.p1.voltage" (change)="voltageSave()">
                     <option  *ngFor="let l of voltage" >{{l.name}}</option>
                 </select>
                 <select class = "drops1" (change)="moduleSave($event)" [value]="this.page1.module">
@@ -88,10 +88,10 @@
                 <select class = "drops2" (change) = "blowerchange($event)"[(ngModel)]="this.page1.blowertype" [value]="this.page1.blowertype">
                     <option  *ngFor="let l of blower" >{{l.name}}</option>
                 </select>
-                <select class = "drops2" (change)="change($event)" [(ngModel)]="this.page1.evapairpath" [value]="this.page1.evapairpath">
+                <select class = "drops2" (change)="change()" [(ngModel)]="this.page1.evapairpath" [value]="this.page1.evapairpath">
                     <option  *ngFor="let l of evapair" >{{l.name}}</option>
                 </select>
-                <select class = "drops2" [(ngModel)]="this.page1.digitalscrollcomp" [value]="this.page1.digitalscrollcomp">
+                <select class = "drops2" [(ngModel)]="this.page1.digitalscrollcomp" [value]="this.page1.digitalscrollcomp" (change)="justSave()">
                     <option  *ngFor="let l of scroll" >{{l.name}}</option>
                 </select>
                 

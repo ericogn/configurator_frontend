@@ -221,11 +221,11 @@
                 </div>
             </div>
             <div  class = "colll">
-                <select class = "last" [(ngModel)]="this.page2.percentglycol2" >
+                <select class = "last" [(ngModel)]="this.page2.percentglycol2" [disabled]="glycol2">
                     <option *ngFor = "let l of percentGlycol">{{l.name}}</option>
                 </select>
                 <!--  -->
-                <select class = "last" [(ngModel)]="this.page2.fluidtype2" >
+                <select class = "last" [(ngModel)]="this.page2.fluidtype2" (change)="fluidChange2($event)" >
                     <option *ngFor = "let l of fluidType">{{l.name}}</option>
                 </select>
                 
