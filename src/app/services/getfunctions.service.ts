@@ -50,6 +50,7 @@ export class GetFunctionsService{
     constructor (private http: HttpClient){
 
     }
+
     page1:Page1={
         quantity:0,
         unittag:'',

@@ -5,45 +5,23 @@
         </div>
         <div class = "logwindow">
             <div class = "positioning">
-                <label class = "login"  (click)="login()">Login</label>
-                <label class = "slash">|</label>
-                <label class = "register"  (click)="register()">Register</label>
+                               
             </div>
             <div *ngIf = "!loginRegister">
                 <div class = "elements">
                     <div class = "column">
-                        <label>Email</label>
+                        <label (click)="test()">Email</label>
                         <label>Password</label>
                     </div>
                     <div class="column">
                         <input class = "i"  [(ngModel)] = "usr" >
-                        <input class = "i"  [(ngModel)] = "pas">
+                        <input class = "pass"  type = "password"[(ngModel)] = "pas">
                     </div>
                 </div>
                 <div class = "enter">
                     <label class = "btn" (click) = "enter()">Enter</label>
                 </div>
-            </div>
-            <div *ngIf = "loginRegister">
-                <div class = "elements2">
-                    <div class = "column2">
-                        <label>Email</label>
-                        <label>Password</label>
-                        <label>Repet Pass.</label>
-                        <label>Company</label>
-                    </div>
-                    <div class="column3">
-                        <input class = "i">
-                        <input class = "i">
-                        <input class = "i">
-                        <input class = "i">
-                    </div>
-                </div>
-                <div class = "done">
-                    <label class = "btn" (click)="done()">Done</label>
-                </div>
-            </div>
-            
+            </div>            
         </div>
         
     </div>

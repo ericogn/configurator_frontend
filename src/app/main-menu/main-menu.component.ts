@@ -186,22 +186,7 @@ export class MainMenuComponent implements OnInit {
       }
     }
     states:string[]=[];
-    /*
-    name: '',
-    reforderno:'',
-    address:'',
-    city:'',
-    country:'',
-    state:'',
-    zip:'',
-    primarycontact:'',
-    engarch:'',
-    owner:'',
-    contractor:'',
-    status:'',
-    type:'',
-    design:''
-    */
+    
     createNewProject(){
       if(this.details.name == '' ||
         this.details.reforderno == '' ||
