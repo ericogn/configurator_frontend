@@ -1,7 +1,9 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
+import { Credentials } from "../models/credentials.model";
 import { Details } from "../models/details.model";
+import { LoginResponse } from "../models/loginresponse.model";
 import { Page1 } from "../models/page1.model";
 import { Page2 } from "../models/page2.model";
 import { Page4 } from "../models/page4.model";
@@ -42,6 +44,10 @@ export class PostFunctionService{
 
     deletebyid(id:number){
         return this.http.post(`${this.baseUrl}projectsaver/deleteproject.php?details=${id}`,this.httpOptions)
+    }
+
+    login(credential:Credentials){
+        return this.http.post<LoginResponse>(`${this.baseUrl}user/login.php`,credential,this.httpOptions);
     }
 
 }

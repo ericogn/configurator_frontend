@@ -108,10 +108,10 @@
            </div>
         </div>
     </div>
-    <div *ngIf = "existing" class = "content">
+    <div *ngIf = "existing" class = "content" >
         Recent Projects:
         <div class = "scrollable">
-            <div *ngFor ="let l of allProjects" class = "card"  >
+            <div *ngFor ="let l of this.service.allProjects" class = "card"  >
             
                 <div class = "inside" (click)="goToProject(l.id, l.name)">
                     <div class = "element">

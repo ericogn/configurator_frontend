@@ -12,7 +12,7 @@ import { PostFunctionService } from '../services/postfunctions.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router:Router, private service:GetFunctionsService, private postService: PostFunctionService) { }
+  constructor(private router:Router, public service:GetFunctionsService, private postService: PostFunctionService) { }
   ngOnInit(): void {
 
   }

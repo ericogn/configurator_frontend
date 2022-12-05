@@ -50,7 +50,12 @@ export class GetFunctionsService{
     constructor (private http: HttpClient){
 
     }
-
+    allProjects:ProjectWithDetails[]=[];
+    public email:string='';
+    public name:string='';
+    public company:string='';
+    public lastProjectId:number = 0;
+    public lastpage:number=0;
     page1:Page1={
         quantity:0,
         unittag:'',
@@ -298,8 +303,8 @@ export class GetFunctionsService{
         return this.http.get<Page6>(`${this.baseUrl}page6/getpage6.php?details=${id}`);
     }
     
-    getProjectsByEmail(){
-        return this.http.get<ProjectWithDetails[]>(`${this.baseUrl}/projectsaver/getdetailsbyemail.php?email=admin@admin.com`)
+    getProjectsByEmail(email:string){
+        return this.http.get<ProjectWithDetails[]>(`${this.baseUrl}/projectsaver/getdetailsbyemail.php?email=${email}`)
     }
 
     getPage3(tons:number){
@@ -333,8 +338,10 @@ export class GetFunctionsService{
     getOwners(){
         return this.http.get<People[]>(`${this.baseUrl}details/getowners.php`);
     }
-
     getLimitations(){
         return this.http.get<Limitations[]>(`${this.baseUrl}limitations/getlines.php`);
     }
+
+
+    
 }

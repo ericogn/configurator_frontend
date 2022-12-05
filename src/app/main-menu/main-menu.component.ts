@@ -23,18 +23,17 @@ import { from, Observable } from 'rxjs';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor(private router: Router, private service: GetFunctionsService, private postService:PostFunctionService) { }
+  constructor(private router: Router, public service: GetFunctionsService, private postService:PostFunctionService) { }
   ngOnInit(): void {
     this.getContacts();
     this.getContractors();
     this.getEngineers();
     this.getOwners();
-    this.getAllProjects();
+    this.getAllProjects(this.service.email);
   }
   public new:boolean = false;
   public existing:boolean = true;
   public manage:boolean = false;
-  allProjects:ProjectWithDetails[]=[];
 
   newproj(){
     this.new = true;
@@ -52,8 +51,8 @@ export class MainMenuComponent implements OnInit {
     this.manage = true;
   }
 
-  getAllProjects(){
-    return this.service.getProjectsByEmail().subscribe(data=> this.allProjects = data);
+  getAllProjects(email:string){
+    return this.service.getProjectsByEmail(email).subscribe(data=> this.service.allProjects = data);
   }
 
   // start(){
@@ -68,7 +67,7 @@ export class MainMenuComponent implements OnInit {
 
   details:Details={
     name: '',
-    email:'admin@admin.com',
+    email:'',
     reforderno:'',
     address:'',
     city:'',
@@ -208,17 +207,29 @@ export class MainMenuComponent implements OnInit {
           //   this.service.id = data;
           //   this.goToProject(this.service.id,this.service.title) 
           // });
-          this.postService.createNewProject(this.details).subscribe(data => {this.service.id = data;});
-          window.location.reload();
+          this.details.email = this.service.email;
+          this.postService.createNewProject(this.details).subscribe(data => {
+            this.service.id = data;
+            console.log(data);
+            this.goToProject(data,'');
+          });
+
+          this.getAllProjects(this.details.email);
+          this.existing = true;
+          this.new = false;
           //this.router.navigateByUrl('navigator');
         }
     }
    
+    test(){
+      this.details.email = this.service.email;
+      console.log(this.details);
+    }
 
     delete(id:number){
       if(confirm('Are you sure you want to delete this project? This action cannot be undone')){
         this.postService.deletebyid(id).subscribe(() => console.log("done"));
-        window.location.reload();
+        this.service.getProjectsByEmail(this.service.email).subscribe(data=> this.service.allProjects = data);
       }
     }
 
