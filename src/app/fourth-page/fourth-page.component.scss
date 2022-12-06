@@ -263,3 +263,47 @@ textarea{
     accent-color: orange;
     margin-right: 10px;
 }
+
+@media screen and (max-width: 1281px){
+    .checkboxes{
+        display: flex;
+        flex-direction: column;
+        margin-top:20px
+    }
+
+    .column2{
+        margin-left: 0px;
+    }
+
+    input[type='checkbox']{
+        height: 20px;
+        width: 35px;
+        accent-color: orange !important;
+    }
+
+    .dropdown{
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        margin-left: -15px;
+    
+    }
+    .radiogroup{
+        margin-top: 10px;
+    }
+    .tooltip{
+        display: none;
+    }
+
+    .content{
+        margin-left: 2%;
+     }
+
+     .divTitle{
+        margin-left: 0%;
+     }
+
+     .selector{
+        margin-left: 25px;
+     }
+}

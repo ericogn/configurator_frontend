@@ -28,10 +28,14 @@
             <div class = "content"  *ngIf = "!popup">
                 <div class = "dropdown">
                     <div class = "selector">Non - Fused Disconnect - Indoor, Evap:</div>
-                    <input type ="radio" class = "sel" (change)="test()" [checked]="bt1" name="nonfused">
-                    <label>None</label>
-                    <input type="radio" class = "sel" (change)="test()" [checked]="bt2" name = "nonfused">
-                    <label>600V, 3PH, 100 Amps</label>
+                    <div class = radiogroup>
+                        <input type ="radio" class = "sel" (change)="test()" [checked]="bt1" name="nonfused">
+                        <label>None</label>
+                    </div>
+                    <div class = radiogroup>
+                        <input type="radio" class = "sel" (change)="test()" [checked]="bt2" name = "nonfused">
+                        <label>600V, 3PH, 100 Amps</label>
+                    </div>
                 </div>
 
 

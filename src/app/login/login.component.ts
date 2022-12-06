@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Cookie } from 'ng2-cookies';
 import { MainMenuComponent } from '../main-menu/main-menu.component';
 import { Credentials } from '../models/credentials.model';
 import { LoginResponse } from '../models/loginresponse.model';

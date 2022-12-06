@@ -211,7 +211,8 @@ export class MainMenuComponent implements OnInit {
           this.postService.createNewProject(this.details).subscribe(data => {
             this.service.id = data;
             console.log(data);
-            this.goToProject(data,'');
+            //this.goToProject(data,'');
+            //this.goToNewProject(data);
           });
 
           this.getAllProjects(this.details.email);
@@ -241,6 +242,11 @@ export class MainMenuComponent implements OnInit {
       this.service.getPage4(this.service.id).subscribe(data => this.service.project.p4 = data);
       this.service.getPage5(this.service.id).subscribe(data => this.service.project.p5 = data);
       this.service.getPage6(this.service.id).subscribe(data => this.service.project.p6 = data);
+      this.router.navigateByUrl('navigator');
+    }
+
+    goToNewProject(id:number){
+      this.service.id=id;
       this.router.navigateByUrl('navigator');
     }
 }
