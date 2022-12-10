@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
     this.service.lastProjectId = token.lastproject;
     this.service.company = token.company;
     this.service.name = `${token.firstname} ${token.lastname}`;
-
+    this.service.setLocalStorage("token",token.token);
     this.service.setLocalStorage("email",token.email);
     this.service.setLocalStorage("lastproject",token.lastproject);
     this.service.setLocalStorage("company",token.company);

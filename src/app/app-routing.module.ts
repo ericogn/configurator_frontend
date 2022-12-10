@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { FifthPageComponent } from './fifth-page/fifth-page.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { FourthPageComponent } from './fourth-page/fourth-page.component';
@@ -14,16 +15,16 @@ import { ThirdPageComponent } from './third-page/third-page.component';
 
 const routes: Routes = [
   {
-    path:'', component:LoginComponent
+    path:'', redirectTo: '/login', pathMatch: 'full'
   },
   {
-    path:'mainmenu', component:MainMenuComponent
+    path:'login', component:LoginComponent
   },
   {
-    path:'navigator', component:NavigatorComponent
+    path:'mainmenu', component:MainMenuComponent, canActivate:[AuthGuard]
   },
   {
-    path: '',component:FirstPageComponent
+    path:'navigator', component:NavigatorComponent, canActivate:[AuthGuard]
   },
   {
     path: 'secondpage', component: SecondPageComponent
