@@ -25,6 +25,7 @@ export class SeventhPageComponent implements OnInit {
   compressor:boolean=false;
   ship:boolean = false;
   ngOnInit(): void {
+    this.service.id = this.service.getLocalStorage("id");
     this.service.getUnitInsulation().subscribe(data => this.unitInsul = data);
     this.service.getProtectiveCoilCoating().subscribe(data => this.protectivecoating = data);
     this.service.getPage6(this.service.id).subscribe(data => this.page6 = data);

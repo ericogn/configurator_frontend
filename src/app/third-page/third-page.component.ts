@@ -18,6 +18,7 @@ export class ThirdPageComponent implements OnInit {
   @ViewChild(FirstPageComponent) firstpage:FirstPageComponent = new FirstPageComponent(this.router, this.service, this.postservice);
   constructor(private router:Router, public service:GetFunctionsService, private postservice:PostFunctionService) { }
   ngOnInit(): void { 
+    this.service.id = this.service.getLocalStorage("id");
    //this.service.getPage1(this.service.id).subscribe(dt=> this.page1 = dt);
    this.service.getpage3(15).subscribe(dt=>this.unitA15 = dt);
    this.service.getpage3(20).subscribe(dt=>this.unitA20 = dt);

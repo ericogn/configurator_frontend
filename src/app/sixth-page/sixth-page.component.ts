@@ -30,13 +30,13 @@ export class SixthPageComponent implements OnInit {
     firestat:0,
   }
   ngOnInit(): void {
+    this.service.id = this.service.getLocalStorage("id");
     this.service.getVavAppType().subscribe(data => this.vavapptype = data);
     this.service.getWallTempSensor().subscribe(data => this.walltempsens = data);
     this.service.getWallHumidSensor().subscribe(data => this.wallhumidsens = data);
     this.service.getDuctTempSensor().subscribe(data => this.ducttempsens = data);
     this.service.getDuctHumidSensor().subscribe(data => this.ducthumidsens = data);
     this.service.getBmsComm().subscribe(data => this.bmscomm = data);
-
     this.service.getPage5(this.service.id).subscribe(data => this.page5 = data);
   }
 

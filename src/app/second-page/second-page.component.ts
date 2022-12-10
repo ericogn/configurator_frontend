@@ -32,6 +32,7 @@ export class SecondPageComponent implements OnInit {
   disableinput: boolean = true;
 
   ngOnInit(): void {
+    this.service.id = this.service.getLocalStorage("id");
     this.service.getAutoloader().subscribe(data => this.service.autoloaders = data);
     this.service.getLimitations().subscribe(data => this.service.limiations = data);
     this.service.getFluidType().subscribe(data => this.fluidType = data);

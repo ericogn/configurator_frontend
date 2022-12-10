@@ -25,11 +25,14 @@ export class MainMenuComponent implements OnInit {
 
   constructor(private router: Router, public service: GetFunctionsService, private postService:PostFunctionService) { }
   ngOnInit(): void {
+    this.service.email = this.service.getLocalStorage("email");
+    this.service.company = this.service.getLocalStorage("company");
+    this.service.name = this.service.getLocalStorage("name");
     this.getContacts();
     this.getContractors();
     this.getEngineers();
     this.getOwners();
-    this.getAllProjects(this.service.email);
+    this.getAllProjects(this.service.getLocalStorage("email"));
   }
   public new:boolean = false;
   public existing:boolean = true;
@@ -242,6 +245,8 @@ export class MainMenuComponent implements OnInit {
       this.service.getPage4(this.service.id).subscribe(data => this.service.project.p4 = data);
       this.service.getPage5(this.service.id).subscribe(data => this.service.project.p5 = data);
       this.service.getPage6(this.service.id).subscribe(data => this.service.project.p6 = data);
+      this.service.setLocalStorage("id",this.service.id);
+      this.service.setLocalStorage("projectname",title);
       this.router.navigateByUrl('navigator');
     }
 

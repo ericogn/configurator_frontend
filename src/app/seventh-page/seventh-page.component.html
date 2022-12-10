@@ -16,11 +16,11 @@
         </div>
     </div>
     <div class = "content">
-        <div  class ="check">
+        <div  class ="selector">
             <input type = "checkbox" (change)="changeship()" [checked] = true [disabled]="true">        
             <label class = "nearCheck">Ship Split - Separate Skids (to be assembled in field)</label> 
         </div>
-        <div  class ="check">
+        <div  class ="selector">
             <input type = "checkbox" (change)="changecompressor()" [checked] = this.compressor>        
             <label class = "nearCheck">Compressor Acoustic Cover</label> 
         </div>
@@ -72,12 +72,9 @@
     <div class = "content">
         
         <div class = "row">   
+          
             <div class = "dropdown">
-                <!-- <img src = "../../assets/excl.png" class = "imgs">
-                <img src = "../../assets/excl.png" class = "imgs"> -->
-            </div>
-            <div class = "dropdown">
-                <div class = "selector">Unit Insulation</div>
+                <div class = "selector">Unit Insulation:</div>
             </div>
             <div class = "dropdown">
                 <select class ="dropdown1" [(ngModel)]="this.page6.unitinsul">
@@ -92,8 +89,8 @@
         </div>
     </div>
 
-    <div class = "divTitle">
-        <label class = "title">Refrigerant: 410A</label>
+    <div class = "content">
+        <label class = "selector">Refrigerant: 410A</label>
         <div class="tooltip3">
             <img src = "../../assets/excl.png" class = "imgs">
             <span class="tooltiptext3">

@@ -490,6 +490,7 @@ export class SubtotalComponent implements OnInit {
     this.nonstandardprice = this.service.project.p6.totalcost;
 
 
+    
     this.totalsum = parseFloat(this.unitprice.toString()) +
     parseFloat(this.voltageprice.toString()) +
     parseFloat(this.moduleprice.toString()) +
@@ -528,7 +529,7 @@ export class SubtotalComponent implements OnInit {
     parseFloat(this.unitinsulprice.toString()) +
     parseFloat(this.service.project.p6.totalcost.toString());
 
-    this.totalsum.toFixed(2);
+    this.totalsum;
   }
 
 

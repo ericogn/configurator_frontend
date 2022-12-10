@@ -36,6 +36,9 @@
     display: flex;
     flex-direction: row;
     border-bottom: 2px solid gray;  
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
 }
 body{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;

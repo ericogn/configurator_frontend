@@ -306,4 +306,16 @@ textarea{
      .selector{
         margin-left: 25px;
      }
+
+     textarea{
+        border:1px solid #ccc;
+        background-color: #878782;
+        color: white;
+        font-size: large;
+        margin-left: 10px;
+        border-radius:10px;
+        margin-top: 10px;
+        width: 50%;
+        height: 80px;
+    }
 }

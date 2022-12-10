@@ -25,6 +25,11 @@ export class FirstPageComponent implements OnInit {
 
   @ViewChild(SecondPageComponent) secondpage:SecondPageComponent = new SecondPageComponent(this.router, this.service, this.postservice);
   ngOnInit(): void {
+    this.service.email = this.service.getLocalStorage("email");
+    this.service.company = this.service.getLocalStorage("company");
+    this.service.name = this.service.getLocalStorage("name");
+    this.service.title = this.service.getLocalStorage("projectname");
+    this.service.id = this.service.getLocalStorage("id");
     this.service.getVoltage().subscribe(data => this.voltage = data);
     this.service.getTonnage().subscribe(data => this.tonnage = data);
     //this.service.getModule().subscribe(data => this.module = data);

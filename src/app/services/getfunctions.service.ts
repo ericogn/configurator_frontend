@@ -47,6 +47,17 @@ export class GetFunctionsService{
     private httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     private baseUrl = `${environment.apiUrl}`;
     
+    setLocalStorage(key:string, value:any){
+        localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    getLocalStorage(key:string):any{
+        if(typeof window != 'undefined'){
+            const value = localStorage.getItem(key) as string;
+            return JSON.parse(value);
+        }  
+    }
+
     constructor (private http: HttpClient){
 
     }

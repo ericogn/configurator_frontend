@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(private router:Router, public service:GetFunctionsService, private postService: PostFunctionService) { }
   ngOnInit(): void {
+    this.service.title = this.service.getLocalStorage("projectname");
 
   }
   @ViewChild(MainMenuComponent) mainmenu=new MainMenuComponent(this.router, this.service,this.postService);
@@ -26,6 +27,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('mainmenu');
   }
   logoff(){
+    localStorage.clear();
     this.router.navigateByUrl('');
   }
 }

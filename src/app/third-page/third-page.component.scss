@@ -78,6 +78,13 @@ input[type='radio']{
     display: flex;
     flex-direction: column;
     margin-left: 20px;
+    
+}
+
+div{
+    white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
 }
 
 .labels2{

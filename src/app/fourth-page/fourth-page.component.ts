@@ -26,6 +26,7 @@ export class FourthPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.service.id = this.service.getLocalStorage("id");
     this.service.getQuantity().subscribe(data => this.quantity = data);
     this.service.getPage4(this.service.id).subscribe(data => this.page4 = data);
   }

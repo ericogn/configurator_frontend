@@ -1,6 +1,5 @@
 export interface LoginResponse{
     success: number,
-    status: number,
     message: string,
     email:string,
     firstname:string,
