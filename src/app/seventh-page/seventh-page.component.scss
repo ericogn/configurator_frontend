@@ -134,13 +134,13 @@ div{
 .tooltip3 .tooltiptext3 {
     visibility: hidden;
     width: 290px;
-    margin-top: 0px;
+    margin-top: -15px;
     background-color: black;
     color: #fff;
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
-    margin-left: 20px;
+    margin-left: 30px;
     top: -5px;
     right: 105%;
 /* Position the tooltip text */
@@ -149,12 +149,12 @@ div{
 }
 
 .tooltip3 {
-    position: relative;
+
     float: right;
-    margin-right: 5.5%;
+    margin-right: 6%;
     display: inline-block;
     width: 20px;
-    margin-top:0px;
+    margin-top:10px;
 }
 .tooltip3:hover .tooltiptext3 {
     visibility: visible;

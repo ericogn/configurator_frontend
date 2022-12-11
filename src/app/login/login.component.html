@@ -3,26 +3,20 @@
         <div class = "logo">
             <img src = "../../assets/logo_black.png" class = "img">
         </div>
-        <div class = "logwindow">
-            <div class = "positioning">
-                               
+        <div class = "elements2">
+            <div class = "elements">
+                <div class = "column">
+                    <label>Email</label>
+                    <label>Password</label>
+                </div>
+                <div class="column">
+                    <input class = "i"  [(ngModel)] = "usr" >
+                    <input class = "pass"  type = "password"[(ngModel)] = "pas">
+                </div>
             </div>
-            <div>
-                <div class = "elements">
-                    <div class = "column">
-                        <label>Email</label>
-                        <label>Password</label>
-                    </div>
-                    <div class="column">
-                        <input class = "i"  [(ngModel)] = "usr" >
-                        <input class = "pass"  type = "password"[(ngModel)] = "pas">
-                    </div>
-                </div>
-                <div class = "enter">
-                    <label class = "btn" (click) = "enter()">Enter</label>
-                </div>
-            </div>            
-        </div>
-        
+            <div class = "enter">
+                <label class = "btn" (click) = "enter()">Enter</label>
+            </div>
+        </div> 
     </div>
 </body>
