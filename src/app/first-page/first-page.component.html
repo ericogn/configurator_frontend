@@ -6,14 +6,17 @@
         </div>
     </div>
     <div class = "columns1">
-        <div class = "labels1">
-            <label (click)="test()">Quantity:</label>
-            <label>Unit Tag:</label>
+        <div class = "labels1col">
+            <div class = "labels1">
+                <label (click)="test()">Quantity:</label>
+                <label>Unit Tag:</label>
+            </div>
+            <div class = "inputs1">
+                <input class = "qty" [(ngModel)]="this.page1.quantity">
+                <input [(ngModel)] = "this.page1.unittag">
+            </div>
         </div>
-        <div class = "inputs1">
-            <input class = "qty" [(ngModel)]="this.page1.quantity">
-            <input [(ngModel)] = "this.page1.unittag">
-        </div>
+       
         <div class = "labels2">
             <div class = "unit">
                 <label>Unit No:</label>
@@ -63,38 +66,44 @@
             </div>
         </div>
         <div class = "columns4">
-            <div class = "labels3">
-                <label class = "dist">Tonnage</label>
-                <label class = "dist">Voltage</label>
-                <label class = "dist">Module</label>
+            <div class = "labels3col">
+                <div class = "labels3">
+                    <label class = "dist">Tonnage</label>
+                    <label class = "dist">Voltage</label>
+                    <label class = "dist">Module</label>
+                </div>
+                <div class = "dropdown1">
+                    <select class = "tons" [ngModel]="this.service.project.p1.tonnage" (change) = "modulechange($event)" [value]="this.page1.tonnage">
+                        <option  *ngFor="let l of tonnage" >{{l.name}}</option>
+                    </select>
+                    <select class = "drops1" [(ngModel)]="this.service.project.p1.voltage" (change)="voltageSave()">
+                        <option  *ngFor="let l of voltage" >{{l.name}}</option>
+                    </select>
+                    <select class = "drops1" (change)="moduleSave($event)" [value]="this.page1.module">
+                        <option  *ngFor="let l of module" >{{l.name}}</option>
+                    </select>
+                </div>
             </div>
-            <div class = "dropdown1">
-                <select class = "tons" [ngModel]="this.service.project.p1.tonnage" (change) = "modulechange($event)" [value]="this.page1.tonnage">
-                    <option  *ngFor="let l of tonnage" >{{l.name}}</option>
-                </select>
-                <select class = "drops1" [(ngModel)]="this.service.project.p1.voltage" (change)="voltageSave()">
-                    <option  *ngFor="let l of voltage" >{{l.name}}</option>
-                </select>
-                <select class = "drops1" (change)="moduleSave($event)" [value]="this.page1.module">
-                    <option  *ngFor="let l of module" >{{l.name}}</option>
-                </select>
+            <div class = "labels4col">
+                <div class = "labels4">
+                    <label class = "dist">Blower Type</label>
+                    <label class = "dist">Evap Air Path</label>
+                    <label class = "dist">Digital Scroll Comp</label>
+                </div>
+                <div class = "dropdown2">
+                    <select class = "drops2" (change) = "blowerchange($event)"[(ngModel)]="this.page1.blowertype" [value]="this.page1.blowertype">
+                        <option  *ngFor="let l of blower" >{{l.name}}</option>
+                    </select>
+                    <select class = "drops2" (change)="change()" [(ngModel)]="this.page1.evapairpath" [value]="this.page1.evapairpath">
+                        <option  *ngFor="let l of evapair" >{{l.name}}</option>
+                    </select>
+                    <select class = "drops2" [(ngModel)]="this.page1.digitalscrollcomp" [value]="this.page1.digitalscrollcomp" (change)="justSave()">
+                        <option  *ngFor="let l of scroll" >{{l.name}}</option>
+                    </select>
+                    
             </div>
-            <div class = "labels4">
-                <label class = "dist">Blower Type</label>
-                <label class = "dist">Evap Air Path</label>
-                <label class = "dist">Digital Scroll Comp</label>
-            </div>
-            <div class = "dropdown2">
-                <select class = "drops2" (change) = "blowerchange($event)"[(ngModel)]="this.page1.blowertype" [value]="this.page1.blowertype">
-                    <option  *ngFor="let l of blower" >{{l.name}}</option>
-                </select>
-                <select class = "drops2" (change)="change()" [(ngModel)]="this.page1.evapairpath" [value]="this.page1.evapairpath">
-                    <option  *ngFor="let l of evapair" >{{l.name}}</option>
-                </select>
-                <select class = "drops2" [(ngModel)]="this.page1.digitalscrollcomp" [value]="this.page1.digitalscrollcomp" (change)="justSave()">
-                    <option  *ngFor="let l of scroll" >{{l.name}}</option>
-                </select>
-                
+            
+           
             </div>
             <div class="tooltip">
                 <img src = "../../assets/excl.png" class = "imgs">

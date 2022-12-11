@@ -90,6 +90,9 @@ input::-webkit-inner-spin-button {
     display:flex;
     flex-direction: column;  
     width: 20%; 
+    white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
 }
 input{
     width: 50%;
@@ -151,9 +154,14 @@ label{
     flex-direction: row;
     margin-top:20px;
 }
-.heat{
+.heat1{
     color: orange;
     margin-left: 23%;
+}
+.heat2{
+    visibility: hidden;
+    color: orange;
+    margin-left: 13%;
 }
 .topslabel{
     display: flex;
@@ -244,9 +252,23 @@ select:hover{
     margin-right: 5px;
     margin-top:-3px;
 }
+.cols1row{
+    display: flex;
+    flex-direction: row;
+    
+    margin-right: 5px;
+    margin-top:-3px;
+}
 .cols2{
     display: flex;
     flex-direction: column;
+    margin-left: 1%;
+    margin-right: 20px;
+    margin-top:-3px;
+}
+.cols2row{
+    display: flex;
+    flex-direction: row;
     margin-left: 1%;
     margin-right: 20px;
     margin-top:-3px;
@@ -397,6 +419,12 @@ select:hover{
     flex-direction: column;
     margin-right: 20px;
 }
+.colll2{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    margin-left: -15px;
+}
 .s{
     margin-bottom:8px;
     margin-top:8px;
@@ -525,6 +553,49 @@ select:hover{
 
 
   @media screen and (max-width: 1281px){
+    .columns2{
+        margin-left: 10%;
+        margin-top: 15px;
+        display:flex;
+        flex-direction: column;
+    }
+    .cols2row{
+        display: flex;
+        flex-direction: row;
+        margin-left: -1%;
+        margin-right: 0px;
+        margin-top:0px;
+    }
+    .colss{
+        margin-left: -2.5%;
+    }
 
-  
+    .columns3{
+        margin-left: 10%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    .heat1{
+        color: orange;
+        visibility: hidden;
+        margin-left: 23%;
+        width: 1%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+    .heat2{
+        visibility: visible;
+        color: orange;
+        margin-left: 13%;
+    }
+
+    .combo{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+        margin-left: 10%;
+        margin-top: -10px;
+    }
 }

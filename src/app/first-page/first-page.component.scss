@@ -31,6 +31,9 @@
 label{
     margin-bottom: 20px;
     font-size: large;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
 }
 
 input{
@@ -110,6 +113,14 @@ select:hover{
     display: flex;
     flex-direction: column;
 }
+
+.labels1col{
+    margin-left: 10%;
+    margin-top: 25px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: row;
+}
 .inputs1{
     margin-left: 3%;
     margin-top: 25px;
@@ -119,7 +130,7 @@ select:hover{
 }
 .labels2{
     margin-left: 15%;
-    margin-top: 25px;
+    margin-top: 50px;
     margin-right: 15px;
     display: flex;
     flex-direction: column;
@@ -190,15 +201,29 @@ select:hover{
     margin-left: 10%;
     margin-top:-5px;
 }
+.labels3col{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    margin-top:-5px;
+}
 .dist{
     margin-top: 6.5px;
 }
 .labels4{
     display: flex;
     flex-direction: column;
-    margin-left: 11%;
+    margin-left: 12%;
     margin-top:-5px;
 }
+
+.labels4col{
+    display: flex;
+    flex-direction: row;
+    margin-left: 8%;
+    margin-top:-5px;
+}
+
 .drops1{
     display: flex;
     flex-direction: column;
@@ -209,7 +234,7 @@ select:hover{
 .drops2{
     display: flex;
     flex-direction: column;
-    margin-left: 1%;
+    margin-left: 7%;
     width: 95%;
     text-align: left;
 }
@@ -300,6 +325,85 @@ select:hover{
     margin-top: 0px;
     font-size:unset;
 }
-@media only screen and (max-width:700px){
+
+.dropdown1{
+    margin-left: 0%;
+}
+@media only screen and (max-width:1200px){
+    .columns4{
     
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dropdown1{
+        margin-left: 12%;
+    }
+
+    .options2{
+        padding-top: 30px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .flex1{
+        margin-left: 10%;
+        margin-bottom:20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .flex2{
+        margin-left: 10%;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .labels4{
+        display: flex;
+        flex-direction: column;
+        margin-left: 5%;
+        margin-top:-5px;
+    }
+
+    .labels3{
+        display: flex;
+        flex-direction: column;
+        margin-left: 3%;
+        margin-top:5px;
+    }
+
+    .imgoptions{
+        margin-left: 0%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nearpicture{
+        margin-left: -7%;
+        margin-top: 6%;
+        width: 100%;
+    }
+
+    .columns1{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .labels1{
+        margin-left: 10%;
+        margin-top: 25px;
+        margin-right: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .labels1col{
+        margin-left: 6%;
+        margin-top: 0px;
+        margin-right: 15px;
+        display: flex;
+        flex-direction: row;
+    }
 }
