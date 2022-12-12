@@ -53,21 +53,14 @@ export class LoginComponent implements OnInit {
 
   login(token:LoginResponse){
     this.service.email = token.email;
-    this.service.lastProjectId = token.lastproject;
     this.service.company = token.company;
     this.service.name = `${token.firstname} ${token.lastname}`;
     this.service.setLocalStorage("token",token.token);
     this.service.setLocalStorage("email",token.email);
-    this.service.setLocalStorage("lastproject",token.lastproject);
     this.service.setLocalStorage("company",token.company);
     this.service.setLocalStorage("name",`${token.firstname} ${token.lastname}`);
 
-    if(token.lastproject != 0){
-      this.service.id = token.lastproject;
-      this.goToProject(token.lastproject);
-    }else{
-      this.router.navigateByUrl('mainmenu');
-    }
+    this.router.navigateByUrl('mainmenu');
   }
 
 

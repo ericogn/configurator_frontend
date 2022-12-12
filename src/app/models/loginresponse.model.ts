@@ -5,6 +5,5 @@ export interface LoginResponse{
     firstname:string,
     lastname:string,
     company:string,
-    lastproject:number,
     token:string;
 }

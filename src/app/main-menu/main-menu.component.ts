@@ -213,11 +213,12 @@ export class MainMenuComponent implements OnInit {
           this.details.email = this.service.email;
           this.postService.createNewProject(this.details).subscribe(data => {
             this.service.id = data;
-            console.log(data);
             //this.goToProject(data,'');
             //this.goToNewProject(data);
           });
-
+          if(this.service.allProjects.length <= 1){
+            window.location.reload();
+          }
           this.getAllProjects(this.details.email);
           this.existing = true;
           this.new = false;
@@ -234,6 +235,9 @@ export class MainMenuComponent implements OnInit {
       if(confirm('Are you sure you want to delete this project? This action cannot be undone')){
         this.postService.deletebyid(id).subscribe(() => console.log("done"));
         this.service.getProjectsByEmail(this.service.email).subscribe(data=> this.service.allProjects = data);
+        if(this.service.allProjects.length <= 1){
+          window.location.reload();
+        }
       }
     }
 
