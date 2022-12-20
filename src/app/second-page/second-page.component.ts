@@ -187,7 +187,7 @@ export class SecondPageComponent implements OnInit {
     for (let i = 0; i < this.service.limiations.length; i++) {
       if (this.service.limiations[i].tonnage == this.service.project.p1.tonnage && this.service.limiations[i].voltage == this.service.project.p1.voltage) {
         this.service.boundary = this.service.limiations[i];
-        console.log(this.service.boundary)
+        
       }
     }
   }
@@ -202,7 +202,7 @@ export class SecondPageComponent implements OnInit {
     for (let i = 0; i < this.service.autoloaders.length; i++) {
       if (this.service.autoloaders[i].tonnage == this.service.project.p1.tonnage && this.service.autoloaders[i].voltage == this.service.project.p1.voltage) {
         this.service.loader = this.service.autoloaders[i];
-        console.log(this.service.loader)
+        
       }
     }
 
@@ -238,7 +238,7 @@ export class SecondPageComponent implements OnInit {
     for (let i = 0; i < this.fluidType.length; i++) {
       if ((event.target as HTMLSelectElement).value == this.fluidType[i].name.toString()) {
         if (i == 0) {
-          console.log(i)
+         
           this.glycol = true;
         }
         else {
@@ -252,7 +252,7 @@ export class SecondPageComponent implements OnInit {
     for (let i = 0; i < this.fluidType.length; i++) {
       if ((event.target as HTMLSelectElement).value == this.fluidType[i].name.toString()) {
         if (i == 0) {
-          console.log(i)
+         
           this.glycol2 = true;
         }
         else {
@@ -264,11 +264,11 @@ export class SecondPageComponent implements OnInit {
 
   waterSideEcon() {
     //this.page2.watersideecon = !this.page2.watersideecon;
-    console.log(this.page2.watersideecon);
+    
   }
   heatNReheat() {
     //this.page2.heatnreheat = !this.page2.heatnreheat;
-    console.log(this.page2.evapfiltertype)
+    
   }
 
   changeairsideecon(event: Event) {
@@ -534,7 +534,6 @@ export class SecondPageComponent implements OnInit {
     this.savepage2();
     this.postservice.updatePage2(this.page2, this.service.id).subscribe(data => this.page2 = data);
     // this.ngOnInit();
-    console.log(this.page2.heattype);
   }
   savepage2() {
     this.service.project.p2 = this.page2;
@@ -710,8 +709,6 @@ export class SecondPageComponent implements OnInit {
       this.page2.watersideecon = 1;
       this.waterEconomizer = true;
     }
-    console.log(this.waterEconomizer);
-    console.log(this.page2.watersideecon);
   }
 
   changeheatnreheat() {
@@ -727,7 +724,7 @@ export class SecondPageComponent implements OnInit {
 
 
   test() {
-    console.log(this.service.loader);
+  
   }
 
   radios() {

@@ -75,12 +75,8 @@ export class NavigatorComponent implements OnInit {
   
 
   savePage1(){
-    console.log('navigator');
-      console.log(this.firstpage.tonnageGetter());
     if(this.firstpage.tonnageGetter()==true || this.firstpage.voltageGetter()==true){
       this.secondpage.autoload();
-      console.log('navigator');
-      console.log(this.firstpage.tonnageGetter());
     }
     this.firstpage.updatePage1();
     this.secondpage.init();
@@ -99,8 +95,6 @@ export class NavigatorComponent implements OnInit {
     this.firstpage.init();
     this.thirdpage.init();
     this.secondpage.autolimit();
-    console.log('navigator');
-    console.log(this.firstpage.tonnageGetter());
     if(this.firstpage.tonnageGetter()==true || this.firstpage.voltageGetter()==true){
       this.secondpage.autoload();
     }
@@ -148,7 +142,7 @@ export class NavigatorComponent implements OnInit {
     this.fourthpage.updatePage4();
     this.sixthpage.updatePage6();
     this.seventh.updatePage7();
-    window.open(`http://configurator/editPdf/pdf.php?details=${this.service.id}`);
+    window.open(`http://greenrefrigeration.com/configurator/editPdf/pdf.php?details=${this.service.id}`);
   }
 
   gotosite(){

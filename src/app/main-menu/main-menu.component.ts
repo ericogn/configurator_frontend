@@ -89,10 +89,26 @@ export class MainMenuComponent implements OnInit {
       "USA",
       "Canada"
     ]
-    contacts: People[]=[]
-    engs:People[]=[]
-    owner:People[]=[]
-    contractor:People[]=[]
+    contacts: People[]=[
+      {
+        name:"To be Added"
+      }
+    ]
+    engs:People[]=[
+      {
+        name:"To be Added"
+      }
+    ]
+    owner:People[]=[
+      {
+        name:"To be Added"
+      }
+    ]
+    contractor:People[]=[
+      {
+        name:"To be Added"
+      }
+    ]
 
     getContacts(){
       this.service.getContacts().subscribe(data => this.contacts = data);
@@ -228,7 +244,7 @@ export class MainMenuComponent implements OnInit {
    
     test(){
       this.details.email = this.service.email;
-      console.log(this.details);
+      
     }
 
     delete(id:number){

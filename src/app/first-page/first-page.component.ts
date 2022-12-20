@@ -41,7 +41,6 @@ export class FirstPageComponent implements OnInit {
     this.service.getPage1(this.service.id).subscribe(data => this.service.project.p1 = data);
     //this.initializemodule();
     this.init();
-    console.log('page1');
   }
   init(){
     if(this.page1.basemodel == 1){
@@ -138,12 +137,12 @@ export class FirstPageComponent implements OnInit {
     if(this.page1.basemodel == 1){
       this.page1.basemodel = 0;
       this.basemodel = false;
-      console.log('false');
+  
     }
     else if (this.page1.basemodel == 0){
       this.page1.basemodel = 1;
       this.basemodel = true;
-      console.log('true');
+
     }
   }
 
@@ -180,7 +179,7 @@ export class FirstPageComponent implements OnInit {
     }
     //this.thirdpage.init();
 
-    console.log('service');
+
     this.tonnageChange = true;
     this.postservice.updatePage1(this.page1, this.service.id).subscribe(data => this.page1 = data);
     this.postservice.updatePage1(this.service.project.p1, this.service.id).subscribe(data => this.service.project.p1 = data);
@@ -241,8 +240,8 @@ export class FirstPageComponent implements OnInit {
   }
 
   test(){
-    console.log(this.page1.module);
-    console.log(this.module);
+
+
   }
   savepage1(){
     this.service.project.p1 = this.page1;

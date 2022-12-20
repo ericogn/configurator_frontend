@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://configurator/api/'
+  apiUrl: 'http://greenrefrigeration.com/configurator/api/'
 };

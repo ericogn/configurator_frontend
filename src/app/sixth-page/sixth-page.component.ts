@@ -133,8 +133,7 @@ export class SixthPageComponent implements OnInit {
   }
 
   test(){
-    console.log(this.page5.bmscomm);
-    console.log(this.page5.vavapptype); 
+ 
   }
 
 

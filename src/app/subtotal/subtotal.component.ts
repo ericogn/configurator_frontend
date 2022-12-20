@@ -540,11 +540,9 @@ export class SubtotalComponent implements OnInit {
   init(){
     if (this.service.project.p4.nonfused == 1){
       this.nonfplaceholder = '600V, 3PH, 100 Amps';
-      console.log(this.service.project.p4.nonfused);
     }
     else{
       this.nonfplaceholder = 'None';
-      console.log(this.service.project.p4.nonfused);
     }
     this.initprices();
   }
@@ -553,7 +551,7 @@ export class SubtotalComponent implements OnInit {
   }
 
   test(){
-    console.log(this.service.project.p5.marveldisplay);
+    
   }
 
 }

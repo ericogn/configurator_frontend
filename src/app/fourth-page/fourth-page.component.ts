@@ -96,11 +96,11 @@ export class FourthPageComponent implements OnInit {
     for(let i = 0;i<this.quantity.length; i++){
       if ((event.target as HTMLSelectElement).value == this.quantity[i].name.toString()){
         if (i==0){
-          console.log(i)
+       
           this.qty=false;
         }
         else{
-          console.log(i);
+         
           this.qty=true;
         }
       }
@@ -216,13 +216,13 @@ export class FourthPageComponent implements OnInit {
       this.page4.nonfused = 0;
       this.bt1 =true;
       this.bt2 = false;
-      console.log(this.page4.nonfused)
+     
     }
     else if (this.page4.nonfused == 0){
       this.page4.nonfused = 1;
       this.bt1 =false;
       this.bt2 = true;
-      console.log(this.page4.nonfused)
+      
     }
   }
   bt1:boolean = false;
