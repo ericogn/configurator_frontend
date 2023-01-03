@@ -75,9 +75,7 @@
           "options": 
           {
             "browserTarget": "configurator_frontend:build",
-            "ssl": true,
-            "sslKey": "ssl/server.key",
-            "sslCert": "ssl/server.crt"
+            "ssl": true
           },
           "configurations": {
             "production": {
