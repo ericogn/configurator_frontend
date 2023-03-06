@@ -250,9 +250,10 @@ export class MainMenuComponent implements OnInit {
     delete(id:number){
       if(confirm('Are you sure you want to delete this project? This action cannot be undone')){
         this.postService.deletebyid(id).subscribe(() => console.log("done"));
+        
         this.service.getProjectsByEmail(this.service.email).subscribe(data=> this.service.allProjects = data);
         if(this.service.allProjects.length <= 1){
-          window.location.reload();
+          //window.location.reload();
         }
       }
     }
