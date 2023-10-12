@@ -315,23 +315,23 @@ export class GetFunctionsService{
     }
     
     getProjectsByEmail(email:string){
-        return this.http.get<ProjectWithDetails[]>(`${this.baseUrl}/projectsaver/getdetailsbyemail.php?email=${email}`)
+        return this.http.get<ProjectWithDetails[]>(`${this.baseUrl}projectsaver/getdetailsbyemail.php?email=${email}`)
     }
 
     getPage3(tons:number){
-        return this.http.get<Page3>(`${this.baseUrl}/projectsaver/getunitperformancebyid.php?details=${tons}`)
+        return this.http.get<Page3>(`${this.baseUrl}projectsaver/getunitperformancebyid.php?details=${tons}`)
     }
 
     getSubtotal(id:number){
-        return this.http.get<Subtotal>(`${this.baseUrl}/projectsaver/getcurrentproject.php?details=${id}`)
+        return this.http.get<Subtotal>(`${this.baseUrl}projectsaver/getcurrentproject.php?details=${id}`)
     }
 
     generateInvoice(id:number){
-        return this.http.get(`${this.baseUrl}/editPdf/pdf.php?details=${id}`)
+        return this.http.get(`${this.baseUrl}editPdf/pdf.php?details=${id}`)
     }
 
     getprices(){
-        return this.http.get<Prices>(`${this.baseUrl}/prices/getprices.php`);
+        return this.http.get<Prices>(`${this.baseUrl}prices/getprices.php`);
     }
 
     getAutoloader(){

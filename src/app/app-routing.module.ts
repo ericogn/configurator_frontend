@@ -16,16 +16,16 @@ import { ThirdPageComponent } from './third-page/third-page.component';
 
 const routes: Routes = [
   {
-    path:'', redirectTo: '/login', pathMatch: 'full'
+    path:'', redirectTo: 'login', pathMatch: 'full'
   },
   {
     path:'login', component:LoginComponent
   },
   {
-    path:'mainmenu', component:MainMenuComponent, canActivate:[AuthGuard]
+    path:'mainmenu', component:MainMenuComponent
   },
   {
-    path:'navigator', component:NavigatorComponent, canActivate:[AuthGuard]
+    path:'navigator', component:NavigatorComponent
   },
   {
     path: 'secondpage', component: SecondPageComponent

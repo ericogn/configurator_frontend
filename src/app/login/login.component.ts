@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { Cookie } from 'ng2-cookies';
 import { MainMenuComponent } from '../main-menu/main-menu.component';
 import { Credentials } from '../models/credentials.model';
@@ -7,6 +6,7 @@ import { LoginResponse } from '../models/loginresponse.model';
 import { NavigatorComponent } from '../navigator/navigator.component';
 import { GetFunctionsService } from '../services/getfunctions.service';
 import { PostFunctionService } from '../services/postfunctions.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
         if(data.success == 1){
           this.getAllProjects(data.email);
           this.login(data);
+          console.log("success");
         }
         else{
           alert("Wrong username or password");
@@ -53,14 +54,26 @@ export class LoginComponent implements OnInit {
 
   login(token:LoginResponse){
     this.service.email = token.email;
+    console.log("done")
     this.service.company = token.company;
     this.service.name = `${token.firstname} ${token.lastname}`;
     this.service.setLocalStorage("token",token.token);
     this.service.setLocalStorage("email",token.email);
     this.service.setLocalStorage("company",token.company);
     this.service.setLocalStorage("name",`${token.firstname} ${token.lastname}`);
-
-    this.router.navigateByUrl('mainmenu');
+    this.router.navigateByUrl('mainmenu').then(
+      (worked) => {
+        console.log('worked')
+        // Works only because we hooked
+        // routeReuseStrategy.shouldReuseRoute 
+        // and explicitly told it don't reuse
+        // route which forces a reload.
+        // Otherwise; the url will change but new
+        // data will not display!
+      },
+      (error) => {
+       debugger;
+       });
   }
 
 
