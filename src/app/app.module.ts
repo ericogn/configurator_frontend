@@ -24,7 +24,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { NavigatorComponent } from './navigator/navigator.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectCardComponent } from './project-card/project-card.component';
-import { LocationStrategy, PathLocationStrategy, registerLocaleData } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy, PathLocationStrategy, registerLocaleData } from '@angular/common';
 import { GetFunctionsService } from './services/getfunctions.service';
 
 
@@ -59,7 +59,7 @@ import { GetFunctionsService } from './services/getfunctions.service';
     HttpClientModule,
     //CurrencyMaskModule,
   ],
-  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }, GetFunctionsService],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, GetFunctionsService],
   bootstrap: [AppComponent],
   
 })

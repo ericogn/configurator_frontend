@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  apiUrl: 'https://greenrefrigeration.com/configurator/api/'
+  apiUrl: 'https://greenrefrigeration.com/config_backend/api/'
 };
 
 /*

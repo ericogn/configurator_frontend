@@ -142,7 +142,7 @@ export class NavigatorComponent implements OnInit {
     this.fourthpage.updatePage4();
     this.sixthpage.updatePage6();
     this.seventh.updatePage7();
-    window.open(`http://greenrefrigeration.com/configurator/editPdf/pdf.php?details=${this.service.id}`);
+    window.open(`http://greenrefrigeration.com/config_backend/editPdf/pdf.php?details=${this.service.id}`);
   }
 
   gotosite(){

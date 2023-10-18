@@ -229,6 +229,7 @@ export class MainMenuComponent implements OnInit {
           this.details.email = this.service.email;
           this.postService.createNewProject(this.details).subscribe(data => {
             this.service.id = data;
+            window.location.reload();
             //this.goToProject(data,'');
             //this.goToNewProject(data);
           });
